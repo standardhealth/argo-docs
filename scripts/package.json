@@ -1,10 +1,9 @@
 {
   "scripts": {
-    "help": "node manage-versions.js -h --npm",
-    "list": "node manage-versions.js -l --npm",
-    "add": "node manage-versions.js -a --npm --silent",
-    "clean": "node clean-data.js",
-    "test": "mocha --inline-diff",
+    "help": "node update-dictionary.js -h --npm",
+    "add": "node update-dictionary.js --add --npm",
+    "select": "node update-dictionary.js --select --npm",
+    "remove": "node update-dictionary.js --remove --npm",
     "watch-tests": "mocha ./**/*.test.js --inline-diff -w"
   },
   "devDependencies": {
