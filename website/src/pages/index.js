@@ -60,8 +60,7 @@ function Index() {
               icon="img/icons/home/data-dictionary.svg"
             >
               <span className={styles.contentDescription}>
-                The dictionary describes the schema that data submitters must conform to and track
-                changes when formatting clinical data files.
+                The dictionary describes the guidelines that data submitters should follow when exporting clinical data files from their electronic health record (EHR) systems.
               </span>
               <a className={styles.contentAction} href="/dictionary">
                 Data Dictionary Viewer
