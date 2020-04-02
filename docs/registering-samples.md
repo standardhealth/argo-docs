@@ -36,4 +36,4 @@ Once registered, donors, along with specimen and sample data, will be visible on
 ## Correcting Already Registered Data
 Once samples are registered and data processing and analysis proceeds, it can be difficult to correct the data manually.
 
-If you have made an error to registered sample data, please [contact the DCC](https://platform.icgc-argo.org/contact) and they will assist in correcting your registered data.  
+If you have made an error to registered sample data, please [contact the DCC](https://platform.standardhealth.org/contact) and they will assist in correcting your registered data.  

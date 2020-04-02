@@ -4,7 +4,7 @@ User documentation for the ICGC-ARGO platform.
 
 ## Visit Site
 
-[ICGC-ARGO Platform - User Documentation](https://docs.icgc-argo.org)
+[ICGC-ARGO Platform - User Documentation](https://docs.standardhealth.org)
 
 ## Contents
 
@@ -28,7 +28,7 @@ To contribute to the docs:
 1. Clone the repository to your machine:
 
 ```
-git clone git@github.com:icgc-argo/argo-docs.git
+git clone git@github.com:standardhealth/argo-docs.git
 ```
 
 2. Move into the website directory ...

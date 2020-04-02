@@ -15,7 +15,7 @@ To get to your User Profile, click the icon in the top right corner and select P
 
 Your authentication API Token uniquely identifies you and your permissions. These permissions apply to all ARGO Data Platform applications, for example when using the Song or Score clients for molecular data submission.
 
-You can get your authentication API Token from the [User Profile](https://platform.icgc-argo.org/user) > API Token section.  
+You can get your authentication API Token from the [User Profile](https://platform.standardhealth.org/user) > API Token section.  
 ![Profile API Token](/assets/data-access/user-profile-api-key.png)
 Some important things to note about your API Token:
 

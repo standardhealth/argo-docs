@@ -9,7 +9,7 @@ const generateTreeData = require('./generateData');
 
 const constants = require('./constants');
 
-const apiRoot = 'https://lectern.platform.icgc-argo.org';
+const apiRoot = 'https://lectern.standardhealth.org'; // 'https://lectern.platform.icgc-argo.org';
 const { dictionaryName, schemaPath, versionsFilename, dataFilename, dataFileTreeName } = constants;
 const currentVersions = require(versionsFilename);
 
