@@ -9,7 +9,6 @@ const React = require('react');
 
 import Layout from '@theme/Layout';
 import styles from './styles.module.css';
-import AlgoliaSearch from '../components/AlgoliaSearch';
 
 function HomeSplash() {
   const SplashContainer = props => (
@@ -22,14 +21,13 @@ function HomeSplash() {
 
   const SearchBanner = props => (
     <section className={styles.searchBanner}>
-      <span className={styles.bannerText}>COVID-19 Healthcare Coalition</span>
-      <AlgoliaSearch />
+      <span className={styles.bannerText}> </span>
     </section>
   );
 
   return (
     <SplashContainer>
-      <SearchBanner />
+          <SearchBanner />
     </SplashContainer>
   );
 }

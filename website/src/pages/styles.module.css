@@ -1,9 +1,10 @@
 /* Search Banner */
 
 .homeSplashFade {
-  background-image: url('/img/galaxy-splash.jpg');
+  background-image: url('/img/c19hcc-splash.png');
+  background-size: 1000px;
+  background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
 }
 .homeContainer .homeWrapper {
   padding: 0;
