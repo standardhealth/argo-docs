@@ -50,10 +50,9 @@ module.exports = {
         src: 'img/logos/mitre_name.png',
       },
       links: [
-        { to: 'dictionary', label: 'Data Dictionary', position: 'right' },
-        { to: 'docs/submission-overview', label: 'Submission', position: 'right' },
-        { to: 'docs/data-access', label: 'Data Access', position: 'right' },
-        { to: 'docs/data-harmonization', label: 'Data Harmonization', position: 'right' },
+        { to: 'docs/submission-overview', label: 'Overview', position: 'right' },
+        { to: 'dictionary', label: 'Dictionary', position: 'right' },
+        { to: 'docs/data-harmonization', label: 'Harmonization', position: 'right' },
 
         // {
         //   href: 'https://platform.standardhealth.org/contact',

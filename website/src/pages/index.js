@@ -22,7 +22,7 @@ function HomeSplash() {
 
   const SearchBanner = props => (
     <section className={styles.searchBanner}>
-      <span className={styles.bannerText}>How can we help?</span>
+      <span className={styles.bannerText}>COVID-19 Healthcare Coalition</span>
       <AlgoliaSearch />
     </section>
   );
@@ -51,7 +51,7 @@ class ContentBlock extends React.Component {
 
 function Index() {
   return (
-    <Layout permalink="/" title="ICGC ARGO Docs">
+    <Layout permalink="/" title="C19HCC">
       <div>
         <HomeSplash />
         <div className={styles.mainContainer}>
@@ -70,46 +70,6 @@ function Index() {
                 <img src="img/icons/chevron-right.svg" height={8} width={8} />
               </a>
             </ContentBlock>
-            <ContentBlock
-              title="Data Submission"
-              color="#24dbb4"
-              icon="img/icons/home/testtube.svg"
-            >
-              <ul>
-                <li>
-                  <a href="/docs/submission-overview">Get started</a>: a quick guide to data
-                  submission
-                </li>
-                <li>
-                  How to <a href="/docs/registering-samples">register samples</a>
-                </li>
-                <li>
-                  How to <a href="/docs/submitting-clinical-data">submit clinical data</a>
-                </li>
-                <li>
-                  How to <a href="/docs/submitting-molecular-data">submit molecular data</a>
-                </li>
-              </ul>
-            </ContentBlock>
-            <ContentBlock
-              title="Data Access & Download"
-              color="#f95d31"
-              icon="img/icons/home/download.svg"
-            >
-              <ul>
-                <li>
-                  How to <a href="/docs/data-access">access controlled data</a>
-                </li>
-                <li>
-                  How to <a href="/docs/data-download">download data</a>
-                </li>
-                <li>
-                  How to use the <a href="/docs/data-download">Score Download Client</a>
-                </li>
-              </ul>
-            </ContentBlock>
-          </div>
-          <div className={styles.row}>
             <ContentBlock
               title="Data Harmonization"
               color="#7f55cc"
@@ -132,6 +92,8 @@ function Index() {
                 </li>
               </ul> */}
             </ContentBlock>
+          </div>
+          <div className={styles.row}>
             <ContentBlock title="FAQs" color="#fea430" icon="img/icons/home/faq.svg">
               Coming Soon
               {/* <ul>

@@ -19,6 +19,4 @@ We welcome clinical data providers and analytics teams to share their needs and 
 
 Explore the details of the COVID-19 clinical dataset in the **[C19HCC Data Dictionary Viewer](/dictionary).**
 
-## Data Submission and Release Process
-
 If you have any questions about the clinical data or data dictionary, please contact us at C19hcc@mitre.org.
