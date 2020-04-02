@@ -63,7 +63,7 @@ The site should open in a new page in your browser at the address: [localhost:30
 
 The Data Dictionary content is not updated dynamically when the dictionary is updated. Instead, the dictionary content is included as static files included in this repository. This allows the docs site to be completely static and not have to load the dictionary from the source everytime it is requested.
 
-To simplify updating the dictonary content, the process has been scripted so it can be run by following the commands below.
+To simplify updating the dictionary content, the process has been scripted so it can be run by following the commands below.
 
 **Note: By default this connects with the production version of Lectern.**
 
