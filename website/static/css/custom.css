@@ -80,7 +80,7 @@ time,
 mark,
 audio,
 video {
-  /* Font familly variable $primaryFont configured in siteConfig */
+  /* Font family variable $primaryFont configured in siteConfig */
   font-family: $primaryFont;
 }
 

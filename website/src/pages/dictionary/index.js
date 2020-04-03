@@ -280,7 +280,7 @@ function DataDictionary() {
                   Data Dictionary
                 </Typography>
                 <Typography variant="paragraph" color="#000">
-                  The ICGC ARGO Data Dictionary expresses the details of the data model, which
+                  The C19HCC Data Dictionary expresses the details of the data model, which
                   adheres to specific formats and restrictions to ensure a standard of data quality.
                   The following list describes the attributes and permissible values for all of the
                   fields within the clinical tsv files for the{' '}

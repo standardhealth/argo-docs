@@ -1,22 +1,10 @@
 module.exports = {
   docs: {
-    Submission: [
-      'submission-overview',
-      'registering-samples',
-      'submitting-clinical-data',
-      'submitting-molecular-data',
-      'submitted-data',
-      'managing-program-access',
-      'faq',
+    Overview: [
     ],
-    'Data Access': [
-      'data-access',
-      'user-profile-and-api-token',
-      'data-download',
-      'data-release-schedule',
+    'Dictionary': [
     ],
     'Data Harmonization':[
-      'dna-pipeline',
     ]
   },
 };
