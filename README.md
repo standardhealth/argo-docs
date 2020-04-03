@@ -61,11 +61,9 @@ The site should open in a new page in your browser at the address: [localhost:30
 
 ## Updating Dictionary Content
 
-The Data Dictionary content is not updated dynamically when the dictionary is updated. Instead, the dictionary content is included as static files included in this repository. This allows the docs site to be completely static and not have to load the dictionary from the source everytime it is requested.
+The dictionary content is included as static files included in this repository. This allows the docs site to be completely static and not have to load the dictionary from the source everytime it is requested.
 
-To simplify updating the dictonary content, the process has been scripted so it can be run by following the commands below.
-
-**Note: By default this connects with the production version of Lectern.**
+To simplify updating the dictionary content, the process has been scripted so it can be run by following the commands below.
 
 1. From the argo-docs root directory:
 
@@ -85,7 +83,7 @@ npm ci
 npm run add
 ```
 
-4. Follow the prompts in the script - Use keyboard arrow keys to highlight the version you want to add. Hit enter when you have selected the desired version.
+4. Follow the prompts in the script - You will need to provide the filename, including the full file path, when prompted. Once the new data has been saved, the script will ask you which version to make the default on the site - select this version from the list using your keyboard arrow keys.
 
 5. The script has added files in the following places:
 
@@ -96,8 +94,9 @@ npm run add
 
    - /website/static/data/schemas/schema-versions.json
    - /website/src/pages/dictionary/data.json
+   - /website/src/pages/dictionary/tree.json
 
-   Commit all these added and modified files to git. The following command will work from the argo-docs root directory:
+   Commit all these added and modified files to git. The following command will work from the docs root directory:
 
    ```
    git add ./website/static/data/schemas/ ./website/src/pages/dictionary/data.json
@@ -105,4 +104,6 @@ npm run add
    git commit
    ```
 
-6. Open a PR in the Argo Docs github using `develop` as the base branch.
+6. Open a PR in the Docs github
+
+The scripts directory has several other features available. Run `npm run help` to see the full list. At the moment this includes scripts to remove dictionary versions, or to select a different version as default.
