@@ -55,24 +55,24 @@ export default {
           children: [
             {
               name: 'primary_diagnosis',
-              fields: [{ name: 'age_at_diagnosis', requireds: true }],
+              fields: [{ name: 'age_at_diagnosis', required: true }],
               children: [],
               required: true,
             },
             {
               name: 'primary_diagnosis',
-              fields: [{ name: 'age_at_diagnosis', requireds: true }],
+              fields: [{ name: 'age_at_diagnosis', required: true }],
               children: [],
               required: true,
             },
             {
               name: 'primary_diagnosis',
               fields: [
-                { name: 'age_at_diagnosis', requireds: true },
-                { name: 'cancer_type_code', requireds: true },
-                { name: 'number_lymph_nodes_positive', requireds: true },
-                { name: 'tumour_stage', requireds: true },
-                { name: 'tumour_staging_system', requireds: true },
+                { name: 'age_at_diagnosis', required: true },
+                { name: 'cancer_type_code', required: true },
+                { name: 'number_lymph_nodes_positive', required: true },
+                { name: 'tumour_stage', required: true },
+                { name: 'tumour_staging_system', required: true },
                 { name: 'clinical_t_category', required: false },
                 { name: 'clinical_n_category', required: false },
                 { name: 'clinical_m_category', required: false },

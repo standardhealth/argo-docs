@@ -35,8 +35,12 @@ const TagContainer = styled('div')`
 
 const formatFieldType = value => {
   switch (value) {
+    case 'number':
+      return 'QUANTITY';
     case 'string':
       return 'TEXT';
+    case 'coded':
+      return 'CODE';
     default:
       return value.toUpperCase();
   }
@@ -105,25 +109,11 @@ const Schema = ({ schema, menuItem, isLatestSchema }) => {
   const isCodeListExpanded = field => expandedCodeLists[field];
 
   const [currentShowingScripts, setCurrentShowingScripts] = React.useState(null);
-  const ScriptCell = ({ original: { meta, restrictions, name } }) => {
-    const scripts = restrictions && restrictions.script;
+
+  const NoteCell = ({ original: { notes } }) => {
     return (
       <div>
-        {meta && meta.notes && <Notes>{meta.notes}</Notes>}
-        {scripts && (
-          <Button
-            variant="secondary"
-            size="sm"
-            onClick={() => {
-              setCurrentShowingScripts({
-                fieldName: name,
-                content: scripts,
-              });
-            }}
-          >
-            View Script
-          </Button>
-        )}
+        {notes && <Notes>{notes}</Notes>}
       </div>
     );
   };
@@ -137,6 +127,7 @@ const Schema = ({ schema, menuItem, isLatestSchema }) => {
       ),
       style: { whiteSpace: 'normal', wordWrap: 'break-word', padding: '8px' },
     },
+    /* MK Hide the Data Tier column (core, id, extended) 
     {
       Header: 'Data Tier',
       Cell: ({ original }) => {
@@ -156,12 +147,12 @@ const Schema = ({ schema, menuItem, isLatestSchema }) => {
       },
       style: { padding: '8px' },
       width: 85,
-    },
+    },*/
     {
-      Header: 'Attributes',
+      Header: 'Required?',
       id: 'attributes',
-      Cell: ({ original: { restrictions, meta } }) => {
-        const isRestrictedField = restrictions && restrictions.required;
+      Cell: ({ original: { required, meta } }) => {
+        const isRestrictedField = required; 
         const isDependentField = meta && !!meta.dependsOn;
         return (
           <TagContainer>
@@ -183,10 +174,10 @@ const Schema = ({ schema, menuItem, isLatestSchema }) => {
     {
       Header: 'Permissible Values',
       id: 'permissibleValues',
-      accessor: 'restrictions',
+      accessor: 'permissible',
       Cell: ({ original }) => {
-        const { name: field, restrictions = {}, meta } = original;
-        const { regex = null, codeList = null } = restrictions;
+        const { name: field, permissible = {}, meta } = original;
+        const { regex = null, codeList = null } = permissible;
         const examples = meta && meta.examples && meta.examples.split(',');
         if (regex) {
           return <Regex regex={regex} examples={examples} />;
@@ -205,10 +196,36 @@ const Schema = ({ schema, menuItem, isLatestSchema }) => {
       style: { whiteSpace: 'normal', wordWrap: 'break-word', padding: '8px' },
     },
     {
-      Header: 'Notes & Scripts',
-      Cell: ScriptCell,
+      Header: 'COVID-19 Values',
+      id: 'c19',
+      accessor: 'c19',
+      Cell: ({ original }) => {
+        const { name: field, c19 = {}, meta } = original;
+        const { regex = null, codeList = null } = c19;
+        const examples = meta && meta.examples && meta.examples.split(',');
+        if (regex) {
+          return <Regex regex={regex} examples={examples} />;
+        } else if (codeList) {
+          return (
+            <CodeList
+              codeList={codeList}
+              onToggle={onCodelistExpandToggle(field)}
+              isExpanded={isCodeListExpanded(field)}
+            />
+          );
+        } else {
+          return null;
+        }
+      },
       style: { whiteSpace: 'normal', wordWrap: 'break-word', padding: '8px' },
     },
+
+    {
+      Header: 'Notes',
+      Cell: NoteCell,
+      style: { whiteSpace: 'normal', wordWrap: 'break-word', padding: '8px' },
+    }
+
   ];
   const containerRef = React.createRef();
 
@@ -249,9 +266,7 @@ const Schema = ({ schema, menuItem, isLatestSchema }) => {
         <DataTypography style={{ flex: 1 }}>
           {schema && schema.description}
           <div>
-            File Name Example:{' '}
-            <span className={styles.fileExampleHighlight}>{`${schema.name}`}</span>
-            [-optional-extension]<span className={styles.fileExampleHighlight}>.tsv</span>
+
           </div>
         </DataTypography>
 

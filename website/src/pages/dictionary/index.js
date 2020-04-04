@@ -180,7 +180,7 @@ function DataDictionary() {
           const filteredFields = schema.fields.filter(field => {
             const meta = get(field, 'meta', {});
             const { primaryId = false, core = false, dependsOn = false } = meta;
-            const required = get(field, 'restrictions.required', false);
+            const required = get(field, 'required', false);
 
             let tierBool = false;
             let attributeBool = false;

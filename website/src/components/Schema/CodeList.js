@@ -17,7 +17,7 @@ const CodeList = ({ codeList = [], onToggle, isExpanded }) => {
   const maxEnumLength = 5;
   const fullOutput = codeList.map(item => (
     <p key={item} className={styles.fieldEnumValue}>
-      <strong>{item}</strong>
+      {item}
     </p>
   ));
 
