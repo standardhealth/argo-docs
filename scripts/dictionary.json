@@ -1,6 +1,6 @@
 {
     "name":"COVID Data Dictionary",
-    "version":"1.6",
+    "version":"2.3",
     "schemas":[
       {
         "name":"patient",
@@ -10,7 +10,7 @@
             "name":"patient_id",
             "description":"Unique identifier of the patient, assigned by the data provider.",
             "required":true,
-            "valueType":"string"
+            "valueType":"ID"
           },
           {
             "name":"age",
@@ -77,9 +77,7 @@
       {
         "name":"patient_vital_status",
         "description":"An indicator of whether the patient is alive or dead.",
-        "meta":{
-          "parent":"patient"
-        },
+        "parent":"patient",
         "fields":[
           {
             "name":"vital_status",
@@ -96,12 +94,19 @@
             }
           },
           {
+            "name":"recorded_date",
+            "description":"The date the vital status was observed.",
+            "required":true,
+            "valueType":"date"
+          },
+          {
             "name":"cause_of_death",
             "description":"Indicates the cause of a patient's death.",
             "valueType":"code",
             "required": false,
             "permissible":{
               "codeList":[
+                "FIX!!",
                 "Died of COVID-19",
                 "Died of other reasons"
               ]
@@ -113,9 +118,7 @@
       {
         "name":"patient_identification",
         "description":"Personally identifiable information about a patient.",
-        "meta":{
-          "parent":"patient"
-        },
+        "parent":"patient",
         "fields":[
           {
             "name":"family_name",
@@ -152,9 +155,7 @@
       {
         "name":"condition",
         "description":"The collection of data elements related to a condition. A condition can be either a diagnosis or part of an ongoing problem list.",
-        "meta":{
-          "parent":"patient"
-        },
+        "parent":"patient",
         "fields":[
           {
             "name":"condition_id",
@@ -180,7 +181,7 @@
                 "840544004 'Suspected COVID-19'"
               ]
             },
-            "notes":"This field accepts either ICD-10-CM or SNOMED CT codes."
+            "notes":"This field accepts either ICD-10-CM or SNOMED-CT disorder codes."
           },
           {
             "name":"category",
@@ -231,6 +232,176 @@
             "notes":"The clinical status value set terms are described at http://hl7.org/fhir/valueset-condition-clinical.html."
           }
         ]
+      },
+      {
+        "name": "allergy_intolerance",
+        "description": "The collection of data elements describing the details of a patient's allergies and intolerances.",
+        "parent": "patient",
+        "fields": [
+          {
+            "name": "allergy_intolerance_id",
+            "valueType": "ID",
+            "description": "Unique identifier for the allergy or intolerance.",
+            "required": true
+          },
+          {
+            "name": "code",
+            "valueType": "code",
+            "description": "A code for the agent causing the allergy or intolerance.",
+            "required": true,
+            "notes": "NDRFT or RxNorm for medication allergies/intolerances; SNOMED CT for non-medication allergies/intolerances."
+          },
+          {
+            "name": "recorded_date",
+            "valueType": "date",
+            "description": "The date that the allergy or intolerance was recorded.",
+            "required": true
+           },
+           {
+            "name": "type",
+            "valueType": "string",
+            "description": "Distinguishes whether the item refers to an allergy or an intolerance",
+            "permissible": {
+              "codeList": ["allergy","intolerance"]
+            }
+          },
+          {
+            "name": "category",
+            "description": "The type of allergy or intolerance.",
+            "valueType": "string"
+          }
+        ]
+      },
+
+      {
+        "name": "medication_administration",
+        "description": "An instance of administering a medication to a patient.",
+        "parent": "patient",
+        "fields": [
+          {
+            "name": "medadmin_id",
+            "valueType": "ID",
+            "description": "Unique identifier assigned to the medication administration episode.",
+            "required": true
+          },
+          {
+            "name": "medication_code",
+            "valueType": "code",
+            "description": "The code to represent the medication that was administered.",
+            "required": true,
+            "permissible": {
+              "codeList": [
+                "RxNorm code: http://www.nlm.nih.gov/research/umls/rxnorm",
+                "NDC code: http://hl7.org/fhir/sid/ndc"
+             ]
+            },
+            "notes": "medication_code is a structure which contains codeSystem, code, and name. For RxNorm, all prescribable medication formulations represented using either a 'generic' or 'brand-specific' concept. This includes RxNorm codes whose Term Type is SCD (semantic clinical drug), SBD (semantic brand drug), GPCK (generic pack), BPCK (brand pack), SCDG (semantic clinical drug group), SBDG (semantic brand drug group), SCDF (semantic clinical drug form), or SBDF (semantic brand drug form). Source: http://www.hl7.org/fhir/us/core/STU3/ValueSet-us-core-medication-codes.html."
+          },
+          {
+            "name": "medadmin_status",
+            "description": "The status of the medication administration",
+            "valueType": "code",
+            "required": true,
+            "permissible": {
+              "codeList": ["in-progress", "not-done", "on-hold", "completed",  "entered-in-error", "stopped", "unknown"]
+            },
+            "notes": "The medication administration status value set terms are described at https://www.hl7.org/fhir/valueset-medication-admin-status.html."
+          },
+          {
+            "name": "medication_route",
+            "description": "The path of the substance into the body for the administered medication.",
+            "permissible": {
+               "codeList": [
+                  "Include codes from http://snomed.info/sct  where concept is-a 284009009 (Route of administration values)"
+               ]
+            },
+            "valueType": "code"
+          },
+          {
+            "name": "medadmin_start_date",
+            "description": "The date and time when the medication administration was started.",
+            "required": true,
+            "valueType": "date"
+          },
+          {
+            "name": "medadmin_stop_date",
+            "description": "The date and time when the medication as administered to the patient.",
+            "required": true,
+            "valueType": "date"
+          },
+          {
+            "name": "medadmin_dose_quantity",
+            "description": "The amount of the medication given at one administration event.",
+            "valueType": "quantity"
+          },
+          {
+            "name": "medadmin_dose_units",
+            "description": "Unit of measure for the dose quantity of the administered medication.",
+            "valueType": "code",
+            "permissible": {
+              "codeList": ["UCUM code"]
+            },
+            "notes": "Nomenclature conforms to the Unified Code for Units of Measure (UCUM): https://unitsofmeasure.org/trac"
+          }     
+        ]
+      },
+
+      {
+        "name": "procedure",
+        "description": "An indicator of whether the patient is alive or dead.",
+        "parent": "patient",
+        "fields": [
+          {
+            "name": "code",
+            "description": "The code representing the procedure. A procedure is an action performed on a patient, including diagnostic tests, therapies - such as respiratory therapy, surgeries, and other clinical interventions.",
+            "required": true,
+            "valueType": "code",
+            "notes": "SNOMED CT (preferred), ICD-10-CM (preferred) or HCPCS (alternative)."
+          },
+          {
+            "name": "status",
+            "description": "The status of the procedure in terms of workflow.",
+            "required": true,
+            "permissible": {
+              "codeList": ["in-progress", "aborted", "completed", "entered-in-error"]
+            },
+            "valueType": "code"
+          },
+          {
+            "name": "start_date",
+            "description": "The date and time the procedure started.",
+            "required": true,
+            "valueType": "date"
+          },
+          {
+            "name": "end_date",
+            "description": "The date and time the procedure ended.",
+            "valueType": "date"
+          }
+        ]
+      },
+      {
+        "name": "smoking_status",
+        "description": "Data elements associated with the patient's use ",
+        "parent": "patient",
+        "fields": [
+          {
+            "name": "smoking_status",
+            "valueType": "code",
+            "description": "The status of the patient's use of smoking tobacco.",
+            "notes": "SNOMED CT code.",
+            "required": true,
+            "permissible": {
+              "codeList": ["Current every day smoker","Current some day smoker","Former smoker", "Never smoker", "Smoker, current status unknown", "Unknown if ever smoked", "Current Heavy tobacco smoker", "Current Light tobacco smoker"]
+            }
+          },
+          {
+            "name": "recorded_date",
+            "valueType": "date",
+            "description": "The date when the smoking status was recorded."
+          }
+        ]
       }
+
     ]
   }

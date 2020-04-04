@@ -157,7 +157,7 @@ const Schema = ({ schema, menuItem, isLatestSchema }) => {
         return (
           <TagContainer>
             {isRestrictedField && <Tag type={TAG_TYPES.required} />}
-            {isDependentField && <Tag type={TAG_TYPES.dependency} />}
+            {isDependentField && <Tag type={TAG_TYPES.dependent} />}
           </TagContainer>
         );
       },
@@ -176,11 +176,12 @@ const Schema = ({ schema, menuItem, isLatestSchema }) => {
       id: 'permissibleValues',
       accessor: 'permissible',
       Cell: ({ original }) => {
-        const { name: field, permissible = {}, meta } = original;
+        const { name: field, permissible = {}, examples } = original;
         const { regex = null, codeList = null } = permissible;
-        const examples = meta && meta.examples && meta.examples.split(',');
+//        const examples = meta && meta.examples && meta.examples.split(',');
+        const examplesplit = examples && examples.split(',');
         if (regex) {
-          return <Regex regex={regex} examples={examples} />;
+          return <Regex regex={regex} examples={examplesplit} />;
         } else if (codeList) {
           return (
             <CodeList
@@ -200,11 +201,11 @@ const Schema = ({ schema, menuItem, isLatestSchema }) => {
       id: 'c19',
       accessor: 'c19',
       Cell: ({ original }) => {
-        const { name: field, c19 = {}, meta } = original;
+        const { name: field, c19 = {}, examples } = original;
         const { regex = null, codeList = null } = c19;
-        const examples = meta && meta.examples && meta.examples.split(',');
+        const examplesplit = examples && examples.split(',');
         if (regex) {
-          return <Regex regex={regex} examples={examples} />;
+          return <Regex regex={regex} examples={examplesplit} />;
         } else if (codeList) {
           return (
             <CodeList

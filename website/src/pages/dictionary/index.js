@@ -155,7 +155,7 @@ function DataDictionary() {
         }
 
         if (dependsOn) {
-          acc.attributes.push(TAG_TYPES.dependency);
+          acc.attributes.push(TAG_TYPES.dependent);
         }
 
         if (core) {
@@ -198,7 +198,7 @@ function DataDictionary() {
             }
 
             if (
-              (attribute === TAG_TYPES.dependency && Boolean(dependsOn)) ||
+              (attribute === TAG_TYPES.dependent && Boolean(dependsOn)) ||
               (attribute === TAG_TYPES.required && required) ||
               attribute === '' ||
               attribute === NO_ACTIVE_FILTER
