@@ -2,15 +2,15 @@
   background-color: #e75471;
 }
 
-.tag.dependent {
+.tag.conditional {
   background-color: #ec8f17;
 }
 
-.tag.id {
+.tag.optional {
   background-color: #00b3d3;
 }
 
-.tag.core {
+.tag.derived {
   background-color: #00c79d;
 }
 

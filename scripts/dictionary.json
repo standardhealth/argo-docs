@@ -1,6 +1,6 @@
 {
     "name":"COVID Data Dictionary",
-    "version":"2.3",
+    "version":"2.7",
     "schemas":[
       {
         "name":"patient",
@@ -9,19 +9,19 @@
           {
             "name":"patient_id",
             "description":"Unique identifier of the patient, assigned by the data provider.",
-            "required":true,
+            "required":"required",
             "valueType":"ID"
           },
           {
             "name":"age",
             "description":"Age of the patient at the time of initial encounter.",
-            "required":false,
+            "required":"optional",
             "valueType":"integer"
           },
           {
             "name":"administrative_gender",
             "description":"Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.",
-            "required":true,
+            "required":"required",
             "valueType":"code",
             "permissible":{
               "codeList":[
@@ -36,7 +36,7 @@
             "name":"race",
             "description":"Concepts classifying the person into a named category of humans sharing common history, traits, geographical origin or nationality. The race codes used to represent these concepts are based upon the CDC Race and Ethnicity Code Set Version 1.0.",
             "valueType":"code",
-            "required": false,
+            "required": "optional",
             "permissible":{
               "codeList":[
                 "American Indian or Alaska Native",
@@ -54,7 +54,7 @@
             "name":"ethnicity",
             "description":"Concepts classifying the person into a named category of humans sharing common history, traits, geographical origin or nationality. The ethnicity codes used to represent these concepts are based upon the CDC Race and Ethnicity Code Set Version 1.0.",
             "valueType":"code",
-            "required": false,
+            "required": "optional",
             "permissible":{
               "codeList":[
                 "Hispanic or Latino",
@@ -67,7 +67,7 @@
             "name":"zip_code",
             "description":"Five digit zip code.",
             "valueType":"string",
-            "required":true,
+            "required":"required",
             "permissible":{
               "regex":"(^\\d{5}$)|(^\\d{9}$)|(^\\d{5}-\\d{4}$)"
             }
@@ -83,7 +83,7 @@
             "name":"vital_status",
             "description":"Donor's last known state of living or deceased.",
             "valueType":"code",
-            "required":true,
+            "required":"required",
             "permissible":{
               "codeList":[
                 "Alive",
@@ -96,14 +96,14 @@
           {
             "name":"recorded_date",
             "description":"The date the vital status was observed.",
-            "required":true,
+            "required":"required",
             "valueType":"date"
           },
           {
             "name":"cause_of_death",
             "description":"Indicates the cause of a patient's death.",
             "valueType":"code",
-            "required": false,
+            "required": "conditional",
             "permissible":{
               "codeList":[
                 "FIX!!",
@@ -161,13 +161,13 @@
             "name":"condition_id",
             "valueType":"ID",
             "description":"Unique identifier assigned to the condition.",
-            "required":true
+            "required":"required"
           },
           {
             "name":"code",
             "valueType":"code",
             "description":"The code to represent the diagnosis or problem.",
-            "required":true,
+            "required":"required",
             "permissible":{
               "codeList":[
                 "ICD-10-CM code",
@@ -198,27 +198,27 @@
           {
             "name":"recorded_date",
             "description":"The date that the condition was recorded.",
-            "required":true,
+            "required":"required",
             "valueType":"date",
             "notes":"This is different from the condition onset date which could be a period of time prior to the date recorded by the provider."
           },
           {
             "name":"onset_date",
             "description":"An estimate or actual date that the patient reported experiencing the condition.",
-            "required":true,
+            "required":"required",
             "valueType":"date"
           },
           {
             "name":"verification_date",
             "description":"Date when condition was confirmed by positive test, imaging, biopsy, or other method.",
-            "required":false,
+            "required":"optional",
             "valueType":"date"
           },
           {
             "name":"clinical_status",
             "description":"The clinical status of the condition. (Reference source: FHIR Condition clinical status from http://hl7.org/fhir/condition-definitions.html#Condition.clinicalStatus).",
             "valueType":"code",
-            "required":true,
+            "required":"required",
             "permissible":{
               "codeList":[
                 "active",
@@ -242,20 +242,20 @@
             "name": "allergy_intolerance_id",
             "valueType": "ID",
             "description": "Unique identifier for the allergy or intolerance.",
-            "required": true
+            "required": "required"
           },
           {
             "name": "code",
             "valueType": "code",
             "description": "A code for the agent causing the allergy or intolerance.",
-            "required": true,
+            "required": "required",
             "notes": "NDRFT or RxNorm for medication allergies/intolerances; SNOMED CT for non-medication allergies/intolerances."
           },
           {
             "name": "recorded_date",
             "valueType": "date",
             "description": "The date that the allergy or intolerance was recorded.",
-            "required": true
+            "required": "required"
            },
            {
             "name": "type",
@@ -282,13 +282,13 @@
             "name": "medadmin_id",
             "valueType": "ID",
             "description": "Unique identifier assigned to the medication administration episode.",
-            "required": true
+            "required": "required"
           },
           {
             "name": "medication_code",
             "valueType": "code",
             "description": "The code to represent the medication that was administered.",
-            "required": true,
+            "required": "required",
             "permissible": {
               "codeList": [
                 "RxNorm code: http://www.nlm.nih.gov/research/umls/rxnorm",
@@ -301,7 +301,7 @@
             "name": "medadmin_status",
             "description": "The status of the medication administration",
             "valueType": "code",
-            "required": true,
+            "required": "required",
             "permissible": {
               "codeList": ["in-progress", "not-done", "on-hold", "completed",  "entered-in-error", "stopped", "unknown"]
             },
@@ -320,13 +320,13 @@
           {
             "name": "medadmin_start_date",
             "description": "The date and time when the medication administration was started.",
-            "required": true,
+            "required": "required",
             "valueType": "date"
           },
           {
             "name": "medadmin_stop_date",
             "description": "The date and time when the medication as administered to the patient.",
-            "required": true,
+            "required": "required",
             "valueType": "date"
           },
           {
@@ -354,14 +354,14 @@
           {
             "name": "code",
             "description": "The code representing the procedure. A procedure is an action performed on a patient, including diagnostic tests, therapies - such as respiratory therapy, surgeries, and other clinical interventions.",
-            "required": true,
+            "required": "required",
             "valueType": "code",
             "notes": "SNOMED CT (preferred), ICD-10-CM (preferred) or HCPCS (alternative)."
           },
           {
             "name": "status",
             "description": "The status of the procedure in terms of workflow.",
-            "required": true,
+            "required": "required",
             "permissible": {
               "codeList": ["in-progress", "aborted", "completed", "entered-in-error"]
             },
@@ -370,7 +370,7 @@
           {
             "name": "start_date",
             "description": "The date and time the procedure started.",
-            "required": true,
+            "required": "required",
             "valueType": "date"
           },
           {
@@ -390,7 +390,7 @@
             "valueType": "code",
             "description": "The status of the patient's use of smoking tobacco.",
             "notes": "SNOMED CT code.",
-            "required": true,
+            "required": "required",
             "permissible": {
               "codeList": ["Current every day smoker","Current some day smoker","Former smoker", "Never smoker", "Smoker, current status unknown", "Unknown if ever smoked", "Current Heavy tobacco smoker", "Current Light tobacco smoker"]
             }

@@ -11,11 +11,11 @@ function generateTreeData(data) {
   const schemas = get(data, 'schemas', []);
 
   const mapping = schemas.reduce((mapp, schema) => {
-    const { name, fields: schemaFields, required = false } = schema;
+    const { name, fields: schemaFields, required = "optional" } = schema;
     const parentName = get(schema, 'parent', '');
     const fields = schemaFields.map(field => ({
       name: field.name,
-      required: get(field, 'required', false),
+      required: get(field, 'required', "optional"),
     }));
     mapp[schema.name] = { name, fields, required, parentName, children: [] };
     return mapp;

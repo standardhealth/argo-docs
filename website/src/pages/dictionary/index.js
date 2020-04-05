@@ -133,10 +133,6 @@ function DataDictionary() {
     },
   } = context;
 
-  const downloadTsvFileTemplate = fileName => {
-    window.location.assign(`${GATEWAY_API_ROOT}clinical/template/${fileName}`);
-  };
-
   const filters = React.useMemo(() => {
     const schemas = get(dictionary, 'schemas', []);
 
@@ -147,7 +143,7 @@ function DataDictionary() {
         const { primaryId = false, core = false, dependsOn = false } = meta;
         const restrictions = get(field, 'restrictions', false);
         if (primaryId) {
-          acc.tiers.push(TAG_TYPES.id);
+          acc.tiers.push(TAG_TYPES.optional);
         }
 
         if (!!restrictions) {
@@ -155,11 +151,11 @@ function DataDictionary() {
         }
 
         if (dependsOn) {
-          acc.attributes.push(TAG_TYPES.dependent);
+          acc.attributes.push(TAG_TYPES.conditional);
         }
 
         if (core) {
-          acc.tiers.push(TAG_TYPES.core);
+          acc.tiers.push(TAG_TYPES.derived);
         }
 
         if (!core && !primaryId) {
@@ -172,6 +168,8 @@ function DataDictionary() {
     return { tiers: uniq(filters.tiers), attributes: uniq(filters.attributes) };
   }, [dictionary]);
 
+  // This code is responsible for showing only selected types of element (e.g., only required, only derived, etc.)
+  // This has not been updated
   const filteredSchemas = React.useMemo(
     () =>
       dictionary.schemas
@@ -180,7 +178,7 @@ function DataDictionary() {
           const filteredFields = schema.fields.filter(field => {
             const meta = get(field, 'meta', {});
             const { primaryId = false, core = false, dependsOn = false } = meta;
-            const required = get(field, 'required', false);
+            const required = get(field, 'required', "optional");
 
             let tierBool = false;
             let attributeBool = false;
@@ -188,8 +186,8 @@ function DataDictionary() {
             if (tier === NO_ACTIVE_FILTER && attribute === NO_ACTIVE_FILTER) return true;
 
             if (
-              (tier === TAG_TYPES.id && primaryId) ||
-              (tier === TAG_TYPES.core && core) ||
+              (tier === TAG_TYPES.optional && primaryId) ||
+              (tier === TAG_TYPES.derived && core) ||
               (tier === TAG_TYPES.extended && !core && !primaryId) ||
               tier === '' ||
               tier === NO_ACTIVE_FILTER
@@ -198,7 +196,7 @@ function DataDictionary() {
             }
 
             if (
-              (attribute === TAG_TYPES.dependent && Boolean(dependsOn)) ||
+              (attribute === TAG_TYPES.conditional && Boolean(dependsOn)) ||
               (attribute === TAG_TYPES.required && required) ||
               attribute === '' ||
               attribute === NO_ACTIVE_FILTER

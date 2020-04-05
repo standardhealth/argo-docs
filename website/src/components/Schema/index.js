@@ -137,9 +137,9 @@ const Schema = ({ schema, menuItem, isLatestSchema }) => {
         } else {
           const { primaryId, core } = meta;
           return primaryId ? (
-            <Tag type={TAG_TYPES.id} />
+            <Tag type={TAG_TYPES.optional} />
           ) : core ? (
-            <Tag type={TAG_TYPES.core} />
+            <Tag type={TAG_TYPES.derived} />
           ) : (
             <Tag type={TAG_TYPES.extended} />
           );
@@ -148,21 +148,39 @@ const Schema = ({ schema, menuItem, isLatestSchema }) => {
       style: { padding: '8px' },
       width: 85,
     },*/
-    {
+/*    {
       Header: 'Required?',
       id: 'attributes',
       Cell: ({ original: { required, meta } }) => {
         const isRestrictedField = required; 
-        const isDependentField = meta && !!meta.dependsOn;
+        const isConditionalField = meta && !!meta.dependsOn;
         return (
           <TagContainer>
             {isRestrictedField && <Tag type={TAG_TYPES.required} />}
-            {isDependentField && <Tag type={TAG_TYPES.dependent} />}
+            {isConditionalField && <Tag type={TAG_TYPES.conditional} />}
           </TagContainer>
         );
       },
       style: { padding: '8px' },
       width: 102,
+    }, */
+    {
+      Header: 'Required?',
+      id: 'attributes',
+      Cell: ({ original }) => {
+        const required = get(original, 'required', "optional");
+        return (
+          <TagContainer>
+            {(required=="required") && <Tag type={TAG_TYPES.required} />}
+            {(required=="optional") && <Tag type={TAG_TYPES.optional} />}
+            {(required=="conditional") && <Tag type={TAG_TYPES.conditional} />}
+            {(required=="derived") && <Tag type={TAG_TYPES.derived} />}
+            {(required=="extended") && <Tag type={TAG_TYPES.extended} />}
+          </TagContainer>
+        );
+      },
+      style: { padding: '8px' },
+      width: 96,
     },
     {
       Header: 'Type',
