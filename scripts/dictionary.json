@@ -395,13 +395,15 @@
           {
             "name": "end_date",
             "description": "The date and time the procedure ended.",
+            "required":"optional",
             "valueType": "date"
           }
         ]
       },
+
       {
         "name": "smoking_status",
-        "description": "Data elements associated with the patient's use ",
+        "description": "Data elements associated with the patient's use of smoking tobacco.",
         "parent": "patient",
         "fields": [
           {
@@ -420,7 +422,82 @@
             "description": "The date when the smoking status was recorded."
           }
         ]
-      }
+      },
 
+      {
+        "name": "vitals",
+        "description": "Data elements associated with the physiologic measurements of a patient that indicate the status of the body's life sustaining functions, also known as vital signs. (Source: United States Core Data for Interoperability (USCDI). https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi)",
+        "parent": "patient",
+        "fields": [
+          {
+            "name": "code",
+            "valueType": "code",
+            "description": "A code for the vital sign of interest, e.g. heart rate.",
+            "required": "required",
+            "permissible":{
+              "codeList": ["LOINC code"]
+            },
+            "notes": "LOINC codes for specific vital signs of interest are included in the FHIR R4 observation-vital-signs profile https://www.hl7.org/fhir/observation-vitalsigns.html"
+          },
+          {
+            "name": "value",
+            "valueType": "number",
+            "description": "The result of measuring the vital sign.",
+            "required": "required"
+          },
+          {
+            "name": "unit",
+            "valueType": "string",
+            "description": "The unit for the measured vital sign value.",
+            "required": "required",
+            "permissible": {
+              "codeList": ["UCUM code"]
+            }
+          },
+          {
+            "name": "measurement_date",
+            "valueType": "date",
+            "description": "The date and time the measurement of the vital sign occurred.",
+            "required": "required"
+          }
+        ]
+      },
+      {
+        "name": "inhaled_oxygen_flow_rate",
+        "description": "The measurement of inhaled oxygen flow rate by pulse oximetry.",
+        "parent": "vitals",
+        "fields": [
+          {
+            "name": "code",
+            "valueType": "code",
+            "description": "The LOINC code used to represent inhaled oxygen flow rate",
+            "required": "required",
+            "permissible":{
+              "codeList": ["3151-8"]
+            }
+          },
+          {
+            "name": "value",
+            "valueType": "quantity",
+            "description": "The result of measuring the vital sign.",
+            "required": "required"
+          },
+          {
+            "name": "unit",
+            "valueType": "string",
+            "description": "The UCUM unit for the measured vital sign value.",
+            "required": "required",
+            "permissible": {
+              "codeList": ["l/min"]
+            }
+          },
+          {
+            "name": "measurement_date",
+            "valueType": "date",
+            "description": "The date and time the measurement of the vital sign occurred.",
+            "required": "required"
+          }
+        ]
+      }
     ]
   }
