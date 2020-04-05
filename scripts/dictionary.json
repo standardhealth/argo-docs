@@ -114,7 +114,10 @@
             },
             "c19":{
               "codeList":[
-                "U07.1 (COVID19, virus identified)", "U07.2 (COVID19, virus not identified)", "840539006 (COVID-19	disorder)", "840544004	(Suspected COVID-19	situation)"
+                "U07.1 (COVID19, virus identified)", 
+                "U07.2 (COVID19, virus not identified)", 
+                "840539006 (COVID-19 disorder)", 
+                "840544004 (Suspected COVID-19 situation)"
               ]
             },
             "notes":"Cause of death is only required to be submitted if the patient is deceased. Mortality coding of COVID-19 with ICD-10 see: https://www.who.int/classifications/icd/COVID-19-coding-icd10.pdf?ua=1"
@@ -182,7 +185,10 @@
             },
             "c19":{
               "codeList":[
-                "U07.1 (COVID19, virus identified)", "U07.2 (COVID19, virus not identified)", "840539006 (COVID-19	disorder)", "840544004	(Suspected COVID-19	situation)"
+                "U07.1 (COVID19, virus identified)", 
+                "U07.2 (COVID19, virus not identified)", 
+                "840539006 (COVID-19 disorder)", 
+                "840544004 (Suspected COVID-19 situation)"
               ]
             },
             "notes":"This field accepts either ICD-10-CM or SNOMED-CT disorder codes."
