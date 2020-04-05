@@ -139,28 +139,11 @@ function DataDictionary() {
     const fields = schemas.map(schema => schema.fields);
     const filters = flattenDeep(fields).reduce(
       (acc, field) => {
-        const meta = get(field, 'meta', {});
-        const { primaryId = false, core = false, dependsOn = false } = meta;
-        const restrictions = get(field, 'restrictions', false);
-        if (primaryId) {
-          acc.tiers.push(TAG_TYPES.optional);
-        }
-
-        if (!!restrictions) {
-          acc.attributes.push(TAG_TYPES.required);
-        }
-
-        if (dependsOn) {
-          acc.attributes.push(TAG_TYPES.conditional);
-        }
-
-        if (core) {
-          acc.tiers.push(TAG_TYPES.derived);
-        }
-
-        if (!core && !primaryId) {
-          acc.tiers.push(TAG_TYPES.extended);
-        }
+        const required = get(field, 'required', false);
+        acc.attributes.push(TAG_TYPES.required);
+        acc.attributes.push(TAG_TYPES.conditional);
+        acc.attributes.push(TAG_TYPES.optional);
+        acc.tiers.push(TAG_TYPES.extended);
         return acc;
       },
       { tiers: [], attributes: [] },
@@ -180,24 +163,16 @@ function DataDictionary() {
             const { primaryId = false, core = false, dependsOn = false } = meta;
             const required = get(field, 'required', "optional");
 
-            let tierBool = false;
+            let tierBool = true;
             let attributeBool = false;
 
-            if (tier === NO_ACTIVE_FILTER && attribute === NO_ACTIVE_FILTER) return true;
+            if (attribute === NO_ACTIVE_FILTER) return true;
+
 
             if (
-              (tier === TAG_TYPES.optional && primaryId) ||
-              (tier === TAG_TYPES.derived && core) ||
-              (tier === TAG_TYPES.extended && !core && !primaryId) ||
-              tier === '' ||
-              tier === NO_ACTIVE_FILTER
-            ) {
-              tierBool = true;
-            }
-
-            if (
-              (attribute === TAG_TYPES.conditional && Boolean(dependsOn)) ||
-              (attribute === TAG_TYPES.required && required) ||
+              (attribute === TAG_TYPES.conditional && (required=="conditional")) ||
+              (attribute === TAG_TYPES.required && (required=="required")) ||
+              (attribute === TAG_TYPES.optional && (required=="optional")) ||
               attribute === '' ||
               attribute === NO_ACTIVE_FILTER
             ) {
@@ -281,8 +256,7 @@ function DataDictionary() {
                   The C19HCC Data Dictionary expresses the details of the data model, which
                   adheres to specific formats and restrictions to ensure a standard of data quality.
                   The following list describes the attributes and permissible values for all of the
-                  fields within the clinical tsv files for the{' '}
-                  <Link to={PLATFORM_UI_ROOT}>ARGO Data Platform.</Link>
+                  classes in the dictionary.
                 </Typography>
               </div>
 

@@ -41,7 +41,7 @@ const FileDisplayBox = ({ fileName, required = false, fields, onExpandStateChang
   const requiredFields = React.useMemo(
     () =>
       fields
-        .filter(field => field.required)
+        .filter(field => (field.required=="required"))
         .map(f => ({
           ...f,
           isMatch: f.name.includes(searchString),
@@ -52,7 +52,17 @@ const FileDisplayBox = ({ fileName, required = false, fields, onExpandStateChang
   const optionalFields = React.useMemo(
     () =>
       fields
-        .filter(field => !field.required)
+        .filter(field => (field.required=="optional"))
+        .map(f => ({
+          ...f,
+          isMatch: f.name.includes(searchString),
+        })),
+    [searchString],
+  );
+  const conditionalFields = React.useMemo(
+    () =>
+      fields
+        .filter(field => (field.required=="conditional"))
         .map(f => ({
           ...f,
           isMatch: f.name.includes(searchString),
@@ -148,8 +158,9 @@ const FileDisplayBox = ({ fileName, required = false, fields, onExpandStateChang
             <div>
               {!!(searchString && searchString.length)
                 ? `${requiredFields.filter(fieldHasMatch).length +
-                    optionalFields.filter(fieldHasMatch).length} / ${fields.length}`
-                : requiredFields.length + optionalFields.length}{' '}
+                    optionalFields.filter(fieldHasMatch).length + 
+                    conditionalFields.filter(fieldHasMatch).length} / ${fields.length}`
+                : requiredFields.length + optionalFields.length + conditionalFields.length}{' '}
               fields
             </div>
             <div
@@ -195,6 +206,22 @@ const FileDisplayBox = ({ fileName, required = false, fields, onExpandStateChang
                 </ListItem>
               ))}
             </List>
+            {!!conditionalFields.length && (
+              <Typography color="orange" bold>
+                Conditional ({conditionalFields.length} fields)
+              </Typography>
+            )}
+            <List>
+              {conditionalFields.map(f => (
+                <ListItem key={f.name}>
+                  <Typography variant="data" color={f.isMatch ? 'black' : 'grey_2'}>
+                    {f.name}
+                  </Typography>
+                </ListItem>
+              ))}
+            </List>
+
+
           </div>
         )}
       </div>

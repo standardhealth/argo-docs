@@ -1,6 +1,6 @@
 {
     "name":"COVID Data Dictionary",
-    "version":"2.7",
+    "version":"2.8",
     "schemas":[
       {
         "name":"patient",
@@ -30,7 +30,9 @@
                 "Other",
                 "Unknown"
               ]
-            }
+            },
+            "notes": "Codes should align with FHIR Administrative Gender value set (http://hl7.org/fhir/ValueSet/administrative-gender)"
+
           },
           {
             "name":"race",
@@ -48,7 +50,7 @@
                 "Asked but no answer"
               ]
             },
-            "note":"Codes from http://hl7.org/fhir/us/core/ValueSet/omb-race-category"
+            "notes":"Codes from http://hl7.org/fhir/us/core/ValueSet/omb-race-category"
           },
           {
             "name":"ethnicity",
@@ -61,7 +63,7 @@
                 "Non Hispanic or Latino"
               ]
             },
-            "note":"Codes from http://hl7.org/fhir/us/core/ValueSet/omb-ethnicity-category"
+            "notes":"Codes from http://hl7.org/fhir/us/core/ValueSet/omb-ethnicity-category"
           },
           {
             "name":"zip_code",
@@ -106,12 +108,19 @@
             "required": "conditional",
             "permissible":{
               "codeList":[
-                "FIX!!",
-                "Died of COVID-19",
-                "Died of other reasons"
+                "ICD-10 Code",
+                "SNOMED-CT code"
               ]
             },
-            "notes":"Cause of death is only required to be submitted if the patient is deceased."
+            "c19":{
+              "codeList":[
+                "U07.1 (COVID19, virus identified)", 
+                "U07.2 (COVID19, virus not identified)", 
+                "840539006 (COVID-19 disorder)", 
+                "840544004 (Suspected COVID-19 situation)"
+              ]
+            },
+            "notes":"Cause of death is only required to be submitted if the patient is deceased. Mortality coding of COVID-19 with ICD-10 see: https://www.who.int/classifications/icd/COVID-19-coding-icd10.pdf?ua=1"
           }
         ]
       },
@@ -176,9 +185,10 @@
             },
             "c19":{
               "codeList":[
-                "U0.71 'COVID-19'",
-                "840539006 'COVID-19'",
-                "840544004 'Suspected COVID-19'"
+                "U07.1 (COVID19, virus identified)", 
+                "U07.2 (COVID19, virus not identified)", 
+                "840539006 (COVID-19 disorder)", 
+                "840544004 (Suspected COVID-19 situation)"
               ]
             },
             "notes":"This field accepts either ICD-10-CM or SNOMED-CT disorder codes."
@@ -303,6 +313,15 @@
               "codeList": [
                 "RxNorm code: http://www.nlm.nih.gov/research/umls/rxnorm",
                 "NDC code: http://hl7.org/fhir/sid/ndc"
+             ]
+            },
+            "c19": {
+              "codeList": [
+                "Losartan",
+                "Hydroxychloroquine",
+                "Famotidine",
+                "Lisinopril",
+                "Remdesivir"
              ]
             },
             "notes": "medication_code is a structure which contains codeSystem, code, and name. For RxNorm, all prescribable medication formulations represented using either a 'generic' or 'brand-specific' concept. This includes RxNorm codes whose Term Type is SCD (semantic clinical drug), SBD (semantic brand drug), GPCK (generic pack), BPCK (brand pack), SCDG (semantic clinical drug group), SBDG (semantic brand drug group), SCDF (semantic clinical drug form), or SBDF (semantic brand drug form). Source: http://www.hl7.org/fhir/us/core/STU3/ValueSet-us-core-medication-codes.html."
@@ -475,11 +494,11 @@
             "name": "smoking_status",
             "valueType": "code",
             "description": "The status of the patient's use of smoking tobacco.",
-            "notes": "SNOMED CT code.",
             "required": "required",
             "permissible": {
               "codeList": ["Current every day smoker","Current some day smoker","Former smoker", "Never smoker", "Smoker, current status unknown", "Unknown if ever smoked", "Current Heavy tobacco smoker", "Current Light tobacco smoker"]
-            }
+            },
+            "notes": "SNOMED CT code as defined in FHIR US Core Smoking Status: http://hl7.org/fhir/us/core/ValueSet/us-core-observation-smokingstatus."
           },
           {
             "name": "recorded_date",
