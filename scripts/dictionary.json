@@ -622,6 +622,177 @@
             }
           }
         ]
+      },
+
+      {
+        "name": "encounter",
+        "description": "Data elements associated with an encounter at a health care facility, such as an ambulatory visit, an emergency department visit, or a hospitalization.",
+        "parent": "patient",
+        "fields": [
+          {
+            "name":"encounter_id",
+            "description":"A unique identifier for the encounter.",
+            "required": "required",
+            "valueType":"ID"
+          },
+          {
+            "name":"encounter_class",
+            "description":"A classification of the encounter, e.g. ambulatory, emergency or inpatient",
+            "required": "required",
+            "valueType":"code",
+            "permissible":{
+              "codeList": [
+                "AMB (ambulatory)",
+                "EMER (emergency)",
+                "FLD (field)",
+                "HH (home health)",
+                "IMP (inpatient encounter)",
+                "ACUTE (inpatient acute)",
+                "NONAC (inpatient non-acute)",
+                "OBSENC (observation encounter)",
+                "PRENC (pre-admission)",
+                "SS (short stay)",
+                "VR (virtual)"
+              ]
+            },
+            "notes": "Permissible values descriptions are available at http://hl7.org/fhir/v3/ActEncounterCode/vs.html."            
+          },
+          {
+            "name":"admission_date",
+            "description":"The date the patient was admitted for the encounter",
+            "required": "required",
+            "valueType":"date"
+          },
+
+          {
+            "name":"admission_source",
+            "description":"The type of location the patient originated from.",
+            "required": "optional",
+            "valueType":"code",
+            "permissible":{
+              "codeList":["Any of the codes specified in the http://terminology.hl7.org/CodeSystem/admit-source value set"]
+            },
+            "notes": "Definitions for the permissible values are available at http://hl7.org/fhir/codesystem-encounter-admit-source.html."            
+          },
+          {
+            "name":"discharge_date",
+            "description":"The date the patient was discharged from the encounter",
+            "required": "required",
+            "valueType":"date"
+          },
+          {
+            "name": "discharge_disposition",
+            "description": "Categorization of the status of the patient at discharge according to the type of location the patient was discharged to.",
+            "valueType": "code",
+            "required":"required",
+            "permissible":{
+              "codeList": [
+                "home (Home)",
+                "alt-home (Alternative home)",
+                "other-hcf (Other healthcare facility)",
+                "hosp (Hospice)",
+                "long (Long-term care)",
+                "aadvice (Left against advice)",
+                "exp (Expired)",
+                "psy (Psychiatric hospital)",
+                "rehab (Rehabilitation)",
+                "snf (Skilled nursing facility)",
+                "other (Other)"
+              ]
+            },
+            "notes": "Definitions for the permissible values are available at https://www.hl7.org/fhir/valueset-encounter-discharge-disposition.html"
+          },
+          {
+            "name": "initial_diagnosis",
+            "description": "The initial working diagnosis (also known as 'chief complaint') first entered into the EHR",
+            "valueType": "code",
+            "permissible":{
+              "codeList": [
+                "ICD-10-CM code",
+                "SNOMED CT code"
+              ]
+            }
+          },
+          {
+            "name": "admitting_diagnosis",
+            "description": "The main diagnosis code used to admit the patient.",
+            "valueType": "code",
+            "required": "conditional",
+            "permissible": {
+              "codeList": [
+                "ICD-10-CM code",
+                "SNOMED CT disorder code"
+              ]
+            },
+            "notes":"An admitting diagnosis is only expected to be available for inpatient encounters."
+          },
+          {
+            "name": "discharge_diagnosis",
+            "description": "The final diagnosis determined to be the main cause for the hospitalization after all testing, surgery, and workup are complete.",
+            "valueType": "code",
+            "required": "conditional",
+            "permissible":{
+              "codeList": [
+                "ICD-10-CM code",
+                "SNOMED CT disorder code"
+              ]
+            },
+            "notes": "Discharge diagnosis is only expected to be available for inpatient encounters that have been completed."
+          }
+        ]
+      },
+      {
+        "name": "encounter_location",
+        "description": "Data elements associated with specific locations the patient during the course of an inpatient encounter.",
+        "parent": "encounter",
+        "fields": [
+          {
+            "name":"location_id",
+            "description":"A unique identifier for the encounter location.",
+            "required": "required",
+            "valueType":"ID"      
+           },
+           {
+            "name":"encounter_id",
+            "description":"The identifier for the encounter associated with this particular location",
+            "required": "required",
+            "valueType":"ID"      
+           },
+           {
+            "name":"type",
+            "description":"The type of location according to its function/purpose",
+            "required": "required",
+            "valueType":"code",
+            "permissible":{
+              "codeList":[
+                "Any of the codes specified in the http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType value set."
+              ]
+            },
+            "c19":{
+              "codeList": ["ICU (Intensive Care Unit)"]
+            },
+            "notes": "Definitions for the permissible values for location type are available at http://hl7.org/fhir/v3/ServiceDeliveryLocationRoleType/vs.html"
+           },
+           {
+            "name":"arrival_datetime",
+            "description":"The date and time the patient arrived at the location.",
+            "required": "optional",
+            "valueType": "date"
+           },
+           {
+            "name":"departure_datetime",
+            "description":"The type of location according to its function/purpose",
+            "required": "optional",
+            "valueType": "date"
+           },
+           {
+            "name":"length of stay",
+            "description":"The length of time a patient spent in the location.",
+            "required": "optional",
+            "valueType": "number",
+            "notes": "Can be derived: departure_datetime - arrival_datetime"
+           }
+        ]
       }
     ]
   }
