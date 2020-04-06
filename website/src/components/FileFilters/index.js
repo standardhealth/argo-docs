@@ -32,14 +32,14 @@ const FileFilters = ({
         {`${files} files > ${fields} fields`}
 
         <div className={styles.dataSelectors}>
-          Data Tier:{' '}
+          {/*Data Tier:{' '}
           <StyledSelect
-            options={dataTiers}
+           options={dataTiers}
             value={searchParams.tier}
             onChange={onSelect('tier')}
             size="sm"
-          />
-          Attribute:{' '}
+          /> */}
+          Filter required:{' '}
           <StyledSelect
             options={dataAttributes}
             value={searchParams.attribute}

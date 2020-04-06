@@ -52,9 +52,10 @@ async function runAdd(filename) {
       inquirer
         .prompt([
           {
+            default: "dictionary.json",
             message: 'Enter path and filename for dictionary to add:',
             name: 'filepath',
-            type: 'text',
+            type: 'text'
           },
         ])
         .then(answers => {
