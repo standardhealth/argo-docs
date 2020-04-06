@@ -676,6 +676,65 @@
             "required": "required"
           }
         ]
+      },
+
+      {
+        "name": "medication_list",
+        "description": "Data elements associated with medications on the patient's medication list. The medication list is maintained as part of a medication reconciliation process and asserted by the patient or the patient’s caregiver​.",
+        "parent": "patient",
+        "fields": [
+          {
+            "name": "code",
+            "valueType": "code",
+            "description": "A code for the medication the statement is about.",
+            "required": "required",
+            "permissible": {
+              "codeList": [
+                "RxNorm code: http://www.nlm.nih.gov/research/umls/rxnorm",
+                "NDC code: http://hl7.org/fhir/sid/ndc"
+              ]
+            },
+            "notes": "medication_code is a structure which contains codeSystem, code, and name. For RxNorm, all prescribable medication formulations represented using either a 'generic' or 'brand-specific' concept. This includes RxNorm codes whose Term Type is SCD (semantic clinical drug), SBD (semantic brand drug), GPCK (generic pack), BPCK (brand pack), SCDG (semantic clinical drug group), SBDG (semantic brand drug group), SCDF (semantic clinical drug form), or SBDF (semantic brand drug form). Source: http://www.hl7.org/fhir/us/core/STU3/ValueSet-us-core-medication-codes.html."
+          },
+          {
+            "name": "status",
+            "valueType": "code",
+            "description": "The status of the medication.",
+            "required": "required",
+            "permissible": {
+              "codeList": [
+                "active",
+                "completed",
+                "entered-in-error",
+                "intended",
+                "stopped",
+                "on-hold",
+                "unknown",
+                "not-taken"
+              ]
+            },
+            "notes": "The permissible values' terms are consistent with and described in http://hl7.org/fhir/valueset-medication-statement-status.html.\nTODO: Stopped, on-hold, unknown, and not-taken are not specified in the argonaut DQ IG, and the value set's binding strength is required. Seems reasonable to include these terms based on the way med lists are managed (and the terms are included in the latest US Core release."
+          },
+          {
+            "name": "recorded_date",
+            "valueType": "date",
+            "description": "The date when the statement about the medication statement was made.",
+            "required": "required"
+          },
+          {
+            "name": "start_date",
+            "valueType": "date",
+            "description": "The date the partient started taking the medication.",
+            "required": "required"
+          },
+          {
+            "name": "end_date",
+            "valueType": "date",
+            "description": "The date the patient stopped taking the medication.",
+            "required": "conditional",
+            "notes": "Stop date time is only required for medications the patient is no longer taking."
+          }
+        ]
       }
-    ]
+    ]  
   }
