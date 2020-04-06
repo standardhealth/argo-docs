@@ -4,7 +4,7 @@
 
 .schemaTable_column {
   max-width: 450px;
-  min-width: 120px;
+  min-width: 100px;
 }
 
 .requiredTag {
@@ -29,7 +29,7 @@
 
 /* Fields Tag */
 .tag.fields {
-  margin-left: 8px;
+  margin-left: 7px;
   background-color: #4f546d;
 }
 

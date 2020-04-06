@@ -1,6 +1,6 @@
 {
     "name":"COVID Data Dictionary",
-    "version":"2.8",
+    "version":"2.10",
     "schemas":[
       {
         "name":"patient",
@@ -453,7 +453,7 @@
       },
       {
         "name": "procedure",
-        "description": "An indicator of whether the patient is alive or dead.",
+        "description": "An action that was performed on or for a patient. This can be a physical intervention like an operation, intubation, or less invasive services.",
         "parent": "patient",
         "fields": [
           {
@@ -510,6 +510,62 @@
         ]
       },
       
+      {
+        "name": "laboratory_result",
+        "description": "A result of a laboratory test.",
+        "parent": "patient",
+        "fields": [
+          {
+            "name": "code",
+            "description": "The code representing the type of laboratory test. ",
+            "required": "required",
+            "permissible": {
+              "codeList": ["Code from LOINC"]
+            },
+            "valueType": "code",
+            "notes": "Use lab code from http://loinc.org if available."
+          },
+          {
+            "name": "effective_date",
+            "valueType": "date",
+            "required": "required",
+            "description": "Clinically relevant date for the laboratory test, e.g., when the sample was obtained."
+          },
+          {
+            "name": "performer_id",
+            "valueType": "ID",
+            "description":"Unique identifier of the patient, assigned by the data provider.",
+            "required":"required"
+          },         
+          {
+            "name": "result_code",
+            "valueType": "code",
+            "description": "Coded result of the lab.",
+            "notes": "Result is either a code or a quantity."
+          },
+          {
+            "name": "result_quantity",
+            "valueType": "quantity",
+            "description": "Quantitative result of the lab."
+          },
+          {
+            "name": "result_quantity_units",
+            "valueType": "code",
+            "description": "The units associated with a quantitative result.",
+            "required": "conditional",
+            "permissible": {
+              "codeList": ["Code from UCUM"]
+            },
+            "note": "Units must be reported for quantitative results"
+          },
+          {
+            "name": "interpretation",
+            "valueType": "code",
+            "description": "The interpretation of the result, for example, high."
+          }
+
+        ]
+      },
       {
         "name": "lab_result",
         "description": "An individual laboratory test and result value",
