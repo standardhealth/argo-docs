@@ -1,10 +1,10 @@
 .DS_Store
 .vscode
 */node_modules
-
 lib/core/metadata.js
 lib/core/MetadataBlog.js
-
+website/src/pages/dictionary**
+website/static/data/schemas**
 temp/
-
 .env
+
