@@ -854,7 +854,7 @@
         ]
       },
       {
-        "name": "vitals",
+        "name": "vital_signs",
         "description": "Data elements associated with the physiologic measurements of a patient that indicate the status of the body's life sustaining functions, also known as vital signs. (Source: United States Core Data for Interoperability (USCDI). https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi)",
         "parent": "patient",
         "fields": [
@@ -868,14 +868,14 @@
             },
             "c19": {
                 "codeList": [
-                "9279-1   Respiratory rate",
-                "2708-6   Oxygen saturation in Arterial blood",
-                "59408-5  Oxygen saturation in Arterial blood by Pulse oximetry",
-                "3151-8   Inhaled oxygen flow rate",
-                "3150-0   Inhaled oxygen concentration",
-                "8310-5   Body temperature",
-                "8302-2   Body height",
-                "29463-7  Body weight"
+                  "9279-1   Respiratory rate",
+                  "2708-6   Oxygen saturation in Arterial blood",
+                  "59408-5  Oxygen saturation in Arterial blood by Pulse oximetry",
+                  "3151-8   Inhaled oxygen flow rate",
+                  "3150-0   Inhaled oxygen concentration",
+                  "8310-5   Body temperature",
+                  "8302-2   Body height",
+                  "29463-7  Body weight"
               ]
             }
           },
@@ -959,6 +959,108 @@
             "description": "The date the patient stopped taking the medication.",
             "required": "conditional",
             "notes": "Stop date time is only required for medications the patient is no longer taking."
+          }
+        ]
+      },
+      {
+        "name": "signs_symptoms",
+        "description": "Data elements related to the signs and symptoms patients typically exhibit for COVID-19. \n Data sources: these data elements may be captured as part of a disease-specific EHR screening/exposure tool, or as part of a public health surveillance case report form.",
+        "parent": "patient",
+        "fields": []
+      },
+      {
+        "name": "symptom_status",
+        "description": "Data elements related to the determination of whether the patient is symptomatic or assymptomatic presentation of COVID-19.",
+        "parent": "signs_symptoms",
+        "fields": [
+          {
+            "name": "symptom_status",
+            "valueType": "code",
+            "description": "A determination made on whether the patient exhibited signs or symptoms of COVID-19.",
+            "required": "optional",
+            "permissible":{
+              "codeList": [
+                "Symptomatic",
+                "Assymptomatic",
+                "Unknown"
+              ]
+            },
+            "notes": "Can be derived from signs_symptom_assessment data elements. Expression: signs_symptoms_assessment.code in signs_symptoms.code.permissible values AND signs_symptoms_assessment.symptom_presence is 'present'."
+          },
+          {
+            "name": "recorded_date",
+            "valueType": "date",
+            "description": "The date the patient's symptom status was evaluated."
+          },
+          {
+            "name": "symptom_onset",
+            "valueType":"date",
+            "description": "The date the patient's symptoms first started.",
+            "required": "conditional",
+            "notes":""
+          },
+          {"name": "symptom_abatement",
+            "valueType": "date",
+            "description": "The date the date the symptoms resolved.",
+            "required": "conditional",
+            "notes": "Symptom abatement date will not be present if the patient is symptomatic at the time symptom status is assessed."
+          }
+        ]
+      },
+      {
+        "name": "signs_symptoms_assessment",
+        "description": "Data elements related to the signs and symptoms patients typically exhibit for COVID-19. \n Data sources: these data elements may be captured as part of a disease-specific EHR screening/exposure tool, or as part of a public health surveillance case report form.",
+        "parent": "signs_symptoms",
+        "fields": [  
+          {
+            "name": "symptom_code",
+            "valueType": "code",
+            "description": "A determination on whether the patient has experienced a specific symptom.",
+            "required": "required",
+            "permissible":{
+              "codeList":["SNOMED CT code"]
+            },
+            "c19": {
+              "codeList":[
+                "43724002   Chill (finding)",
+                "162397003  Pain in throat (finding)",
+                "49727002   Cough (finding)",
+                "267036007  Dyspnea (finding)",
+                "426000000  Fever greater than 100.4 Fahrenheit (finding)",
+                "103001002  Feeling feverish (finding)",
+                "68962001   Muscle pain (finding)",
+                "64531003   Nasal discharge (finding)",
+                "422587007  Nausea (finding)",
+                "422400008  Vomiting (disorder)",
+                "25064002   Headache (finding)",
+                "21522001   Abdominal pain (finding)",
+                "62315008   Diarrhea (finding)",
+                "13791008   Asthenia (finding)",
+                "79890006   Loss of appetite (finding)",
+                "44169009   Loss of sense of smell (finding)",
+                "36955009   Loss of taste",
+                "22253000   Pain",
+                "29857009   Chest pain"
+              ]
+            }
+          },
+          {
+            "name": "symptom_presence",
+            "valueType": "code",
+            "description": "Whether a sign or symptom was present or absent",
+            "required": "required",
+            "permissible":{
+              "codeList": [
+                "present",
+                "absent",
+                "unknown"
+              ]
+            }
+          },
+          {
+            "name": "assessment_date",
+            "valueType": "date",
+            "description": "The date the patient's symptoms were assessed."
           }
         ]
       }
