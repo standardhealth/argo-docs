@@ -481,13 +481,15 @@
           {
             "name": "end_date",
             "description": "The date and time the procedure ended.",
+            "required":"optional",
             "valueType": "date"
           }
         ]
       },
+
       {
         "name": "smoking_status",
-        "description": "Data elements associated with the patient's use ",
+        "description": "Data elements associated with the patient's use of smoking tobacco.",
         "parent": "patient",
         "fields": [
           {
@@ -507,6 +509,7 @@
           }
         ]
       },
+      
       {
         "name": "laboratory_result",
         "description": "A result of a laboratory test.",
@@ -678,6 +681,286 @@
             }
           }
         ]
+      },
+
+      {
+        "name": "encounter",
+        "description": "Data elements associated with an encounter at a health care facility, such as an ambulatory visit, an emergency department visit, or a hospitalization.",
+        "parent": "patient",
+        "fields": [
+          {
+            "name":"encounter_id",
+            "description":"A unique identifier for the encounter.",
+            "required": "required",
+            "valueType":"ID"
+          },
+          {
+            "name":"encounter_class",
+            "description":"A classification of the encounter, e.g. ambulatory, emergency or inpatient",
+            "required": "required",
+            "valueType":"code",
+            "permissible":{
+              "codeList": [
+                "AMB (ambulatory)",
+                "EMER (emergency)",
+                "FLD (field)",
+                "HH (home health)",
+                "IMP (inpatient encounter)",
+                "ACUTE (inpatient acute)",
+                "NONAC (inpatient non-acute)",
+                "OBSENC (observation encounter)",
+                "PRENC (pre-admission)",
+                "SS (short stay)",
+                "VR (virtual)"
+              ]
+            },
+            "notes": "Permissible values descriptions are available at http://hl7.org/fhir/v3/ActEncounterCode/vs.html."            
+          },
+          {
+            "name":"admission_date",
+            "description":"The date the patient was admitted for the encounter",
+            "required": "required",
+            "valueType":"date"
+          },
+
+          {
+            "name":"admission_source",
+            "description":"The type of location the patient originated from.",
+            "required": "optional",
+            "valueType":"code",
+            "permissible":{
+              "codeList":["Any of the codes specified in the http://terminology.hl7.org/CodeSystem/admit-source value set"]
+            },
+            "notes": "Definitions for the permissible values are available at http://hl7.org/fhir/codesystem-encounter-admit-source.html."            
+          },
+          {
+            "name":"discharge_date",
+            "description":"The date the patient was discharged from the encounter",
+            "required": "required",
+            "valueType":"date"
+          },
+          {
+            "name": "discharge_disposition",
+            "description": "Categorization of the status of the patient at discharge according to the type of location the patient was discharged to.",
+            "valueType": "code",
+            "required":"required",
+            "permissible":{
+              "codeList": [
+                "home (Home)",
+                "alt-home (Alternative home)",
+                "other-hcf (Other healthcare facility)",
+                "hosp (Hospice)",
+                "long (Long-term care)",
+                "aadvice (Left against advice)",
+                "exp (Expired)",
+                "psy (Psychiatric hospital)",
+                "rehab (Rehabilitation)",
+                "snf (Skilled nursing facility)",
+                "other (Other)"
+              ]
+            },
+            "notes": "Definitions for the permissible values are available at https://www.hl7.org/fhir/valueset-encounter-discharge-disposition.html"
+          },
+          {
+            "name": "initial_diagnosis",
+            "description": "The initial working diagnosis (also known as 'chief complaint') first entered into the EHR",
+            "valueType": "code",
+            "permissible":{
+              "codeList": [
+                "ICD-10-CM code",
+                "SNOMED CT code"
+              ]
+            }
+          },
+          {
+            "name": "admitting_diagnosis",
+            "description": "The main diagnosis code used to admit the patient.",
+            "valueType": "code",
+            "required": "conditional",
+            "permissible": {
+              "codeList": [
+                "ICD-10-CM code",
+                "SNOMED CT disorder code"
+              ]
+            },
+            "notes":"An admitting diagnosis is only expected to be available for inpatient encounters."
+          },
+          {
+            "name": "discharge_diagnosis",
+            "description": "The final diagnosis determined to be the main cause for the hospitalization after all testing, surgery, and workup are complete.",
+            "valueType": "code",
+            "required": "conditional",
+            "permissible":{
+              "codeList": [
+                "ICD-10-CM code",
+                "SNOMED CT disorder code"
+              ]
+            },
+            "notes": "Discharge diagnosis is only expected to be available for inpatient encounters that have been completed."
+          }
+        ]
+      },
+      {
+        "name": "encounter_location",
+        "description": "Data elements associated with specific locations the patient during the course of an inpatient encounter.",
+        "parent": "encounter",
+        "fields": [
+          {
+            "name":"location_id",
+            "description":"A unique identifier for the encounter location.",
+            "required": "required",
+            "valueType":"ID"      
+           },
+           {
+            "name":"encounter_id",
+            "description":"The identifier for the encounter associated with this particular location",
+            "required": "required",
+            "valueType":"ID"      
+           },
+           {
+            "name":"type",
+            "description":"The type of location according to its function/purpose",
+            "required": "required",
+            "valueType":"code",
+            "permissible":{
+              "codeList":[
+                "Any of the codes specified in the http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType value set."
+              ]
+            },
+            "c19":{
+              "codeList": ["ICU (Intensive Care Unit)"]
+            },
+            "notes": "Definitions for the permissible values for location type are available at http://hl7.org/fhir/v3/ServiceDeliveryLocationRoleType/vs.html"
+           },
+           {
+            "name":"arrival_datetime",
+            "description":"The date and time the patient arrived at the location.",
+            "required": "optional",
+            "valueType": "date"
+           },
+           {
+            "name":"departure_datetime",
+            "description":"The type of location according to its function/purpose",
+            "required": "optional",
+            "valueType": "date"
+           },
+           {
+            "name":"length of stay",
+            "description":"The length of time a patient spent in the location.",
+            "required": "optional",
+            "valueType": "number",
+            "notes": "Can be derived: departure_datetime - arrival_datetime"
+           }
+        ]
+      },
+      {
+        "name": "vitals",
+        "description": "Data elements associated with the physiologic measurements of a patient that indicate the status of the body's life sustaining functions, also known as vital signs. (Source: United States Core Data for Interoperability (USCDI). https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi)",
+        "parent": "patient",
+        "fields": [
+          {
+            "name": "code",
+            "valueType": "code",
+            "description": "A code for the vital sign of interest, e.g. heart rate.",
+            "required": "required",
+            "permissible":{
+              "codeList": ["LOINC code"]
+            },
+            "c19": {
+                "codeList": [
+                "9279-1   Respiratory rate",
+                "2708-6   Oxygen saturation in Arterial blood",
+                "59408-5  Oxygen saturation in Arterial blood by Pulse oximetry",
+                "3151-8   Inhaled oxygen flow rate",
+                "3150-0   Inhaled oxygen concentration",
+                "8310-5   Body temperature",
+                "8302-2   Body height",
+                "29463-7  Body weight"
+              ]
+            }
+          },
+          {
+            "name": "value",
+            "valueType": "number",
+            "description": "The result of measuring the vital sign.",
+            "required": "required"
+          },
+          {
+            "name": "unit",
+            "valueType": "string",
+            "description": "The unit for the measured vital sign value.",
+            "required": "required",
+            "permissible": {
+              "codeList": ["UCUM code"]
+            },
+            "notes": "Units associated with each of the permissible vital sign codes are listed in http://hl7.org/fhir/R4/observation-vitalsigns.html"
+          },
+          {
+            "name": "measurement_date",
+            "valueType": "date",
+            "description": "The date and time the measurement of the vital sign occurred.",
+            "required": "required"
+          }
+        ]
+      },
+
+      {
+        "name": "medication_list",
+        "description": "Data elements associated with medications on the patient's medication list. The medication list is maintained as part of a medication reconciliation process and asserted by the patient or the patient’s caregiver​.",
+        "parent": "patient",
+        "fields": [
+          {
+            "name": "code",
+            "valueType": "code",
+            "description": "A code for the medication the statement is about.",
+            "required": "required",
+            "permissible": {
+              "codeList": [
+                "RxNorm code: http://www.nlm.nih.gov/research/umls/rxnorm",
+                "NDC code: http://hl7.org/fhir/sid/ndc"
+              ]
+            },
+            "notes": "medication_code is a structure which contains codeSystem, code, and name. For RxNorm, all prescribable medication formulations represented using either a 'generic' or 'brand-specific' concept. This includes RxNorm codes whose Term Type is SCD (semantic clinical drug), SBD (semantic brand drug), GPCK (generic pack), BPCK (brand pack), SCDG (semantic clinical drug group), SBDG (semantic brand drug group), SCDF (semantic clinical drug form), or SBDF (semantic brand drug form). Source: http://www.hl7.org/fhir/us/core/STU3/ValueSet-us-core-medication-codes.html."
+          },
+          {
+            "name": "status",
+            "valueType": "code",
+            "description": "The status of the medication.",
+            "required": "required",
+            "permissible": {
+              "codeList": [
+                "active",
+                "completed",
+                "entered-in-error",
+                "intended",
+                "stopped",
+                "on-hold",
+                "unknown",
+                "not-taken"
+              ]
+            },
+            "notes": "The permissible values' terms are consistent with and described in http://hl7.org/fhir/valueset-medication-statement-status.html.\nTODO: Stopped, on-hold, unknown, and not-taken are not specified in the argonaut DQ IG, and the value set's binding strength is required. Seems reasonable to include these terms based on the way med lists are managed (and the terms are included in the latest US Core release."
+          },
+          {
+            "name": "recorded_date",
+            "valueType": "date",
+            "description": "The date when the statement about the medication statement was made.",
+            "required": "required"
+          },
+          {
+            "name": "start_date",
+            "valueType": "date",
+            "description": "The date the partient started taking the medication.",
+            "required": "required"
+          },
+          {
+            "name": "end_date",
+            "valueType": "date",
+            "description": "The date the patient stopped taking the medication.",
+            "required": "conditional",
+            "notes": "Stop date time is only required for medications the patient is no longer taking."
+          }
+        ]
       }
-    ]
+    ]  
   }
