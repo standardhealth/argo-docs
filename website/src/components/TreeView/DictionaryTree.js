@@ -126,7 +126,7 @@ const FileDisplayBox = ({ fileName, required = false, fields, onExpandStateChang
           border-radius: 10px;
           border: solid 2px ${required ? theme.colors.error : theme.colors.secondary};
           background: ${theme.colors.white};
-          width: 225px;
+          width: 260px;   // width of 
           padding: 2px;
         `}
       >
