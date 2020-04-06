@@ -638,9 +638,20 @@
             "description": "A code for the vital sign of interest, e.g. heart rate.",
             "required": "required",
             "permissible":{
-              "codeList": ["LOINC code"]
-            },
-            "notes": "LOINC codes for specific vital signs of interest are included in the FHIR R4 observation-vital-signs profile https://www.hl7.org/fhir/observation-vitalsigns.html"
+              "codeList": ["LOINC code"],
+              "c19": [
+                "9279-1   Respiratory rate",
+                "2708-6   Oxygen saturation in Arterial blood",
+                "59408-5  Oxygen saturation in Arterial blood by Pulse oximetry",
+                "3151-8   Inhaled oxygen flow rate",
+                "3150-0   Inhaled oxygen concentration",
+                "8310-5   Body temperature",
+                "8302-2   Body height",
+                "29463-7  Body weight",
+                "8480-6   Systolic blood pressure",
+                "8462-4   Diastolic blood pressure"
+              ]
+            }
           },
           {
             "name": "value",
@@ -655,45 +666,8 @@
             "required": "required",
             "permissible": {
               "codeList": ["UCUM code"]
-            }
-          },
-          {
-            "name": "measurement_date",
-            "valueType": "date",
-            "description": "The date and time the measurement of the vital sign occurred.",
-            "required": "required"
-          }
-        ]
-      },
-      
-      {
-        "name": "inhaled_oxygen_flow_rate",
-        "description": "The measurement of inhaled oxygen flow rate by pulse oximetry.",
-        "parent": "vitals",
-        "fields": [
-          {
-            "name": "code",
-            "valueType": "code",
-            "description": "The LOINC code used to represent inhaled oxygen flow rate",
-            "required": "required",
-            "permissible":{
-              "codeList": ["3151-8"]
-            }
-          },
-          {
-            "name": "value",
-            "valueType": "quantity",
-            "description": "The result of measuring the vital sign.",
-            "required": "required"
-          },
-          {
-            "name": "unit",
-            "valueType": "string",
-            "description": "The UCUM unit for the measured vital sign value.",
-            "required": "required",
-            "permissible": {
-              "codeList": ["l/min"]
-            }
+            },
+            "notes": "Units associated with each of the permissible vital sign codes are listed in http://hl7.org/fhir/R4/observation-vitalsigns.html"
           },
           {
             "name": "measurement_date",
