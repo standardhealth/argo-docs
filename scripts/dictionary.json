@@ -506,7 +506,122 @@
             "description": "The date when the smoking status was recorded."
           }
         ]
+      },
+      {
+        "name": "lab_result",
+        "description": "An individual laboratory test and result value",
+        "parent": "patient",
+        "fields": [
+          {
+            "name":"lab_result_id",
+            "description":"Unique identifier of the lab test.",
+            "required":"required",
+            "valueType":"ID"
+          },
+          {
+            "name": "lab_result_code",
+            "valueType": "code",
+            "description": "The code associated with the lab test.",
+            "required": "required",
+            "permissible": {
+              "codeList": ["LOINC code"]
+            },
+            "c19": {
+              "codeList": [
+                "88891-7",
+                "82163-7",
+                "82161-1",
+                "82162-9",
+                "82164-5",
+                "88636-6",
+                "94558-4",
+                "94307-6",
+                "94308-4",
+                "94311-8",
+                "94312-6",
+                "94559-2",
+                "94310-0",
+                "94313-4",
+                "94502-2",
+                "94562-6",
+                "94505-5",
+                "94547-7",
+                "94563-4",
+                "94506-3",
+                "94564-2",
+                "94508-9",
+                "94315-9",
+                "94509-7",
+                "94533-7",
+                "94316-7",
+                "94510-5",
+                "94511-3",
+                "94565-9",
+                "94500-6",
+                "94309-2",
+                "94534-5",
+                "94314-2",
+                "94532-9"
+             ]
+            },
+            "notes": "LOINC is preferred as the coding system for the lab test. In cases where there is a no LOINC code immediately available, a local test code would be accepted provided that there is a code system listing where the code originated."
+          },
+          {
+            "name":"clinical_status",
+            "description":"The clinical status of the condition. (Reference source: FHIR Condition clinical status from http://hl7.org/fhir/condition-definitions.html#Condition.clinicalStatus).",
+            "valueType":"code",
+            "required":"required",
+            "permissible":{
+              "codeList":[
+                "registered",
+                "preliminary",
+                "final",
+                "amdnded",
+                "corrected",
+                "cancelled",
+                "entered-in-error",
+                "unknown"
+              ]
+            },
+            "notes":"The clinical status value set terms are described at http://hl7.org/fhir/observation-status."
+          },
+          {
+            "name": "recorded_date",
+            "valueType": "date",
+            "description": "The date when the lab result was recorded."
+          },
+          {
+            "name": "lab_result_value_string",
+            "description": "The value associated with a lab result, represented as a string.",
+            "valueType": "string",
+            "notes": "A lab result can have many variations of data_types. The implementer should only select one type of lab_result_value associated with each lab result."
+          },
+          {
+            "name": "lab_result_value_numeric",
+            "description": "The value associated with a lab result, represented as a number. The number can be either an integer or a float.",
+            "valueType": "number",
+            "notes": "A lab result can have many variations of data_types. The implementer should only select one type of lab_result_value associated with each lab result."
+          },
+          {
+            "name": "lab_result_units",
+            "description": "Unit of measure for the associated with the lab result value.",
+            "valueType": "code",
+            "permissible": {
+              "codeList": ["UCUM code"]
+            },
+            "notes": "Nomenclature conforms to the Unified Code for Units of Measure (UCUM): https://unitsofmeasure.org/trac"
+          },
+          {
+            "name":"lab_result_interpretation",
+            "description":"An interpretation associated with the lab test result",
+            "valueType":"code",
+            "permissible":{
+              "codeList":[
+                "Any of the codes specified in the http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation value set."
+              ]
+            }
+          }
+        ]
       }
-
     ]
   }
