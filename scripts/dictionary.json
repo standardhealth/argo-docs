@@ -638,8 +638,10 @@
             "description": "A code for the vital sign of interest, e.g. heart rate.",
             "required": "required",
             "permissible":{
-              "codeList": ["LOINC code"],
-              "c19": [
+              "codeList": ["LOINC code"]
+            },
+            "c19": {
+                "codeList": [
                 "9279-1   Respiratory rate",
                 "2708-6   Oxygen saturation in Arterial blood",
                 "59408-5  Oxygen saturation in Arterial blood by Pulse oximetry",
@@ -647,9 +649,7 @@
                 "3150-0   Inhaled oxygen concentration",
                 "8310-5   Body temperature",
                 "8302-2   Body height",
-                "29463-7  Body weight",
-                "8480-6   Systolic blood pressure",
-                "8462-4   Diastolic blood pressure"
+                "29463-7  Body weight"
               ]
             }
           },
