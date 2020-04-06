@@ -59,7 +59,7 @@ const TreeView = ({ data, searchValue }) => {
             height: stretch;
           }
         `}
-      />
+      /> 
       <ZoomPanContainer
         menu={({ resetTransform }) => (
           <div
