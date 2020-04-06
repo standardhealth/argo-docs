@@ -259,7 +259,7 @@
             "valueType": "code",
             "description": "A code for the agent causing the allergy or intolerance.",
             "required": "required",
-            "notes": "NDRFT or RxNorm for medication allergies/intolerances; SNOMED CT for non-medication allergies/intolerances."
+            "notes": "RxNorm or NDF-RT for medication allergies/intolerances; SNOMED CT for non-medication allergies/intolerances."
           },
           {
             "name": "recorded_date",
@@ -295,6 +295,16 @@
             "required": "required"
           },
           {
+            "name": "medadmin_status",
+            "description": "The status of the medication administration",
+            "valueType": "code",
+            "required": "required",
+            "permissible": {
+              "codeList": ["in-progress", "not-done", "on-hold", "completed",  "entered-in-error", "stopped", "unknown"]
+            },
+            "notes": "The medication administration status value set terms are described at https://www.hl7.org/fhir/valueset-medication-admin-status.html."
+          },
+          {
             "name": "medication_code",
             "valueType": "code",
             "description": "The code to represent the medication that was administered.",
@@ -317,14 +327,18 @@
             "notes": "medication_code is a structure which contains codeSystem, code, and name. For RxNorm, all prescribable medication formulations represented using either a 'generic' or 'brand-specific' concept. This includes RxNorm codes whose Term Type is SCD (semantic clinical drug), SBD (semantic brand drug), GPCK (generic pack), BPCK (brand pack), SCDG (semantic clinical drug group), SBDG (semantic brand drug group), SCDF (semantic clinical drug form), or SBDF (semantic brand drug form). Source: http://www.hl7.org/fhir/us/core/STU3/ValueSet-us-core-medication-codes.html."
           },
           {
-            "name": "medadmin_status",
-            "description": "The status of the medication administration",
+            "name": "medadmin_dose_quantity",
+            "description": "The amount of the medication given at one administration event.",
+            "valueType": "quantity"
+          },
+          {
+            "name": "medadmin_dose_units",
+            "description": "Unit of measure for the dose quantity of the administered medication.",
             "valueType": "code",
-            "required": "required",
             "permissible": {
-              "codeList": ["in-progress", "not-done", "on-hold", "completed",  "entered-in-error", "stopped", "unknown"]
+              "codeList": ["UCUM code"]
             },
-            "notes": "The medication administration status value set terms are described at https://www.hl7.org/fhir/valueset-medication-admin-status.html."
+            "notes": "Nomenclature conforms to the Unified Code for Units of Measure (UCUM): https://unitsofmeasure.org/trac"
           },
           {
             "name": "medication_route",
@@ -347,24 +361,96 @@
             "description": "The date and time when the medication as administered to the patient.",
             "required": "required",
             "valueType": "date"
+          } 
+        ]
+      },
+      {
+        "name": "medication_order",
+        "description": "An instance of medication order.",
+        "parent": "patient",
+        "fields": [
+          {
+            "name": "medorder_id",
+            "valueType": "ID",
+            "description": "Unique identifier assigned to the medication order episode.",
+            "required": "required"
           },
           {
-            "name": "medadmin_dose_quantity",
-            "description": "The amount of the medication given at one administration event.",
+            "name": "medorder_status",
+            "description": "The status of the medication order",
+            "valueType": "code",
+            "required": "required",
+            "permissible": {
+              "codeList": ["active", "on-hold", "canceled", "completed",  "entered-in-error", "stopped", "draft", "unknown"]
+            },
+            "notes": "The medication order status value set terms are described at http://hl7.org/fhir/CodeSystem/medicationrequest-status."
+          },
+          {
+            "name": "medication_code",
+            "valueType": "code",
+            "description": "The code to represent the medication that was administered.",
+            "required": "required",
+            "permissible": {
+              "codeList": [
+                "RxNorm code: http://www.nlm.nih.gov/research/umls/rxnorm",
+                "NDC code: http://hl7.org/fhir/sid/ndc"
+             ]
+            },
+            "notes": "medication_code is a structure which contains codeSystem, code, and name. For RxNorm, all prescribable medication formulations represented using either a 'generic' or 'brand-specific' concept. This includes RxNorm codes whose Term Type is SCD (semantic clinical drug), SBD (semantic brand drug), GPCK (generic pack), BPCK (brand pack), SCDG (semantic clinical drug group), SBDG (semantic brand drug group), SCDF (semantic clinical drug form), or SBDF (semantic brand drug form). Source: http://www.hl7.org/fhir/us/core/STU3/ValueSet-us-core-medication-codes.html."
+          },
+          {
+            "name": "medorder_dose_quantity",
+            "description": "The amount of the medication given per medication administration event.",
             "valueType": "quantity"
           },
           {
-            "name": "medadmin_dose_units",
-            "description": "Unit of measure for the dose quantity of the administered medication.",
+            "name": "medorder_dose_units",
+            "description": "Unit of measure for the dose quantity of the ordered medication.",
             "valueType": "code",
             "permissible": {
               "codeList": ["UCUM code"]
             },
             "notes": "Nomenclature conforms to the Unified Code for Units of Measure (UCUM): https://unitsofmeasure.org/trac"
-          }     
+          },
+          {
+            "name": "medication_route",
+            "description": "The path of the substance into the body for the ordered medication.",
+            "permissible": {
+               "codeList": [
+                  "Include codes from http://snomed.info/sct  where concept is-a 284009009 (Route of administration values)"
+               ]
+            },
+            "valueType": "code"
+          },
+          {
+            "name": "medorder_frequency",
+            "description": "The timing for the frequency that the medication should be taken.",
+            "valueType": "string",
+            "notes": "frequency was made a string instead of a complex data structure to simplify the collection of data."
+          },
+          {
+            "name": "medorder_start_date",
+            "description": "The date and time when the medication order was or will be started.",
+            "required": "required",
+            "valueType": "date"
+          },
+          {
+            "name": "medorder_stop_date",
+            "description": "The date and time when the medication order will be discontinued. This is specified when a given medication is ordered for a limited period of time.",
+            "required": "required",
+            "valueType": "date"
+          },
+          {
+            "name": "medorder_reason_code",
+            "description": "The condition associated with the reason for the medication order.",
+            "valueType": "code",
+            "permissible": {
+              "codeList": ["SNOMED-CT code", "ICD-10-CM code"]
+            },
+            "notes": "This field accepts either ICD-10-CM or SNOMED-CT disorder codes"
+          }    
         ]
       },
-
       {
         "name": "procedure",
         "description": "An action that was performed on or for a patient. This can be a physical intervention like an operation, intubation, or less invasive services.",
@@ -476,8 +562,122 @@
           }
 
         ]
+      },
+      {
+        "name": "lab_result",
+        "description": "An individual laboratory test and result value",
+        "parent": "patient",
+        "fields": [
+          {
+            "name":"lab_result_id",
+            "description":"Unique identifier of the lab test.",
+            "required":"required",
+            "valueType":"ID"
+          },
+          {
+            "name": "lab_result_code",
+            "valueType": "code",
+            "description": "The code associated with the lab test.",
+            "required": "required",
+            "permissible": {
+              "codeList": ["LOINC code"]
+            },
+            "c19": {
+              "codeList": [
+                "88891-7",
+                "82163-7",
+                "82161-1",
+                "82162-9",
+                "82164-5",
+                "88636-6",
+                "94558-4",
+                "94307-6",
+                "94308-4",
+                "94311-8",
+                "94312-6",
+                "94559-2",
+                "94310-0",
+                "94313-4",
+                "94502-2",
+                "94562-6",
+                "94505-5",
+                "94547-7",
+                "94563-4",
+                "94506-3",
+                "94564-2",
+                "94508-9",
+                "94315-9",
+                "94509-7",
+                "94533-7",
+                "94316-7",
+                "94510-5",
+                "94511-3",
+                "94565-9",
+                "94500-6",
+                "94309-2",
+                "94534-5",
+                "94314-2",
+                "94532-9"
+             ]
+            },
+            "notes": "LOINC is preferred as the coding system for the lab test. In cases where there is a no LOINC code immediately available, a local test code would be accepted provided that there is a code system listing where the code originated."
+          },
+          {
+            "name":"clinical_status",
+            "description":"The clinical status of the condition. (Reference source: FHIR Condition clinical status from http://hl7.org/fhir/condition-definitions.html#Condition.clinicalStatus).",
+            "valueType":"code",
+            "required":"required",
+            "permissible":{
+              "codeList":[
+                "registered",
+                "preliminary",
+                "final",
+                "amdnded",
+                "corrected",
+                "cancelled",
+                "entered-in-error",
+                "unknown"
+              ]
+            },
+            "notes":"The clinical status value set terms are described at http://hl7.org/fhir/observation-status."
+          },
+          {
+            "name": "recorded_date",
+            "valueType": "date",
+            "description": "The date when the lab result was recorded."
+          },
+          {
+            "name": "lab_result_value_string",
+            "description": "The value associated with a lab result, represented as a string.",
+            "valueType": "string",
+            "notes": "A lab result can have many variations of data_types. The implementer should only select one type of lab_result_value associated with each lab result."
+          },
+          {
+            "name": "lab_result_value_numeric",
+            "description": "The value associated with a lab result, represented as a number. The number can be either an integer or a float.",
+            "valueType": "number",
+            "notes": "A lab result can have many variations of data_types. The implementer should only select one type of lab_result_value associated with each lab result."
+          },
+          {
+            "name": "lab_result_units",
+            "description": "Unit of measure for the associated with the lab result value.",
+            "valueType": "code",
+            "permissible": {
+              "codeList": ["UCUM code"]
+            },
+            "notes": "Nomenclature conforms to the Unified Code for Units of Measure (UCUM): https://unitsofmeasure.org/trac"
+          },
+          {
+            "name":"lab_result_interpretation",
+            "description":"An interpretation associated with the lab test result",
+            "valueType":"code",
+            "permissible":{
+              "codeList":[
+                "Any of the codes specified in the http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation value set."
+              ]
+            }
+          }
+        ]
       }
-
-
     ]
   }
