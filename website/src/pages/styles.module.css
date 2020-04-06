@@ -1,9 +1,10 @@
 /* Search Banner */
 
 .homeSplashFade {
-  background-image: url('/img/galaxy-splash.jpg');
+  background-image: url('/img/c19hcc-splash.png');
+  background-size: 1000px;
+  background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
 }
 .homeContainer .homeWrapper {
   padding: 0;
@@ -14,40 +15,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.searchEntryWrapper {
-  width: 445px;
-  height: 50px;
-  border-radius: 10px;
-  border: 1px solid #babcc2;
-  background-color: white;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  overflow: hidden;
-}
-
-.searchEntryIcon {
-  padding: 14px;
-  padding-left: 12px;
-}
-
-.searchEntryInput {
-  border: none;
-  height: 100%;
-  width: 100%;
-
-  font-size: 18px;
-
-  color: #525767;
-  font-weight: 300;
-}
-
-.searchEntryInput::placeholder {
-  color: #525767;
-  font-weight: 300;
-  font-size: 18px;
 }
 
 span.bannerText {

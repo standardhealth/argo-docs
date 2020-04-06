@@ -1,5 +1,5 @@
 def dockerHubRepo = "icgcargo/argo-docs"
-def githubRepo = "icgc-argo/argo-docs"
+def githubRepo = "standardhealth/argo-docs"
 def commit = "UNKNOWN" 
 pipeline {
     agent {
@@ -65,7 +65,7 @@ spec:
                 container('docker') {
                     withCredentials([usernamePassword(credentialsId: 'argoGithub', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                         sh "git tag ${version}"
-                        sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/icgc-argo/argo-docs --tags"
+                        sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/standardhealth/argo-docs --tags"
                     }
                     withCredentials([usernamePassword(credentialsId:'argoDockerHub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                         sh 'docker login -u $USERNAME -p $PASSWORD'
@@ -77,6 +77,27 @@ spec:
                     sh "docker push ${dockerHubRepo}:${commit}"
                     sh "docker push ${dockerHubRepo}:${version}"
                     sh "docker push ${dockerHubRepo}:latest"
+                }
+            }
+        }
+
+        stage('Release & Tag Hotfix') {
+            when { branch 'hotfix' }
+            steps {
+                container('docker') {
+                    withCredentials([usernamePassword(credentialsId: 'argoGithub', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                        sh "git tag ${version}"
+                        sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/standardhealth/argo-docs --tags"
+                    }
+                    withCredentials([usernamePassword(credentialsId:'argoDockerHub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                        sh 'docker login -u $USERNAME -p $PASSWORD'
+                    }
+
+                    // DNS error if --network is default
+                    sh "docker build --network=host . -t ${dockerHubRepo}:${commit} -t ${dockerHubRepo}:${version} -t ${dockerHubRepo}:latest"
+
+                    sh "docker push ${dockerHubRepo}:${commit}"
+                    sh "docker push ${dockerHubRepo}:${version}"
                 }
             }
         }

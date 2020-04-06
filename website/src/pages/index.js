@@ -8,7 +8,6 @@
 const React = require('react');
 
 import Layout from '@theme/Layout';
-
 import styles from './styles.module.css';
 
 function HomeSplash() {
@@ -20,29 +19,15 @@ function HomeSplash() {
     </div>
   );
 
-  const SearchEntry = props => (
-    <div className={styles.searchEntryWrapper}>
-      <img
-        className={styles.searchEntryIcon}
-        src={`img/icons/search.svg`}
-        alt="Search"
-        height="20"
-        width="20"
-      />
-      <input className={styles.searchEntryInput} id="searchBannerInput" placeholder="Search..." />
-    </div>
-  );
-
   const SearchBanner = props => (
     <section className={styles.searchBanner}>
-      <span className={styles.bannerText}>How can we help?</span>
-      <SearchEntry />
+      <span className={styles.bannerText}> </span>
     </section>
   );
 
   return (
     <SplashContainer>
-      <SearchBanner />
+          <SearchBanner />
     </SplashContainer>
   );
 }
@@ -64,7 +49,7 @@ class ContentBlock extends React.Component {
 
 function Index() {
   return (
-    <Layout permalink="/" title="ICGC ARGO Docs">
+    <Layout permalink="/" title="C19HCC">
       <div>
         <HomeSplash />
         <div className={styles.mainContainer}>
@@ -75,50 +60,13 @@ function Index() {
               icon="img/icons/home/data-dictionary.svg"
             >
               <span className={styles.contentDescription}>
-                The dictionary describes the schema that data submitters must conform to and track
-                changes when formatting clinical data files.
+                The dictionary describes the guidelines that data submitters should follow when exporting clinical data files from their electronic health record (EHR) systems.
               </span>
               <a className={styles.contentAction} href="/dictionary">
                 Data Dictionary Viewer
                 <img src="img/icons/chevron-right.svg" height={8} width={8} />
               </a>
             </ContentBlock>
-            <ContentBlock
-              title="Data Submission"
-              color="#24dbb4"
-              icon="img/icons/home/testtube.svg"
-            >
-              <ul>
-                <li>
-                  <a href="/docs/submission-overview">Get started</a>: a quick guide to data
-                  submission
-                </li>
-                <li>
-                  How to <a href="/docs/registering-samples">register samples</a>
-                </li>
-                <li>
-                  How to <a href="/docs/submitting-clinical-data">submit clinical data</a>
-                </li>
-                <li>
-                  How to <a href="/docs/submitting-molecular-data">submit molecular data</a>
-                </li>
-              </ul>
-            </ContentBlock>
-            <ContentBlock title="Data Access & Download" color="#f95d31" icon="img/icons/home/download.svg">
-              <ul>
-                <li>
-                  How to <a href="/docs/data-access">access controlled data</a>
-                </li>
-                <li>
-                  How to <a href="/docs/data-download">download data</a>
-                </li>
-                <li>
-                  How to use the <a href="/docs/data-download">Score Download Client</a>
-                </li>
-              </ul>
-            </ContentBlock>
-          </div>
-          <div className={styles.row}>
             <ContentBlock
               title="Data Harmonization"
               color="#7f55cc"
@@ -141,6 +89,8 @@ function Index() {
                 </li>
               </ul> */}
             </ContentBlock>
+          </div>
+          <div className={styles.row}>
             <ContentBlock title="FAQs" color="#fea430" icon="img/icons/home/faq.svg">
               Coming Soon
               {/* <ul>
