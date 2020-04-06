@@ -366,7 +366,7 @@
       },
       {
         "name": "medication_order",
-        "description": "An instance of administering a medication to a patient.",
+        "description": "An instance of medication order.",
         "parent": "patient",
         "fields": [
           {
