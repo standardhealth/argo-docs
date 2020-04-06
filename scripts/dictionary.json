@@ -1,6 +1,6 @@
 {
     "name":"COVID Data Dictionary",
-    "version":"2.10",
+    "version":"2.16",
     "schemas":[
       {
         "name":"patient",
@@ -32,7 +32,6 @@
               ]
             },
             "notes": "Codes should align with FHIR Administrative Gender value set (http://hl7.org/fhir/ValueSet/administrative-gender)"
-
           },
           {
             "name":"race",
@@ -67,12 +66,13 @@
           },
           {
             "name":"zip_code",
-            "description":"Five digit zip code.",
+            "description":"Zip code of the primary residence of the patient.",
             "valueType":"string",
             "required":"required",
             "permissible":{
               "regex":"(^\\d{5}$)|(^\\d{9}$)|(^\\d{5}-\\d{4}$)"
-            }
+            },
+            "notes": "Five digit zip code is acceptable."            
           }
         ]
       },
@@ -241,6 +241,18 @@
             },
             "notes":"The clinical status value set terms are described at http://hl7.org/fhir/valueset-condition-clinical.html."
           }
+        ],
+        "profiles":[
+          {
+            "name":"A profile",
+            "description":"Description goes here.",
+            "keyCode":"LOINC#92847",
+            "valueType":"code",
+            "permissible": {
+              "codeList": ["in-progress", "aborted", "completed", "entered-in-error"]
+            },
+            "notes":"Here is a usage note."
+          }
         ]
       },
       {
@@ -279,6 +291,18 @@
             "name": "category",
             "description": "The type of allergy or intolerance.",
             "valueType": "string"
+          }
+        ],
+        "profiles":[
+          {
+            "name":"A profile",
+            "description":"Description goes here.",
+            "keyCode":"LOINC#92847",
+            "valueType":"code",
+            "permissible": {
+              "codeList": ["in-progress", "aborted", "completed", "entered-in-error"]
+            },
+            "notes":"Here is a usage note."
           }
         ]
       },
@@ -362,6 +386,15 @@
             "required": "required",
             "valueType": "date"
           } 
+        ],
+        "profiles":[
+          {
+            "name":"A COVID-related medication",
+            "description":"Description goes here.",
+            "keyCode":"RXNORM",
+            "valueType":"code",
+            "notes":"Here is a usage note."
+          }
         ]
       },
       {
@@ -449,6 +482,18 @@
             },
             "notes": "This field accepts either ICD-10-CM or SNOMED-CT disorder codes"
           }    
+        ],
+        "profiles":[
+          {
+            "name":"A profile",
+            "description":"Description goes here.",
+            "keyCode":"LOINC#92847",
+            "valueType":"code",
+            "permissible": {
+              "codeList": ["in-progress", "aborted", "completed", "entered-in-error"]
+            },
+            "notes":"Here is a usage note."
+          }
         ]
       },
       {
@@ -484,6 +529,18 @@
             "required":"optional",
             "valueType": "date"
           }
+        ],
+        "profiles":[
+          {
+            "name":"A profile",
+            "description":"Description goes here.",
+            "keyCode":"LOINC#92847",
+            "valueType":"code",
+            "permissible": {
+              "codeList": ["in-progress", "aborted", "completed", "entered-in-error"]
+            },
+            "notes":"Here is a usage note."
+          }
         ]
       },
 
@@ -507,9 +564,20 @@
             "valueType": "date",
             "description": "The date when the smoking status was recorded."
           }
+        ],
+        "profiles":[
+          {
+            "name":"A profile",
+            "description":"Description goes here.",
+            "keyCode":"LOINC#92847",
+            "valueType":"code",
+            "permissible": {
+              "codeList": ["in-progress", "aborted", "completed", "entered-in-error"]
+            },
+            "notes":"Here is a usage note."
+          }
         ]
       },
-      
       {
         "name": "laboratory_result",
         "description": "A result of a laboratory test.",
@@ -564,6 +632,18 @@
             "description": "The interpretation of the result, for example, high."
           }
 
+        ],
+        "profiles":[
+          {
+            "name":"A profile",
+            "description":"Description goes here.",
+            "keyCode":"LOINC#92847",
+            "valueType":"code",
+            "permissible": {
+              "codeList": ["in-progress", "aborted", "completed", "entered-in-error"]
+            },
+            "notes":"Here is a usage note."
+          }
         ]
       },
       {
@@ -679,6 +759,18 @@
                 "Any of the codes specified in the http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation value set."
               ]
             }
+          }
+        ],
+        "profiles":[
+          {
+            "name":"A profile",
+            "description":"Description goes here.",
+            "keyCode":"LOINC#92847",
+            "valueType":"code",
+            "permissible": {
+              "codeList": ["in-progress", "aborted", "completed", "entered-in-error"]
+            },
+            "notes":"Here is a usage note."
           }
         ]
       },
@@ -798,6 +890,18 @@
             },
             "notes": "Discharge diagnosis is only expected to be available for inpatient encounters that have been completed."
           }
+        ],
+        "profiles":[
+          {
+            "name":"A profile",
+            "description":"Description goes here.",
+            "keyCode":"LOINC#92847",
+            "valueType":"code",
+            "permissible": {
+              "codeList": ["in-progress", "aborted", "completed", "entered-in-error"]
+            },
+            "notes":"Here is a usage note."
+          }
         ]
       },
       {
@@ -851,6 +955,18 @@
             "valueType": "number",
             "notes": "Can be derived: departure_datetime - arrival_datetime"
            }
+        ],
+        "profiles":[
+          {
+            "name":"A profile",
+            "description":"Description goes here.",
+            "keyCode":"LOINC#92847",
+            "valueType":"code",
+            "permissible": {
+              "codeList": ["in-progress", "aborted", "completed", "entered-in-error"]
+            },
+            "notes":"Here is a usage note."
+          }
         ]
       },
       {
@@ -901,6 +1017,26 @@
             "description": "The date and time the measurement of the vital sign occurred.",
             "required": "required"
           }
+        ],
+        "profiles":[
+          {
+            "name":"Respiratory Rate",
+            "description":"Breaths per minute",
+            "keyCode":"LOINC 9279-1",
+            "valueType":"quantity",
+            "permissible": {
+              "codeList": ["/min"]
+            }
+          },
+          {
+            "name":"Oxygen saturation",
+            "description":"Percentage oxygen saturation",
+            "keyCode":"LOINC 2708-6",
+            "valueType":"quantity",
+            "permissible": {
+              "codeList": ["%"]
+            }
+          }         
         ]
       },
 

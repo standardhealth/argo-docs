@@ -14,5 +14,4 @@ website/.cache-loader
 website/.DS_Store
 website/.env.example
 website/npm-debug.log*
-website/yarn-debug.log*
-website/yarn-error.log*
+

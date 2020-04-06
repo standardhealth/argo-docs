@@ -6,13 +6,13 @@ import DefaultTag from '@icgc-argo/uikit/Tag';
 import CodeList from './CodeList';
 import Regex from './Regex';
 import startCase from 'lodash/startCase';
-import { DownloadButtonContent, DownloadTooltip } from '../../components/common';
-import Button from '@icgc-argo/uikit/Button';
+//import { DownloadButtonContent, DownloadTooltip } from '../../components/common';
+//import Button from '@icgc-argo/uikit/Button';
 import { DataTypography, SchemaTitle } from '../Typography';
 import { ModalPortal, useModalState } from '../../pages/dictionary';
 import ScriptModal from '../ScriptModal';
 import get from 'lodash/get';
-import isEmpty from 'lodash/isEmpty';
+//import isEmpty from 'lodash/isEmpty';
 import { styled } from '@icgc-argo/uikit';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
@@ -118,6 +118,62 @@ const Schema = ({ schema, menuItem, isLatestSchema }) => {
     );
   };
 
+  
+   const profileCols = [
+    {
+      Header: 'Profile',
+      id: 'fieldDescription',
+      Cell: ({ original: { name, description } }) => (
+        <FieldDescription name={name} description={description} />
+      ),
+      style: { whiteSpace: 'normal', wordWrap: 'break-word', padding: '8px' },
+    },
+    {
+      Header: 'Code',
+      Cell: NoteCell,
+      style: { whiteSpace: 'normal', wordWrap: 'break-word', padding: '8px' },
+    },
+    {
+      Header: 'Value Type',
+      id: 'valueType',
+      accessor: ({ valueType }) => formatFieldType(valueType),
+      style: { padding: '8px' },
+      width: 70,
+    },
+    {
+      Header: 'Permissible Values',
+      id: 'permissibleValues',
+      accessor: 'permissible',
+      Cell: ({ original }) => {
+        const { name: field, permissible = {}, examples } = original;
+        const { regex = null, codeList = null } = permissible;
+//        const examples = meta && meta.examples && meta.examples.split(',');
+        const examplesplit = examples && examples.split(',');
+        if (regex) {
+          return <Regex regex={regex} examples={examplesplit} />;
+        } else if (codeList) {
+          return (
+            <CodeList
+              codeList={codeList}
+              onToggle={onCodelistExpandToggle(field)}
+              isExpanded={isCodeListExpanded(field)}
+            />
+          );
+        } else {
+          return null;
+        }
+      },
+      style: { whiteSpace: 'normal', wordWrap: 'break-word', padding: '8px' },
+    },
+    {
+      Header: 'Notes',
+      Cell: NoteCell,
+      style: { whiteSpace: 'normal', wordWrap: 'break-word', padding: '8px' },
+    }
+
+  ]; 
+
+
   const cols = [
     {
       Header: 'Field & Description',
@@ -127,43 +183,6 @@ const Schema = ({ schema, menuItem, isLatestSchema }) => {
       ),
       style: { whiteSpace: 'normal', wordWrap: 'break-word', padding: '8px' },
     },
-    /* MK Hide the Data Tier column (core, id, extended) 
-    {
-      Header: 'Data Tier',
-      Cell: ({ original }) => {
-        const meta = get(original, 'meta', {});
-        if (isEmpty(meta)) {
-          return <Tag type={TAG_TYPES.extended} />;
-        } else {
-          const { primaryId, core } = meta;
-          return primaryId ? (
-            <Tag type={TAG_TYPES.optional} />
-          ) : core ? (
-            <Tag type={TAG_TYPES.derived} />
-          ) : (
-            <Tag type={TAG_TYPES.extended} />
-          );
-        }
-      },
-      style: { padding: '8px' },
-      width: 85,
-    },*/
-/*    {
-      Header: 'Required?',
-      id: 'attributes',
-      Cell: ({ original: { required, meta } }) => {
-        const isRestrictedField = required; 
-        const isConditionalField = meta && !!meta.dependsOn;
-        return (
-          <TagContainer>
-            {isRestrictedField && <Tag type={TAG_TYPES.required} />}
-            {isConditionalField && <Tag type={TAG_TYPES.conditional} />}
-          </TagContainer>
-        );
-      },
-      style: { padding: '8px' },
-      width: 102,
-    }, */
     {
       Header: 'Required?',
       id: 'attributes',
@@ -246,8 +265,10 @@ const Schema = ({ schema, menuItem, isLatestSchema }) => {
     }
 
   ];
-  const containerRef = React.createRef();
 
+
+  const containerRef = React.createRef();
+//  console.log(schema);
   return (
     <div ref={menuItem.contentRef} data-menu-title={menuItem.name} className={styles.schema}>
       {currentShowingScripts && (
@@ -316,6 +337,17 @@ const Schema = ({ schema, menuItem, isLatestSchema }) => {
           cellAlignment="top"
           withOutsideBorder
         />
+        {schema.profiles && (schema.profiles.length > 0) ? <Table
+          parentRef={containerRef}
+          columns={profileCols}
+          data={schema.profiles}
+          showPagination={false}
+          defaultPageSize={schema.profiles.length}
+          sortable={true}
+          cellAlignment="top"
+          withOutsideBorder
+        /> : <p>No profiles defined.</p>
+        }
       </div>
     </div>
   );
