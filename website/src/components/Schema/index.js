@@ -118,61 +118,6 @@ const Schema = ({ schema, menuItem, isLatestSchema }) => {
     );
   };
 
-  
-   const profileCols = [
-    {
-      Header: 'Profile',
-      id: 'fieldDescription',
-      Cell: ({ original: { name, description } }) => (
-        <FieldDescription name={name} description={description} />
-      ),
-      style: { whiteSpace: 'normal', wordWrap: 'break-word', padding: '8px' },
-    },
-    {
-      Header: 'Code',
-      Cell: NoteCell,
-      style: { whiteSpace: 'normal', wordWrap: 'break-word', padding: '8px' },
-    },
-    {
-      Header: 'Value Type',
-      id: 'valueType',
-      accessor: ({ valueType }) => formatFieldType(valueType),
-      style: { padding: '8px' },
-      width: 70,
-    },
-    {
-      Header: 'Permissible Values',
-      id: 'permissibleValues',
-      accessor: 'permissible',
-      Cell: ({ original }) => {
-        const { name: field, permissible = {}, examples } = original;
-        const { regex = null, codeList = null } = permissible;
-//        const examples = meta && meta.examples && meta.examples.split(',');
-        const examplesplit = examples && examples.split(',');
-        if (regex) {
-          return <Regex regex={regex} examples={examplesplit} />;
-        } else if (codeList) {
-          return (
-            <CodeList
-              codeList={codeList}
-              onToggle={onCodelistExpandToggle(field)}
-              isExpanded={isCodeListExpanded(field)}
-            />
-          );
-        } else {
-          return null;
-        }
-      },
-      style: { whiteSpace: 'normal', wordWrap: 'break-word', padding: '8px' },
-    },
-    {
-      Header: 'Notes',
-      Cell: NoteCell,
-      style: { whiteSpace: 'normal', wordWrap: 'break-word', padding: '8px' },
-    }
-
-  ]; 
-
 
   const cols = [
     {
@@ -233,7 +178,7 @@ const Schema = ({ schema, menuItem, isLatestSchema }) => {
       },
       style: { whiteSpace: 'normal', wordWrap: 'break-word', padding: '8px' },
     },
-    {
+/*   {
       Header: 'COVID-19 Values',
       id: 'c19',
       accessor: 'c19',
@@ -257,14 +202,81 @@ const Schema = ({ schema, menuItem, isLatestSchema }) => {
       },
       style: { whiteSpace: 'normal', wordWrap: 'break-word', padding: '8px' },
     },
-
+*/
+    {
+      Header: 'Notes',
+      Cell: NoteCell,
+      style: { whiteSpace: 'normal', wordWrap: 'break-word', padding: '8px' },
+    }
+  ];
+  
+  
+  const profileCols = [
+    {
+      Header: 'COVID-Related Patterns and Codes',
+      id: 'fieldDescription',
+      Cell: ({ original: { name, description } }) => (
+        <FieldDescription name={name} description={description} />
+      ),
+      style: { whiteSpace: 'normal', wordWrap: 'break-word', padding: '8px' },
+    },
+    {
+      Header: 'Code',
+      id: 'keyCode',
+      accessor: 'keyCode',
+      Cell: ({ original }) => {
+        const { name: field, keyCode = {}, examples } = original;
+        const { regex = null, codeList = null } = keyCode;
+//        const examples = meta && meta.examples && meta.examples.split(',');
+        if (regex) {
+          return <Regex regex={regex} examples={examplesplit} />;
+        } else if (codeList) {
+          return (
+            <CodeList
+              codeList={codeList}
+              onToggle={onCodelistExpandToggle(field)}
+              isExpanded={isCodeListExpanded(field)}
+            />
+          );
+        } else {
+          return null;
+        }
+      },
+      style: { whiteSpace: 'normal', wordWrap: 'break-word', padding: '8px' },
+    },
+    {
+      Header: 'Result Codes or Units',
+      id: 'permissibleValues',
+      accessor: 'permissible',
+      Cell: ({ original }) => {
+        const { name: field, permissible = {}, examples } = original;
+        const { regex = null, codeList = null } = permissible;
+//        const examples = meta && meta.examples && meta.examples.split(',');
+        const examplesplit = examples && examples.split(',');
+        if (regex) {
+          return <Regex regex={regex} examples={examplesplit} />;
+        } else if (codeList) {
+          return (
+            <CodeList
+              codeList={codeList}
+              onToggle={onCodelistExpandToggle(field)}
+              isExpanded={isCodeListExpanded(field)}
+            />
+          );
+        } else {
+          return null;
+        }
+      },
+      style: { whiteSpace: 'normal', wordWrap: 'break-word', padding: '8px' },
+    },
     {
       Header: 'Notes',
       Cell: NoteCell,
       style: { whiteSpace: 'normal', wordWrap: 'break-word', padding: '8px' },
     }
 
-  ];
+  ]; 
+
 
 
   const containerRef = React.createRef();
@@ -346,7 +358,7 @@ const Schema = ({ schema, menuItem, isLatestSchema }) => {
           sortable={true}
           cellAlignment="top"
           withOutsideBorder
-        /> : <p>No profiles defined.</p>
+        /> : <p>No COVID 19-specific patterns defined.</p>
         }
       </div>
     </div>
