@@ -5,8 +5,6 @@ lib/core/metadata.js
 lib/core/MetadataBlog.js
 temp/
 .env
-website/src/pages/dictionary/**
-website/static/data/schemas/**
 website/node_modules
 website/build
 website/.docusaurus
