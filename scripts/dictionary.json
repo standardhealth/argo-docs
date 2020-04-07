@@ -1081,19 +1081,8 @@
             "description": "The date or date-time marking end of the observation period. If the observation_period_start is reported and the observation_period_end is not reported, the observation is assumed to be ongoing at the time of reporting."
           },
           {
-            "name": "result_string",
-            "description": "The value associated with the observation, represented as a text.",
-            "valueType": "text",
-            "notes": "A textual description of the observation result. A code is preferred if available."
-          },
-          {
-            "name": "result_code",
-            "description": "The value associated with the observation, represented as a code.",
-            "valueType": "code"
-          },
-          {
             "name": "result_quantity",
-            "description": "The value associated with a lab result, represented as a number. The number can be either an integer or a float.",
+            "description": "The value associated with a observation, represented as a number. The number can be either an integer or a float.",
             "valueType": "quantity"
           },
           {
@@ -1104,6 +1093,16 @@
               "codeList": ["UCUM code"]
             },
             "notes": "Nomenclature conforms to the Unified Code for Units of Measure (UCUM): https://unitsofmeasure.org/trac"
+          },
+          {
+            "name": "result_numerator",
+            "description": "The numerator value associated with a ratio observation, represented as an integer.",
+            "valueType": "integer"
+          },
+          {
+            "name": "result_denominator",
+            "description": "The denominator value associated with a ratio observation, represented as an integer.",
+            "valueType": "integer"
           },
           {
             "name":"result_interpretation",
@@ -1129,6 +1128,15 @@
           {
             "name":"Use of Hydroxychloroquine",
             "description":"Usage of hydroxychloroquine in the cohort.",
+            "keyCode": {"codeList": ["RxNorm 5521"]},
+            "permissible": {
+              "codeList": ["Ratio N/M"]
+            },
+            "notes": "Result value should be reported as a numerator and denominator, not a percentage. The generic ingredient code should be the observation identifier because different doses and dose form could be used across the cohort."
+          },
+          {
+            "name":"28-Day Mortality",
+            "description":"Death ",
             "keyCode": {"codeList": ["RxNorm 5521"]},
             "permissible": {
               "codeList": ["Ratio N/M"]
