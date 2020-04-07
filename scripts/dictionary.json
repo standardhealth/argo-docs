@@ -1,6 +1,6 @@
 {
     "name":"COVID Data Dictionary",
-    "version":"2.33",
+    "version":"2.35",
     "schemas":[
       {
         "name":"root",
@@ -589,6 +589,12 @@
             "required":"required"
           },
           {
+            "name":"facility_id",
+            "valueType":"ID",
+            "description":"Unique identifier of the facility providing the encounter.",
+            "required":"optional"
+          },         
+          {
             "name":"encounter_class",
             "description":"A classification of the encounter, e.g. ambulatory, emergency or inpatient",
             "required": "required",
@@ -1103,16 +1109,6 @@
             "name": "result_denominator",
             "description": "The denominator value associated with a ratio observation, represented as an integer.",
             "valueType": "integer"
-          },
-          {
-            "name":"result_interpretation",
-            "description":"An interpretation associated with the observation",
-            "valueType":"code",
-            "permissible":{
-              "codeList":[
-                "Any of the codes specified in the http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation value set."
-              ]
-            }
           }
         ],
         "profiles": [
@@ -1133,15 +1129,124 @@
               "codeList": ["Ratio N/M"]
             },
             "notes": "Result value should be reported as a numerator and denominator, not a percentage. The generic ingredient code should be the observation identifier because different doses and dose form could be used across the cohort."
+          }
+        ]
+      },
+      {
+        "name":"facility",
+        "description": "An institution (physical or organizational) where healthcare is delivered.",
+        "parent":"root",
+        "fields":[
+          {
+            "name":"facility_id",
+            "description":"Unique identifier of the facility.",
+            "required":"required",
+            "valueType":"ID"
           },
           {
-            "name":"28-Day Mortality",
-            "description":"Death ",
-            "keyCode": {"codeList": ["RxNorm 5521"]},
+            "name":"facility_name",
+            "description":"Name of the facility.",
+            "required":"required",
+            "valueType":"string"
+          },
+          {
+            "name":"location_id",
+            "description":"Identifier of the physical location of the facility.",
+            "valueType":"ID"
+          }
+        ]
+      },
+      {
+        "name":"measure_result",
+        "description": "A measure of a facility's resources, capacity or performance.",
+        "parent":"facility",
+        "fields":[
+          {
+            "name":"measure_result_id",
+            "description":"Unique identifier of the measure instance.",
+            "required":"required",
+            "valueType":"ID"
+          },
+          {
+            "name":"measure_id",
+            "description":"A code or identifier of the definition of measure reported.",
+            "required":"required",
+            "valueType":"ID, CODE"
+          },
+          {
+            "name":"measure_name",
+            "description":"The name of the measure or measure definition reported.",
+            "valueType":"string",
+            "note":"Either the name or the ID of the measure should be provided."
+          },
+          {
+            "name":"measure_subject_id",
+            "description":"Unique identifier of the provider, facility, or jurisdiction that the measure relates to.",
+            "required":"required",
+            "valueType":"ID"
+          },
+          {
+            "name": "measure_datetime",
+            "valueType": "dateTime",
+            "description": "The time of the measure, if observed or calculated at a specific time."
+          },
+          {
+            "name": "measure_period_start",
+            "valueType": "dateTime",
+            "description": "The date or date-time marking the beginning of the clinically-relevant time period of the measure.",
+            "note": "Either the measure_datetime or the measure_period_start should be reported, but not both."
+          },
+          {
+            "name": "measure_period_end",
+            "valueType": "dateTime",
+            "description": "The date or date-time marking end of the measure period. If the measure_period_start is reported and the measure_period_end is not reported, the measure is assumed to be ongoing at the time of reporting."
+          },
+          {
+            "name": "result_quantity",
+            "description": "The value associated with the measure, represented as a number. The number can be either an integer or a float.",
+            "valueType": "quantity"
+          },
+          {
+            "name": "result_units",
+            "description": "Unit of measure for the associated with the lab result quantity.",
+            "valueType": "code",
             "permissible": {
-              "codeList": ["Ratio N/M"]
+              "codeList": ["UCUM code"]
             },
-            "notes": "Result value should be reported as a numerator and denominator, not a percentage. The generic ingredient code should be the observation identifier because different doses and dose form could be used across the cohort."
+            "notes": "Nomenclature conforms to the Unified Code for Units of Measure (UCUM): https://unitsofmeasure.org/trac"
+          },
+          {
+            "name": "result_numerator",
+            "description": "The numerator value associated with a ratio observation, represented as an integer.",
+            "valueType": "integer"
+          },
+          {
+            "name": "result_denominator",
+            "description": "The denominator value associated with a ratio observation, represented as an integer.",
+            "valueType": "integer"
+          }
+        ]
+      },
+      {
+        "name":"measure",
+        "description": "A specific metric or measurement.",
+        "parent":"root",
+        "fields":[
+          {
+            "name":"measure_id",
+            "description":"Unique identifier of the measure.",
+            "required":"required",
+            "valueType":"ID"
+          },
+          {
+            "name":"measure_name",
+            "description":"The name of the measure defined.",
+            "valueType":"string"
+          },
+          {
+            "name":"measure_description",
+            "description":"Description of the measure.",
+            "valueType":"string"
           }
         ]
       }
