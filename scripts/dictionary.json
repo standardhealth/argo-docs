@@ -1,6 +1,6 @@
 {
     "name":"COVID Data Dictionary",
-    "version":"2.23",
+    "version":"2.28",
     "schemas":[
       {
         "name":"patient",
@@ -106,18 +106,11 @@
                 "SNOMED-CT code"
               ]
             },
-            "c19":{
-              "codeList":[
-                "U07.1 (COVID19, virus identified)", 
-                "U07.2 (COVID19, virus not identified)", 
-                "840539006 (COVID-19 disorder)", 
-                "840544004 (Suspected COVID-19 situation)"
-              ]
-            },
             "notes":"Cause of death is only required to be submitted if the patient is deceased. Mortality coding of COVID-19 with ICD-10 see: https://www.who.int/classifications/icd/COVID-19-coding-icd10.pdf?ua=1"
           }
         ]
       },
+
       {
         "name":"patient_PII",
         "description":"Personally identifiable information about a patient.",
@@ -177,14 +170,6 @@
                 "SNOMED CT disorder code"
               ]
             },
-            "c19":{
-              "codeList":[
-                "U07.1 (COVID19, virus identified)", 
-                "U07.2 (COVID19, virus not identified)", 
-                "840539006 (COVID-19 disorder)", 
-                "840544004 (Suspected COVID-19 situation)"
-              ]
-            },
             "notes":"This field accepts either ICD-10-CM or SNOMED-CT disorder codes."
           },
           {
@@ -234,6 +219,26 @@
               ]
             },
             "notes":"The clinical status terms are described at http://hl7.org/fhir/valueset-condition-clinical.html."
+          }
+        ],
+        "profiles":[
+          {
+            "name":"COVID-19 Confirmed",
+            "description":"COVID-19 condition confirmed by testing.",
+            "keyCode": {"codeList": [
+              "ICD10-CM U07.1 (COVID19, virus identified)",
+              "SNOMED-CT 840539006 (COVID-19 disorder)"
+            ]},
+            "notes":"Either code is acceptable."
+          },
+          {
+            "name":"COVID-19 Unconfirmed",
+            "description":"Presumed or suspected COVID-19.",
+            "keyCode": {"codeList": [
+              "ICD10-CM U07.2 (COVID19, virus not identified)",
+              "SNOMED-CT 840544004 (Suspected COVID-19 situation)"
+            ]},
+            "notes":"Either code is acceptable."
           }
         ]
       },
@@ -402,28 +407,6 @@
         ]
       },
       {
-        "name": "smoking_status",
-        "description": "Data elements associated with the patient's use of smoking tobacco.",
-        "parent": "patient",
-        "fields": [
-          {
-            "name": "smoking_status",
-            "valueType": "code",
-            "description": "The status of the patient's use of smoking tobacco.",
-            "required": "required",
-            "permissible": {
-              "codeList": ["Current every day smoker","Current some day smoker","Former smoker", "Never smoker", "Smoker, current status unknown", "Unknown if ever smoked", "Current Heavy tobacco smoker", "Current Light tobacco smoker"]
-            },
-            "notes": "SNOMED CT code as defined in FHIR US Core Smoking Status: http://hl7.org/fhir/us/core/ValueSet/us-core-observation-smokingstatus."
-          },
-          {
-            "name": "recorded_date",
-            "valueType": "date",
-            "description": "The date when the smoking status was recorded."
-          }
-        ]
-      },
-      {
         "name": "lab_result",
         "description": "An individual laboratory test and result value",
         "parent": "patient",
@@ -458,7 +441,7 @@
           {
             "name": "result_quantity",
             "description": "The value associated with a lab result, represented as a number. The number can be either an integer or a float.",
-            "valueType": "number",
+            "valueType": "quantity",
             "notes": "A lab result can have many variations of data_types. The implementer should only select one type of lab_result_value associated with each lab result."
           },
           {
@@ -514,11 +497,19 @@
               "codeList": [	"LA6576-8 Positive", "LA6577-6 Negative", "LA11885-3 Equivocal"]
             },
             "notes":"This Special Use code has been developed in response to an urgent or emergent situation. Answer list is LL2009-0"
+          },
+          {
+            "name":"SARS-CoV-2 Antibody",
+            "description":"Test for antibodies to SARS coronavirus 2 [Presence]",
+            "keyCode":{
+              "codeList": ["TBD"]
+            },
+            "permissible": {
+              "codeList": [	"LA6576-8 Positive", "LA6577-6 Negative", "LA11885-3 Equivocal"]
+            }
           }
-          
         ]
       },
-
       {
         "name": "encounter",
         "description": "Data elements associated with an encounter at a health care facility, such as an ambulatory visit, an emergency department visit, or a hospitalization.",
@@ -637,54 +628,45 @@
         ]
       },
       {
-        "name": "encounter_location",
-        "description": "Data elements associated with specific locations the patient during the course of an inpatient encounter.",
+        "name": "encounter_setting",
+        "description": "Department, unit or setting the patient visits during the course of an inpatient encounter, such as emergency department or intensive care unit.",
         "parent": "encounter",
         "fields": [
           {
-            "name":"location_id",
-            "description":"A unique identifier for the encounter location.",
-            "required": "required",
-            "valueType":"ID"      
-           },
-           {
-            "name":"encounter_id",
-            "description":"The identifier for the encounter associated with this particular location",
+            "name":"encounter_setting_id",
+            "description":"A unique identifier for the instance of encounter setting.",
             "required": "required",
             "valueType":"ID"      
            },
            {
             "name":"type",
-            "description":"The type of location according to its function/purpose",
+            "description":"The type of setting according to its function/purpose",
             "required": "required",
             "valueType":"code",
             "permissible":{
               "codeList":[
-                "Any of the codes specified in the http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType value set."
+                "Code from http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType value set."
               ]
             },
-            "c19":{
-              "codeList": ["ICU (Intensive Care Unit)"]
-            },
-            "notes": "Definitions for the permissible values for location type are available at http://hl7.org/fhir/v3/ServiceDeliveryLocationRoleType/vs.html"
+            "notes": "Definitions for the permissible values for setting type are available at http://hl7.org/fhir/v3/ServiceDeliveryLocationRoleType/vs.html"
            },
            {
             "name":"arrival_date",
-            "description":"The date the patient arrived at the location.",
+            "description":"The date the patient arrived at the setting.",
             "required": "optional",
             "valueType": "date"
            },
            {
             "name":"departure_date",
-            "description":"The date the patient departed the location.",
+            "description":"The date the patient departed the setting.",
             "required": "optional",
             "valueType": "date"
            },
            {
             "name":"length of stay",
-            "description":"The length of time a patient spent in the location.",
+            "description":"The length of time a patient spent in the setting.",
             "required": "optional",
-            "valueType": "number",
+            "valueType": "quantity",
             "notes": "Can be derived from arrival and departure dates."
            }
         ]
@@ -711,7 +693,7 @@
           },
           {
             "name": "value",
-            "valueType": "number",
+            "valueType": "quantity",
             "description": "The result of measuring the vital sign.",
             "required": "required"
           },
@@ -768,6 +750,131 @@
               "codeList": ["C"]
             }
           } 
+        ]
+      }
+      ,
+      {
+        "name": "observation",
+        "description": "Clinical information obtained through examination, assessment, or questioning.",
+        "parent": "patient",
+        "fields": [
+          {
+            "name":"observation_id",
+            "description":"Unique identifier of the observation.",
+            "required":"required",
+            "valueType":"ID"
+          },
+          {
+            "name": "code",
+            "valueType": "code",
+            "description": "The code identifying the type of observation.",
+            "required": "required",
+            "permissible": {
+              "codeList": ["LOINC code"]
+            },
+            "notes": "LOINC is preferred as the coding system for the lab test. In cases where there is a no LOINC code immediately available, a local test code would be accepted provided that there is a code system listing where the code originated."
+          },
+          {
+            "name": "reported_date",
+            "valueType": "dateTime",
+            "description": "The date or date-time the observation is reported."
+          },
+          {
+            "name": "observation_datetime",
+            "valueType": "dateTime",
+            "description": "The date-time of the observation, if the observation is made at a specific time.",
+            "note": "Either the observation_datetime or the observation_period_start should be reported, but not both."
+          },
+          {
+            "name": "observation_period_start",
+            "valueType": "dateTime",
+            "description": "The date or date-time marking the beginning of the clinically-relevant time period of the observation.",
+            "note": "Either the observation_datetime or the observation_period_start should be reported, but not both."
+          },
+          {
+            "name": "observation_period_end",
+            "valueType": "dateTime",
+            "description": "The date or date-time marking end of the observation period. If the observation_period_start is reported and the observation_period_end is not reported, the observation is assumed to be ongoing at the time of reporting."
+          },
+          {
+            "name": "result_string",
+            "description": "The value associated with the observation, represented as a text.",
+            "valueType": "text",
+            "notes": "A textual description of the observation result. A code is preferred if available."
+          },
+          {
+            "name": "result_code",
+            "description": "The value associated with the observation, represented as a code.",
+            "valueType": "code"
+          },
+          {
+            "name": "result_quantity",
+            "description": "The value associated with a lab result, represented as a number. The number can be either an integer or a float.",
+            "valueType": "quantity"
+          },
+          {
+            "name": "result_units",
+            "description": "Unit of measure for the associated with the lab result quantity.",
+            "valueType": "code",
+            "permissible": {
+              "codeList": ["UCUM code"]
+            },
+            "notes": "Nomenclature conforms to the Unified Code for Units of Measure (UCUM): https://unitsofmeasure.org/trac"
+          },
+          {
+            "name":"result_interpretation",
+            "description":"An interpretation associated with the observation",
+            "valueType":"code",
+            "permissible":{
+              "codeList":[
+                "Any of the codes specified in the http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation value set."
+              ]
+            }
+          }
+        ],
+        "profiles":[
+          {
+            "name":"Smoking_Status",
+            "keyCode":{
+              "codeList":["72166-2 Tobacco smoking status NHIS"]
+            },
+            "permissible": {
+              "codeList": ["Current every day smoker","Current some day smoker","Former smoker", "Never smoker", "Smoker, current status unknown", "Unknown if ever smoked", "Current Heavy tobacco smoker", "Current Light tobacco smoker"]
+            },
+            "notes": "Result values must come from US Core Smoking Status value set: http://hl7.org/fhir/us/core/ValueSet/us-core-observation-smokingstatus."
+          },
+          {
+            "name":"COVID-19 Signs/Symptoms",
+            "description": "Codes used to report common signs and symptoms of COVID-19 (not exhaustive)",
+            "keyCode":{
+              "codeList":[
+                "43724002   Chill (finding)",
+                "162397003  Pain in throat (finding)",
+                "49727002   Cough (finding)",
+                "267036007  Dyspnea (finding)",
+                "426000000  Fever greater than 100.4 Fahrenheit (finding)",
+                "103001002  Feeling feverish (finding)",
+                "68962001   Muscle pain (finding)",
+                "64531003   Nasal discharge (finding)",
+                "422587007  Nausea (finding)",
+                "422400008  Vomiting (disorder)",
+                "25064002   Headache (finding)",
+                "21522001   Abdominal pain (finding)",
+                "62315008   Diarrhea (finding)",
+                "13791008   Asthenia (finding)",
+                "79890006   Loss of appetite (finding)",
+                "44169009   Loss of sense of smell (finding)",
+                "36955009   Loss of taste",
+                "22253000   Pain",
+                "29857009   Chest pain"
+              ]
+            },
+            "permissible": {
+              "codeList": ["52101004 Present", "2667000 Absent", "261665006 Unknown"]
+            },
+            "notes":"Answer codes should be from SNOMED-CT"
+          }
+
         ]
       }
     ]  
