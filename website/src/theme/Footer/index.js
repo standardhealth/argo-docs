@@ -23,7 +23,7 @@ function Footer() {
     <footer className={styles['nav-footer']} id="footer">
       <div className={styles.footerWrapper}>
         <div className={styles.footerLogo}>
-          <a href="https://platform.standardhealth.org/">
+          <a href="https://c19hcc.org/">
             <img
               src={useBaseUrl(`img/logos/mitre_full.png`)}
               alt="ICGC Accelerating Research in Genomic Oncology"
@@ -35,22 +35,22 @@ function Footer() {
           <section className={styles.footerLinks}>
             {/* <a href="https://platform.standardhealth.org/contact">Contact</a>
             <Slash /> */}
-            <a href="https://platform.standardhealth.org/privacy">Privacy Policy</a>
+            <a href="privacy">Privacy Policy</a>
             <Slash />
-            <a href="https://platform.standardhealth.org/terms">Terms & Conditions</a>
+            <a href="terms">Terms & Conditions</a>
             <Slash />
-            <a href="https://platform.standardhealth.org/publicationpolicy">Publication Policy</a>
+            <a href="publicationpolicy">Publication Policy</a>
           </section>
           <section className={styles['legal-text']}>
             {siteConfig.themeConfig.footer.copyright}
           </section>
           <section className={styles['legal-text']}>
-            <a href="https://platform.standardhealth.org/">ARGO Data Platform</a>{' '}
+            <a href="https://www.icgc-argo.org">ARGO Data Platform</a>{' '}
             {/*1.0.0 - API v1 - 8e37309*/}
           </section>
         </div>
         <div className={styles.footerLogo}>
-          <a href="https://www.oicr.on.ca/">
+          <a href="https://mitre.org/">
             <img
               src={useBaseUrl(`img/logos/mitre_logo.svg`)}
               alt="MITRE Corporation"

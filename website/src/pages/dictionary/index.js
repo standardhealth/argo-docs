@@ -137,6 +137,7 @@ function DataDictionary() {
     const schemas = get(dictionary, 'schemas', []);
 
     const fields = schemas.map(schema => schema.fields);
+
     const filters = flattenDeep(fields).reduce(
       (acc, field) => {
         const required = get(field, 'required', false);
@@ -159,8 +160,7 @@ function DataDictionary() {
         .map(schema => {
           const { tier, attribute } = searchParams;
           const filteredFields = schema.fields.filter(field => {
-            const meta = get(field, 'meta', {});
-            const { primaryId = false, core = false, dependsOn = false } = meta;
+
             const required = get(field, 'required', "optional");
 
             let tierBool = true;
@@ -168,7 +168,7 @@ function DataDictionary() {
 
             if (attribute === NO_ACTIVE_FILTER) return true;
 
-
+            
             if (
               (attribute === TAG_TYPES.conditional && (required=="conditional")) ||
               (attribute === TAG_TYPES.required && (required=="required")) ||
