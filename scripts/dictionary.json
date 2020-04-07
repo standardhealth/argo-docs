@@ -1,15 +1,39 @@
 {
     "name":"COVID Data Dictionary",
-    "version":"2.28",
+    "version":"2.33",
     "schemas":[
+      {
+        "name":"root",
+        "description":"Metadata applicable to all data elements.",
+        "fields":[
+          {
+            "name": "reported_date",
+            "valueType": "date",
+            "description": "The date or date-time the observation is reported."
+          },
+          {
+            "name": "reporter_organization_id",
+            "valueType": "ID",
+            "description": "The identifier of the organization reporting.",
+            "note":"Either the reporting organization or the practitioner should be provided."
+          },
+          {
+            "name": "reporter_practitioner_id",
+            "valueType": "ID",
+            "description": "The identifier of the practitioner reporting.",
+            "note":"Either the reporting organization or the practitioner should be provided."
+          }
+        ]
+      },
       {
         "name":"patient",
         "description":"The collection of data elements with demographic information about a patient.",
+        "parent":"root",
         "fields":[
           {
             "name":"patient_id",
             "valueType":"ID",
-            "description":"Unique identifier assigned to the person.",
+            "description":"Unique identifier assigned to the patient.",
             "required":"required"
           },
           {
@@ -82,6 +106,12 @@
         "parent":"patient",
         "fields":[
           {
+            "name":"patient_id",
+            "valueType":"ID",
+            "description":"Unique identifier of the patient.",
+            "required":"required"
+          },
+          {
             "name":"vital_status",
             "description":"Donor's last known state of living or deceased.",
             "valueType":"code",
@@ -116,6 +146,12 @@
         "description":"Personally identifiable information about a patient.",
         "parent":"patient",
         "fields":[
+          {
+            "name":"patient_id",
+            "valueType":"ID",
+            "description":"Unique identifier of the patient.",
+            "required":"required"
+          },
           {
             "name":"family_name",
             "description":"The part of a name that links to the genealogy.",
@@ -157,6 +193,12 @@
             "name":"condition_id",
             "valueType":"ID",
             "description":"Unique identifier assigned to this instance of condition in the patient.",
+            "required":"required"
+          },
+          {
+            "name":"patient_id",
+            "valueType":"ID",
+            "description":"Unique identifier of the patient.",
             "required":"required"
           },
           {
@@ -244,7 +286,7 @@
       },
       {
         "name": "med_exposure",
-        "description": "An instance of a medication or substance introduced into the body.",
+        "description": "An instance of a medication or substance introduced into the body. Medication exposures provide uniform format for medication orders, medication list, and medication statements for the purposes of reporting.",
         "parent": "patient",
         "fields": [
           {
@@ -252,6 +294,12 @@
             "valueType": "ID",
             "description": "Unique identifier assigned to the medication exposure episode.",
             "required": "required"
+          },
+          {
+            "name":"patient_id",
+            "valueType":"ID",
+            "description":"Unique identifier of the patient.",
+            "required":"required"
           },
           {
             "name": "code",
@@ -264,7 +312,7 @@
                 "NDC code: http://hl7.org/fhir/sid/ndc"
              ]
             },
-            "notes": "Code is a structure which contains codeSystem, code, and name. For RxNorm, all prescribable medication formulations represented using either a 'generic' or 'brand-specific' concept. This includes RxNorm codes whose Term Type is SCD (semantic clinical drug), SBD (semantic brand drug), GPCK (generic pack), BPCK (brand pack), SCDG (semantic clinical drug group), SBDG (semantic brand drug group), SCDF (semantic clinical drug form), or SBDF (semantic brand drug form). Source: http://www.hl7.org/fhir/us/core/STU3/ValueSet-us-core-medication-codes.html."
+            "notes": "Medications can be reported in NDC or RxNorm. For NDC, the product code or package code is acceptable. For RxNorm, the ingredient  (IN) or multiple ingredient (MIN) codes are preferred over the brand codes or combination (Ingredient + Strength (SCDC), Ingredient + Dose Form (SCDF), etc.)."
           },
           {
             "name": "med_dose_quantity",
@@ -306,7 +354,8 @@
             "name": "med_stop_date",
             "description": "The date when the medication as administered to the patient.",
             "required": "required",
-            "valueType": "date"
+            "valueType": "date",
+            "note":"If the stop date is not provided, it is assumed the medication is ongoing at the time of the report."
           }
         ],
         "profiles":[
@@ -321,7 +370,7 @@
               "52175 Losartan",
               "321064 Olmesartan",
               "73494 Telmisartan"]},
-            "notes":"Medication codes should be reported using RxNORM"
+            "notes":"Examples are given in RxNORM ingredient (IN) form."
           },
           {
             "name":"H2 Inhibitor Drug Class",
@@ -333,7 +382,7 @@
               "9143 Ranitidine",
               "114817 Roxatidine"
               ]},
-            "notes":"Medication codes should be reported using RxNORM"
+            "notes":"Examples are given in RxNORM ingredient (IN) form."
           },
           {
             "name":"ACE Inhibitor Drug Class",
@@ -354,7 +403,7 @@
               "38454 Trandolapril",
               "39990 Zofenopril" 
               ]},
-            "notes":"Medication codes should be reported using RxNORM"
+            "notes":"Examples are given in RxNORM ingredient (IN) form."
           } 
         ]
       },
@@ -368,6 +417,12 @@
             "valueType": "ID",
             "description": "Unique identifier assigned to the procedure occurrence.",
             "required": "required"
+          },
+          {
+            "name":"patient_id",
+            "valueType":"ID",
+            "description":"Unique identifier of the patient.",
+            "required":"required"
           },
           {
             "name": "code",
@@ -416,6 +471,12 @@
             "description":"Unique identifier of the lab test.",
             "required":"required",
             "valueType":"ID"
+          },
+          {
+            "name":"patient_id",
+            "valueType":"ID",
+            "description":"Unique identifier of the patient.",
+            "required":"required"
           },
           {
             "name": "code",
@@ -520,6 +581,12 @@
             "description":"A unique identifier for the encounter.",
             "required": "required",
             "valueType":"ID"
+          },
+          {
+            "name":"patient_id",
+            "valueType":"ID",
+            "description":"Unique identifier of the patient.",
+            "required":"required"
           },
           {
             "name":"encounter_class",
@@ -633,6 +700,12 @@
         "parent": "encounter",
         "fields": [
           {
+            "name":"encounter_id",
+            "description":"A unique identifier for the encounter.",
+            "required": "required",
+            "valueType":"ID"
+          },
+          {
             "name":"encounter_setting_id",
             "description":"A unique identifier for the instance of encounter setting.",
             "required": "required",
@@ -680,6 +753,12 @@
             "name":"vital_id",
             "valueType":"ID",
             "description":"Unique identifier assigned to the vital sign measurement.",
+            "required":"required"
+          },
+          {
+            "name":"patient_id",
+            "valueType":"ID",
+            "description":"Unique identifier of the patient.",
             "required":"required"
           },
           {
@@ -754,15 +833,21 @@
       }
       ,
       {
-        "name": "observation",
-        "description": "Clinical information obtained through examination, assessment, or questioning.",
-        "parent": "patient",
+        "name": "patient_observation",
+        "description": "Clinical information obtained through examination, assessment, survey, or questioning.",
+        "parent":"patient",
         "fields": [
           {
             "name":"observation_id",
             "description":"Unique identifier of the observation.",
             "required":"required",
             "valueType":"ID"
+          },
+          {
+            "name":"patient_id",
+            "valueType":"ID",
+            "description":"Unique identifier of the patient.",
+            "required":"required"
           },
           {
             "name": "code",
@@ -773,11 +858,6 @@
               "codeList": ["LOINC code"]
             },
             "notes": "LOINC is preferred as the coding system for the lab test. In cases where there is a no LOINC code immediately available, a local test code would be accepted provided that there is a code system listing where the code originated."
-          },
-          {
-            "name": "reported_date",
-            "valueType": "dateTime",
-            "description": "The date or date-time the observation is reported."
           },
           {
             "name": "observation_datetime",
@@ -845,7 +925,7 @@
           },
           {
             "name":"COVID-19 Signs/Symptoms",
-            "description": "Codes used to report common signs and symptoms of COVID-19 (not exhaustive)",
+            "description": "Preferred SNOMED-CT codes used to report common signs and symptoms of COVID-19. More specific codes (descendants, aka 'lowest level terms') should be reported using preferred terms. Coupling a finding with a result code (present, absent, unknown) is not a preferred methodology in SNOMED, but fulfills a current need.",
             "keyCode":{
               "codeList":[
                 "43724002   Chill (finding)",
@@ -864,17 +944,197 @@
                 "13791008   Asthenia (finding)",
                 "79890006   Loss of appetite (finding)",
                 "44169009   Loss of sense of smell (finding)",
-                "36955009   Loss of taste",
-                "22253000   Pain",
-                "29857009   Chest pain"
+                "36955009   Loss of taste (finding)",
+                "22253000   Pain (finding)",
+                "29857009   Chest pain (finding)"
               ]
             },
             "permissible": {
               "codeList": ["52101004 Present", "2667000 Absent", "261665006 Unknown"]
             },
-            "notes":"Answer codes should be from SNOMED-CT"
+            "notes":"Each symptom can be reported as present, absent or unknown, using provided answer codes. Symptoms such as dyspnea can sometimes be treated as conditions and found in a problem list."
           }
 
+        ]
+      },
+      {
+        "name":"group",
+        "description": "A specific sub-population or cohort with common characteristics.",
+        "parent":"root",
+        "fields":[
+          {
+            "name":"group_id",
+            "valueType":"ID",
+            "description":"The id of the group definition.",
+            "required":"required"
+          },
+          {
+            "name":"description",
+            "description":"A narrative explanation of the composition of the group.",
+            "valueType":"text",
+            "required": "required"
+          },
+          {
+            "name": "managing_organization_id",
+            "description": "The lead organization responsible for the group.",
+            "valueType": "ID"
+          },
+          {
+            "name": "managing_practitioner_id",
+            "description": "The lead practitioner responsible for the group.",
+            "valueType": "ID"
+          }
+        ]
+      },
+      {
+        "name":"group_member",
+        "description":"A specific sub-population or cohort with common characteristics.",
+        "parent":"group",
+        "fields":[
+          {
+            "name":"group_member_id",
+            "valueType":"ID",
+            "description":"Unique identifier assigned to patient in the context of the group or cohort, for example, ",
+            "required":"required"
+          },
+          {
+            "name":"patient_id",
+            "valueType":"ID",
+            "description":"Unique identifier of the person included in the group.",
+            "required":"optional",
+            "note":"Including the patient_id does not imply PII of the patient is revealed."
+          },
+          {
+            "name":"group_id",
+            "valueType":"ID",
+            "description":"The id of the group definition.",
+            "required":"required"
+          },
+          {
+            "name":"description",
+            "description":"A narrative explanation of the composition of the group.",
+            "valueType":"text",
+            "required": "required"
+          },
+          {
+            "name": "member_start_date",
+            "description": "The date when the member was included in the group.",
+            "required": "required",
+            "valueType": "date"
+          },
+          {
+            "name": "member_end_date",
+            "description": "The date when the member no longer was included in the group.",
+            "required":"optional",
+            "valueType": "date",
+            "note":"If no end date is given, it is assumed the person is still a member of the group on the report date."
+          }         
+        ]
+      },
+      {
+        "name":"group_observation",
+        "description": "A result of measuring an observable characteristic of the group.",
+        "parent":"group",
+        "fields":[
+          {
+            "name":"group_observation_id",
+            "description":"Unique identifier of the observation on the group.",
+            "required":"required",
+            "valueType":"ID"
+          },
+          {
+            "name":"group_id",
+            "valueType":"ID",
+            "description":"The id of the group definition.",
+            "required":"required"
+          },
+          {
+            "name":"description",
+            "description":"A narrative explanation of the observation of the group.",
+            "valueType":"text"
+          },
+          {
+            "name": "code",
+            "valueType": "code",
+            "description": "The code identifying the type of observation made on the group.",
+            "required": "required",
+            "permissible": {
+              "codeList": ["LOINC","SNOMED-CT", "CPT", "RxNORM", "NDC"]
+            },
+            "notes": "Codes for group observations should use the corresponding codes for individual observation. For example, the incidence of fever in a group should use the code SNOMED 426000000 (Fever greater than 100.4 Fahrenheit). The incidence of intubation in the group would use the SNOMED or CPT procedure code for intubation."
+          },
+          {
+            "name": "observation_datetime",
+            "valueType": "dateTime",
+            "description": "The date-time of the observation, if the observation is made at a specific time.",
+            "note": "Either the observation_datetime or the observation_period_start should be reported, but not both."
+          },
+          {
+            "name": "observation_period_start",
+            "valueType": "dateTime",
+            "description": "The date or date-time marking the beginning of the clinically-relevant time period of the observation.",
+            "note": "Either the observation_datetime or the observation_period_start should be reported, but not both."
+          },
+          {
+            "name": "observation_period_end",
+            "valueType": "dateTime",
+            "description": "The date or date-time marking end of the observation period. If the observation_period_start is reported and the observation_period_end is not reported, the observation is assumed to be ongoing at the time of reporting."
+          },
+          {
+            "name": "result_string",
+            "description": "The value associated with the observation, represented as a text.",
+            "valueType": "text",
+            "notes": "A textual description of the observation result. A code is preferred if available."
+          },
+          {
+            "name": "result_code",
+            "description": "The value associated with the observation, represented as a code.",
+            "valueType": "code"
+          },
+          {
+            "name": "result_quantity",
+            "description": "The value associated with a lab result, represented as a number. The number can be either an integer or a float.",
+            "valueType": "quantity"
+          },
+          {
+            "name": "result_units",
+            "description": "Unit of measure for the associated with the lab result quantity.",
+            "valueType": "code",
+            "permissible": {
+              "codeList": ["UCUM code"]
+            },
+            "notes": "Nomenclature conforms to the Unified Code for Units of Measure (UCUM): https://unitsofmeasure.org/trac"
+          },
+          {
+            "name":"result_interpretation",
+            "description":"An interpretation associated with the observation",
+            "valueType":"code",
+            "permissible":{
+              "codeList":[
+                "Any of the codes specified in the http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation value set."
+              ]
+            }
+          }
+        ],
+        "profiles": [
+          {
+            "name":"Incidence_of_Intubation",
+            "description":"Incidence of intubation in a defined cohort.",
+            "keyCode": {"codeList": ["SNOMED-CT 447996002"]},
+            "permissible": {
+              "codeList": ["Ratio N/M"]
+            },
+            "notes": "Result value should be reported as a numerator and denominator, not a percentage."
+          },
+          {
+            "name":"Use of Hydroxychloroquine",
+            "description":"Usage of hydroxychloroquine in the cohort.",
+            "keyCode": {"codeList": ["RxNorm 5521"]},
+            "permissible": {
+              "codeList": ["Ratio N/M"]
+            },
+            "notes": "Result value should be reported as a numerator and denominator, not a percentage. The generic ingredient code should be the observation identifier because different doses and dose form could be used across the cohort."
+          }
         ]
       }
     ]  
