@@ -53,8 +53,8 @@ async function runAdd(filename) {
       inquirer
         .prompt([
           {
-            default: "dictionary.json",
-            message: 'Enter path and filename or directory name for dictionary to add:',
+            default: "../dictionary",
+            message: 'Enter filename or directory to add:',
             name: 'filepath',
             type: 'text'
           },
@@ -98,9 +98,29 @@ async function runAdd(filename) {
 
   // Ensure we are not overwriting a version that already exists.
   if (currentVersions.includes(selectedVersion)) {
+
     console.log(
-      `The dictionary is version ${selectedVersion}, which already exists in the site. Please update the dictionary file to be a new version not yet used in the site.`,
+      `The dictionary is version ${selectedVersion}, which already exists in the site.`,
     );
+
+    (await new Promise((resolve, reject) => {
+      inquirer
+        .prompt([
+          {
+            message: 'Enter version number:',
+            name: 'newVersion',
+            type: 'text'
+          },
+        ])
+        .then(selectedVersion => {
+          newVersion = selectedVersion;
+          resolve(newVersion);
+        });
+    }));
+  }
+
+
+/*
     console.log(
       `If you are attempting to replace an existing dictionary version, use ${chalk.green(
         'npm run remove',
@@ -108,6 +128,7 @@ async function runAdd(filename) {
     );
     return;
   }
+*/
 
   currentVersions.push(selectedVersion); // add new version to currentVersions list
   currentVersions.sort((a, b) => b - a); // sort descending
