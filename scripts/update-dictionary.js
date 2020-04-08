@@ -5,6 +5,7 @@ const querystring = require('querystring');
 const fs = require('fs');
 const argv = require('yargs').argv;
 const fse = require('fs-extra');
+const path = require('path');
 const generateTreeData = require('./generateData');
 
 const constants = require('./constants');
@@ -53,7 +54,7 @@ async function runAdd(filename) {
         .prompt([
           {
             default: "dictionary.json",
-            message: 'Enter path and filename for dictionary to add:',
+            message: 'Enter path and filename or directory name for dictionary to add:',
             name: 'filepath',
             type: 'text'
           },
@@ -64,7 +65,34 @@ async function runAdd(filename) {
         });
     }));
 
-  const data = JSON.parse(fs.readFileSync(file, 'utf-8'));
+  // Default top level data. Will be overwritten if a main.json is provided in a directory or if a file is specified.
+  let defaultData = {
+    "name":"COVID Data Dictionary",
+    "version":"1.0",
+    "schemas":[]
+  };
+
+  if (fs.statSync(file).isDirectory()) {
+    const files = fs.readdirSync(file, 'utf-8');
+    const allFileContents = files
+      .filter(f => f.endsWith('.json') && f !== 'package.json' && f !== 'package-lock.json')
+      .map(f => {
+        const filePath = path.resolve(path.join(file, f));
+        const fileContent = fs.readFileSync(filePath, 'utf8');
+        if (f === 'main.json') {
+          defaultData = JSON.parse(fileContent);
+          return;
+        }
+        return JSON.parse(fileContent);
+      })
+      .filter(d => d);
+    data = allFileContents.reduce((accumulator, currentValue) => {
+      accumulator.schemas = accumulator.schemas.concat(currentValue);
+      return accumulator;
+    }, defaultData);
+  } else {
+    data = JSON.parse(fs.readFileSync(file, 'utf-8'));
+  }
 
   const selectedVersion = data.version;
 
