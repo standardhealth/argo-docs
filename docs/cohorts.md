@@ -19,7 +19,7 @@ For patients with new COVID-19 infection, how does the addition of hydroxychloro
 ![hydroxycholoroquine cohort pathways](../website/static/img/hydroxy_cohorts)
 
 **Target cohort**:
-* [COVID-19-like illness adult hospitalizations](c-19-adult-hosp) and [New user of hydroxycloriquine]()
+* [COVID-19-like illness adult hospitalizations](c-19-adult-hosp) and [New user of hydroxycloriquine](c-19-new-hydroxy)
 
 **Outcome cohorts**:
 * [COVID-19-like illness adult hospitalizations](c-19-adult-hosp) and [New user of hydroxycloriquine]() and [ICU admission]()
