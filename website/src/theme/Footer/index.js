@@ -35,17 +35,17 @@ function Footer() {
           <section className={styles.footerLinks}>
             {/* <a href="https://platform.standardhealth.org/contact">Contact</a>
             <Slash /> */}
-            <a href="privacy">Privacy Policy</a>
+            <a href="">Privacy Policy</a>
             <Slash />
-            <a href="terms">Terms & Conditions</a>
+            <a href="">Terms & Conditions</a>
             <Slash />
-            <a href="publicationpolicy">Publication Policy</a>
+            <a href="">Publication Policy</a>
           </section>
           <section className={styles['legal-text']}>
             {siteConfig.themeConfig.footer.copyright}
           </section>
           <section className={styles['legal-text']}>
-            <a href="https://www.icgc-argo.org">ARGO Data Platform</a>{' '}
+            <a href="https://www.icgc-argo.org" target="_blank">ARGO Data Platform</a>{' '}
             {/*1.0.0 - API v1 - 8e37309*/}
           </section>
         </div>
