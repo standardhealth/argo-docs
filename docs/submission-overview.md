@@ -13,7 +13,7 @@ The clinical data needed to derive insights on COVID-19 screening and management
 
 * A base set of data requirements for clinical data providers to 1) scope and guide clinical data extraction with minimal effort, transformations, and assumptions; and 2) feed a broad set of analytics questions with a single stroke and minimal assumptions.
 
-* Standardized definitions and transformation logic, where applicable, for COVID-19 clinically relevant data elements for consumers of clinical data to accelerate analytics efforts and increase transparency and comparability of derived and aggregate data.
+* COVID-19 cohorts provide standardized definitions for relevant metrics and populations of interest. Following these definitions assures consistent metrics and comparable cohorts.
 
 We welcome clinical data providers and analytics teams to share their needs and priorities to guide and contribute to this effort!
 

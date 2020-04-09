@@ -67,32 +67,10 @@ function Index() {
                 <img src="img/icons/chevron-right.svg" height={8} width={8} />
               </a>
             </ContentBlock>
-            <ContentBlock
-              title="Data Harmonization"
-              color="#7f55cc"
-              icon="img/icons/home/controlled-data.svg"
-            >
-              Coming Soon
-              {/* <ul>
-                <li>
-                  <a href="/docs/submission-getting-started">Get started</a>: a quick guide to data
-                  submission
-                </li>
-                <li>
-                  How to <a href="/docs/submitting-clinical-data">submit clinical data</a>
-                </li>
-                <li>
-                  How to <a href="/docs/submitting-molecular-data">submit molecular data</a>
-                </li>
-                <li>
-                  How to <a href="/docs/managing-program-access">manage program users</a>
-                </li>
-              </ul> */}
-            </ContentBlock>
-          </div>
-          <div className={styles.row}>
-            <ContentBlock title="FAQs" color="#fea430" icon="img/icons/home/faq.svg">
-              Coming Soon
+            <ContentBlock title="COVID-19 Vocabulary" color="#fea430" icon="img/icons/home/faq.svg">
+              <p className={styles.contentDescription}>
+                COVID-19 value sets used in the data dictionary, derived elements and cohort definitions are available in the <a href="https://vsac.nlm.nih.gov/valueset/expansions?pr=all&rel=Latest&q=c19hccValue" target="_blank">Value Set Authority Center</a>.
+              </p>
               {/* <ul>
                 <li>
                   <a href="/docs/faq">Can I submit molecular data before registering IDs?</a>
@@ -103,8 +81,23 @@ function Index() {
                 <li>
                   <a href="/docs/faq">How do I track data processing stage?</a>
                 </li>
-              </ul> */}
+              </ul>*/}
             </ContentBlock>
+            <ContentBlock
+              title="COVID-19 Cohorts"
+              color="#7f55cc"
+              icon="img/icons/home/controlled-data.svg"
+            >
+              <span className={styles.contentDescription}>
+                COVID-19 cohorts provide standardized definitions for relevant metrics and populations of interest. Following these definitions assures consistent metrics and comparable cohorts.
+              </span>
+              <a className={styles.contentAction} href="/docs/cohorts">
+                Cohorts
+                <img src="img/icons/chevron-right.svg" height={8} width={8} />
+              </a>
+            </ContentBlock>
+          </div>
+          <div className={styles.row}>
             <ContentBlock
               title="Release Notes"
               color="#0774d3"
@@ -123,7 +116,7 @@ function Index() {
                 </li>
               </ul> */}
             </ContentBlock>
-          </div>
+          </div> 
         </div>
       </div>
     </Layout>
