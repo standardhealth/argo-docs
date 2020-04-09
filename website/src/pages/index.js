@@ -69,7 +69,7 @@ function Index() {
             </ContentBlock>
             <ContentBlock title="COVID-19 Vocabulary" color="#fea430" icon="img/icons/home/faq.svg">
               <p className={styles.contentDescription}>
-                COVID-19 value sets used in the data dictionary, derived elements and cohort definitions are available in the <a href="https://vsac.nlm.nih.gov/valueset/expansions?pr=all&rel=Latest&q=c19hccValue">Value Set Authority Center</a>.
+                COVID-19 value sets used in the data dictionary, derived elements and cohort definitions are available in the <a href="https://vsac.nlm.nih.gov/valueset/expansions?pr=all&rel=Latest&q=c19hccValue" target="_blank">Value Set Authority Center</a>.
               </p>
               {/* <ul>
                 <li>
@@ -89,7 +89,7 @@ function Index() {
               icon="img/icons/home/controlled-data.svg"
             >
               <span className={styles.contentDescription}>
-                COVID-19 cohorts provide standardized definitions and associated logic for COVID-19 clinically relevant derived elements and populations of interest. These can be used to accelerate analytics efforts and increase transparency and comparability of derived and aggregate data.
+                COVID-19 cohorts provide standardized definitions for relevant metrics and populations of interest. Following these definitions assures consistent metrics and comparable cohorts.
               </span>
               <a className={styles.contentAction} href="/docs/cohorts">
                 Cohorts

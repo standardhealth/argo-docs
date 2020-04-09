@@ -47,7 +47,7 @@ module.exports = {
       title: '',
       logo: {
         alt: 'MITRE C19HCC',
-        src: 'img/logos/mitre_name.png',
+        src: 'img/logos/home_icon.png',
       },
       links: [
         { to: 'docs/submission-overview', label: 'Overview', position: 'right' },
