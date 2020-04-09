@@ -21,13 +21,16 @@ title: New user of hydroxychloroquine
 
 ### Initial Event Cohort
 
-Individuals having any of the following:
+Patients meeting meeting _all_ of the following:
 
 * **Drug exposure to hydroxychloroquine**
     * `med_exposure` :
         * `code` in in [CH19HCC Hydroxychloroquine Ingredient]()
         * `start_date` is on or after index date
-        * for the first time in the person's history
+
+### Exclusion Criteria
+
+Patients meeting meeting _any_ of the following:
 
 * **Condition suggesting prior hydroxychloroquine use**:
     * **Diagnosis of systemic lupus erythematosus (`Lupus_confirmed`)**:
