@@ -54,12 +54,11 @@ For individuals matching the Index Event (`c19_hosp`), include individuals match
             * `onset` between 21 days before index start date and 0 days after index end date
             * `type` is (**chief complaint** or **admitting diagnosis** or **problem list entry** or **encounter diagnosis** or **final diagnosis** or **discharge diagnosis**)
 
+> Issues:
+  * <mark>Consider inclusion of documented SARS-CoV2 exposures?</mark>
+  * <mark>Consider inclusion of documented presence/absence of COVID-19 signs and symptoms?</mark>
+  * <mark>Consider inclusion of documented COVID-19 status (confirmed, suspected)?</mark>
 
-    <mark>Consider inclusion of documented SARS-CoV2 exposures?</mark>
-
-    <mark>Consider inclusion of documented presence/absence of COVID-19 signs and symptoms?</mark>
-
-    <mark>Consider inclusion of documented COVID-19 status (confirmed, suspected)?</mark>
 
 ### Inclusion Criteria
 

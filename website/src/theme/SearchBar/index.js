@@ -1,10 +1,8 @@
 import React from 'react';
 import classnames from 'classnames';
-import useAlgolia from '../../hooks/useAlgolia';
 
 const Search = props => {
   const inputRef = React.useRef();
-  useAlgolia(inputRef);
 
   return (
     <div className="navbar__search" key="search-box">

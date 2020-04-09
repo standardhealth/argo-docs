@@ -12,7 +12,6 @@ module.exports = {
 
   stylesheets: [
     'https://fonts.googleapis.com/css?family=Source+Code+Pro|Work+Sans&display=swap',
-    './src/css/algolia.css',
   ],
 
   plugins: [path.resolve(__dirname, './svg-plugin'), path.resolve(__dirname, './dotenv-plugin')],
