@@ -25,8 +25,8 @@ function Footer() {
         <div className={styles.footerLogo}>
           <a href="https://c19hcc.org/">
             <img
-              src={useBaseUrl(`img/logos/mitre_full.png`)}
-              alt="ICGC Accelerating Research in Genomic Oncology"
+              src={useBaseUrl(`img/logos/c19hcc.png`)}
+              alt="COVID-19 Healthcare Coalition"
               width="240px"
             />
           </a>
@@ -54,7 +54,7 @@ function Footer() {
             <img
               src={useBaseUrl(`img/logos/mitre_logo.svg`)}
               alt="MITRE Corporation"
-              height="52px"
+              height="44px"
             />
           </a>
         </div>
