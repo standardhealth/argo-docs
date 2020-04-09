@@ -52,8 +52,6 @@ module.exports = {
       links: [
         { to: 'docs/submission-overview', label: 'Overview', position: 'right' },
         { to: 'dictionary', label: 'Dictionary', position: 'right' },
-        { to: 'docs/data-harmonization', label: 'Harmonization', position: 'right' },
-
         // {
         //   href: 'https://platform.standardhealth.org/contact',
         //   label: 'Contact',
