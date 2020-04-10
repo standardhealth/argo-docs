@@ -17,13 +17,6 @@
   align-items: center;
 }
 
-span.bannerText {
-  color: white;
-  font-size: 44px;
-  font-weight: 300;
-  margin-bottom: 14px;
-}
-
 /* Content Blocks */
 .mainContainer {
   padding: 40px 20px;
