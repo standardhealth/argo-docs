@@ -49,7 +49,7 @@ module.exports = {
         src: 'img/logos/home_icon.png',
       },
       links: [
-        { to: 'docs/submission-overview', label: 'Overview', position: 'right' },
+        { to: 'docs/overview', label: 'Overview', position: 'right' },
         { to: 'docs/vocabulary', label: 'Vocabulary', position: 'right' },
         { to: 'docs/cohorts', label: 'Cohorts', position: 'right' },
         { to: 'dictionary', label: 'Data Dictionary', position: 'right' },

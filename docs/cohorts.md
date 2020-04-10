@@ -11,7 +11,6 @@ title: Cohorts
 
 Does prophylactic hydroxychloroquine have a protective effect for individuals exposed to SARS-CoV2?
 
-
 ### Novel use of hydroxycloroquine for COVID-19 treatment
 
 For patients with new COVID-19 infection, how does the addition of hydroxychloroquine affect the development of severe symptoms, hospitalization, ICU admission/intubation/mechanical ventilation, or death?
