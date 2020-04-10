@@ -2,10 +2,10 @@ const path = require('path');
 
 module.exports = {
   title: 'C19HCC',
-  url: 'https://docs.standardhealth.com',
-  baseUrl: '/',
+  url: 'https://warp.mitre.org/c19hcc-dictionary',
+  baseUrl: '/c19hcc-dictionary/',
   organizationName: 'MITRE Corporation',
-  projectName: 'C19HCC-data-dictionary',
+  projectName: 'C19HCC-dictionary',
 
   favicon: 'favicon.ico',
   tagline: 'Data Dictionary',
