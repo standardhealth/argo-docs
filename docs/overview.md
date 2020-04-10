@@ -17,10 +17,10 @@ The clinical data needed to derive insights on COVID-19 screening and management
 
 We welcome clinical data providers and analytics teams to share their needs and priorities to guide and contribute to this effort!
 
-* Explore the details of the COVID-19 clinical data set in the **[C19HCC Data Dictionary Viewer](/dictionary).**
+* Explore the details of the COVID-19 clinical data set in the **[C19HCC Data Dictionary Viewer](dictionary).**
 
-* Explore COVID-19 value sets in the **[C19HCC Vocabulary](/docs/vocabulary).**
+* Explore COVID-19 value sets in the **[C19HCC Vocabulary](vocabulary).**
 
-* Explore standardized cohort definitions in the **[C19HCC Cohorts](/docs/cohorts).**
+* Explore standardized cohort definitions in the **[C19HCC Cohorts](cohorts).**
 
 If you have any questions about the cohorts, vocabulary or data dictionary, please contact us at C19hcc@mitre.org.
