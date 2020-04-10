@@ -77,6 +77,26 @@
             },
             "notes":"The clinical status terms are described at http://hl7.org/fhir/valueset-condition-clinical.html."
           }
+        ],
+        "profiles":[
+          {
+            "name":"COVID-19 Confirmed",
+            "description":"COVID-19 condition confirmed by testing.",
+            "keyCode": {"codeList": [
+              "ICD10-CM U07.1 (COVID19, virus identified)",
+              "SNOMED-CT 840539006 (COVID-19 disorder)"
+            ]},
+            "notes":"Either code is acceptable."
+          },
+          {
+            "name":"COVID-19 Unconfirmed",
+            "description":"Presumed or suspected COVID-19.",
+            "keyCode": {"codeList": [
+              "ICD10-CM U07.2 (COVID19, virus not identified)",
+              "SNOMED-CT 840544004 (Suspected COVID-19 situation)"
+            ]},
+            "notes":"Either code is acceptable."
+          }
         ]
       },
       {
@@ -152,6 +172,54 @@
             "valueType": "date",
             "note":"If the stop date is not provided, it is assumed the medication is ongoing at the time of the report."
           }
+        ],
+        "profiles":[
+          {
+            "name":"ARB Drug Class",
+            "description":"Angiotensin receptor blockers (ARBs).",
+            "keyCode": {"codeList": [
+              "1091643 Azilsartan",
+              "214354 Candesartan",
+              "83515 Eprosartan",
+              "83818 Irbesartan",
+              "52175 Losartan",
+              "321064 Olmesartan",
+              "73494 Telmisartan"]},
+            "notes":"Examples are given in RxNORM ingredient (IN) form."
+          },
+          {
+            "name":"H2 Inhibitor Drug Class",
+            "description":"Histamine H2-receptor antagonists.",
+            "keyCode": {"codeList": [
+              "2541 Cimetidine",
+              "4278 Famotidine",
+              "42319 Nizatidine",
+              "9143 Ranitidine",
+              "114817 Roxatidine"
+              ]},
+            "notes":"Examples are given in RxNORM ingredient (IN) form."
+          },
+          {
+            "name":"ACE Inhibitor Drug Class",
+            "description":"Angiotensin converting enzyme inhibitors.",
+            "keyCode": {"codeList": [
+              "18867 Benazepril",
+              "1998 Captopril",
+              "21102 Cilazapril",
+              "3827 Enalapril",
+              "50166 Fosinopril",
+              "60245 Imidapril",
+              "29046 Lisinopril",
+              "30131 Moexipril",
+              "54552 Perindopril",
+              "35208 Quinapril",
+              "35296 Ramipril",
+              "36908 Spirapril",
+              "38454 Trandolapril",
+              "39990 Zofenopril" 
+              ]},
+            "notes":"Examples are given in RxNORM ingredient (IN) form."
+          } 
         ]
       },
       {
@@ -198,6 +266,13 @@
             "description": "The date and time the procedure ended.",
             "required":"optional",
             "valueType": "date"
+          }
+        ],
+        "profiles":[
+          {
+            "name":"Intubation",
+            "description":" Intubation of respiratory tract (procedure).",
+            "keyCode": {"codeList": ["SNOMED-CT 447996002"]}
           }
         ]
       },
@@ -262,6 +337,51 @@
               "codeList":[
                 "Any of the codes specified in the http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation value set."
               ]
+            }
+          }
+        ],
+        "profiles":[
+          {
+            "name":"SARS-CoV-2 result",
+            "description":"SARS coronavirus 2 RNA [Presence] in Respiratory specimen by NAA with probe detection",
+            "keyCode":{
+              "codeList": ["LOINC 94500-6"]
+            },
+            "permissible": {
+              "codeList": ["LA6576-8 Present", "LA6577-6 Absent", "LA15841-2 Invalid"]
+            },
+            "notes":"This Special Use code has been developed in response to an urgent or emergent situation. Answer list is LL2021-5"
+          },
+          {
+            "name":"SARS-CoV-2 RdRp gene result",
+            "description":"SARS coronavirus 2 RdRp gene [Presence] in Respiratory specimen by NAA with probe detection",
+            "keyCode":{
+              "codeList": ["LOINC 94534-5"]
+            },
+            "permissible": {
+              "codeList": [	"LA6576-8 Positive", "LA6577-6 Negative", "LA11885-3 Equivocal"]
+            },
+            "notes":"This Special Use code has been developed in response to an urgent or emergent situation. Answer list is LL2009-0"
+          },
+          {
+            "name":"SARS-CoV-2 N gene Resp Ql NAA+probe",
+            "description":"SARS coronavirus 2 N gene [Presence] in Respiratory specimen by NAA with probe detection",
+            "keyCode":{
+              "codeList": ["LOINC 94533-7"]
+            },
+            "permissible": {
+              "codeList": [	"LA6576-8 Positive", "LA6577-6 Negative", "LA11885-3 Equivocal"]
+            },
+            "notes":"This Special Use code has been developed in response to an urgent or emergent situation. Answer list is LL2009-0"
+          },
+          {
+            "name":"SARS-CoV-2 Antibody",
+            "description":"Test for antibodies to SARS coronavirus 2 [Presence]",
+            "keyCode":{
+              "codeList": ["TBD"]
+            },
+            "permissible": {
+              "codeList": [	"LA6576-8 Positive", "LA6577-6 Negative", "LA11885-3 Equivocal"]
             }
           }
         ]
@@ -493,6 +613,43 @@
             "description": "The date and time the measurement of the vital sign occurred.",
             "required": "required"
           }
+        ],
+        "profiles":[
+          {
+            "name":"Respiratory Rate",
+            "keyCode": {"codeList": ["LOINC 9279-1"]},
+            "permissible": {
+              "codeList": ["/min"]
+            }
+          },
+          {
+            "name":"Oxygen saturation",
+            "keyCode": {"codeList": ["LOINC 2708-6  Oxygen saturation in Arterial blood","59408-5  Oxygen saturation in Arterial blood by Pulse oximetry"]},
+            "permissible": {
+              "codeList": ["%"]
+            }
+          },
+          {
+            "name":"Inhaled Oxygen Flow Rate",
+            "keyCode": {"codeList": ["LOINC 3151-8"]},
+            "permissible": {
+              "codeList": ["L/m"]
+            }
+          },
+          {
+            "name":"Inhaled Oxygen Concentration",
+            "keyCode": {"codeList": ["LOINC 3150-0"]},
+            "permissible": {
+              "codeList": ["%"]
+            }
+          },
+          {
+            "name":"Body Temperature",
+            "keyCode": {"codeList": ["LOINC 8310-5"]},
+            "permissible": {
+              "codeList": ["C"]
+            }
+          } 
         ]
       }
       ,
@@ -575,6 +732,50 @@
               ]
             }
           }
+        ],
+        "profiles":[
+          {
+            "name":"Smoking_Status",
+            "keyCode":{
+              "codeList":["72166-2 Tobacco smoking status NHIS"]
+            },
+            "permissible": {
+              "codeList": ["Current every day smoker","Current some day smoker","Former smoker", "Never smoker", "Smoker, current status unknown", "Unknown if ever smoked", "Current Heavy tobacco smoker", "Current Light tobacco smoker"]
+            },
+            "notes": "Result values must come from US Core Smoking Status value set: http://hl7.org/fhir/us/core/ValueSet/us-core-observation-smokingstatus."
+          },
+          {
+            "name":"COVID-19 Signs/Symptoms",
+            "description": "Preferred SNOMED-CT codes used to report common signs and symptoms of COVID-19. More specific codes (descendants, aka 'lowest level terms') should be reported using preferred terms. Coupling a finding with a result code (present, absent, unknown) is not a preferred methodology in SNOMED, but fulfills a current need.",
+            "keyCode":{
+              "codeList":[
+                "43724002   Chill (finding)",
+                "162397003  Pain in throat (finding)",
+                "49727002   Cough (finding)",
+                "267036007  Dyspnea (finding)",
+                "426000000  Fever greater than 100.4 Fahrenheit (finding)",
+                "103001002  Feeling feverish (finding)",
+                "68962001   Muscle pain (finding)",
+                "64531003   Nasal discharge (finding)",
+                "422587007  Nausea (finding)",
+                "422400008  Vomiting (disorder)",
+                "25064002   Headache (finding)",
+                "21522001   Abdominal pain (finding)",
+                "62315008   Diarrhea (finding)",
+                "13791008   Asthenia (finding)",
+                "79890006   Loss of appetite (finding)",
+                "44169009   Loss of sense of smell (finding)",
+                "36955009   Loss of taste (finding)",
+                "22253000   Pain (finding)",
+                "29857009   Chest pain (finding)"
+              ]
+            },
+            "permissible": {
+              "codeList": ["52101004 Present", "2667000 Absent", "261665006 Unknown"]
+            },
+            "notes":"Each symptom can be reported as present, absent or unknown, using provided answer codes. Symptoms such as dyspnea can sometimes be treated as conditions and found in a problem list."
+          }
+
         ]
       },
       {
@@ -753,6 +954,49 @@
             "description": "The denominator value associated with a ratio observation, represented as an integer.",
             "valueType": "integer"
           }
+        ],
+        "profiles": [
+          {
+            "name":"Incidence_of_Intubation",
+            "description":"Incidence of intubation in a defined cohort.",
+            "keyCode": {"codeList": ["SNOMED-CT 447996002"]},
+            "permissible": {
+              "codeList": ["Ratio N/M"]
+            },
+            "notes": "Result value should be reported as a numerator and denominator, not a percentage."
+          },
+          {
+            "name":"Use of Hydroxychloroquine",
+            "description":"Usage of hydroxychloroquine in the cohort.",
+            "keyCode": {"codeList": ["RxNorm 5521"]},
+            "permissible": {
+              "codeList": ["Ratio N/M"]
+            },
+            "notes": "Result value should be reported as a numerator and denominator, not a percentage. The generic ingredient code should be the observation identifier because different doses and dose form could be used across the cohort."
+          },
+          {
+              "name":"number_of_licensed_beds",
+              "description":"The maximum number of beds for which a hospital holds a license to operate; however, many hospitals do not operate all the beds for which they are licensed. This number is obtained through DHC Primary Research. Licensed beds for Health Systems are equal to the total number of licensed beds of individual Hospitals within a given Health System. (Source: Definitive Healthcare)",
+              "keyCode": {"codeList": ["licensed_beds"]},
+              "permissible": {
+                "codeList": ["integer"]
+              }
+          },
+          {
+              "name":"open_ICU_beds",
+              "description":"The total number of open ICU beds at the point of reporting. Healthcare organizations define which departments are for intensive and non-intensive acute care.",
+              "keyCode": {"codeList": ["TBD"]},
+              "permissible": {
+                "codeList": ["integer"]
+              }
+          },
+          {
+              "name":"open_non_ICU_acute_beds",
+              "description":"The total number of open non-intensive, acute care beds at the point of reporting. Healthcare organizations define which departments are for intensive and non-intensive acute care.",
+              "keyCode": {"codeList": ["TBD"]},
+              "permissible": {
+                "codeList": ["integer"]}
+           }
         ]
       },
       {
