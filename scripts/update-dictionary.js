@@ -66,7 +66,7 @@ async function runAdd(filename) {
     }));
 
   // Default top level data. Will be overwritten if a main.json is provided in a directory or if a file is specified.
-  let defaultData = {
+  var defaultData = {
     "name":"COVID Data Dictionary",
     "version":"1.0",
     "schemas":[]
@@ -81,6 +81,11 @@ async function runAdd(filename) {
         const fileContent = fs.readFileSync(filePath, 'utf8');
         if (f === 'main.json') {
           defaultData = JSON.parse(fileContent);
+console.info(JSON.stringify(defaultData));
+//          const dateElement = {updatedAt: new Date()};
+          defaultData["updatedAt"] = new Date();
+//console.info(JSON.stringify(dateElement));
+console.info(JSON.stringify(defaultData));
           return;
         }
         return JSON.parse(fileContent);
@@ -94,7 +99,7 @@ async function runAdd(filename) {
     data = JSON.parse(fs.readFileSync(file, 'utf-8'));
   }
 
-  const selectedVersion = data.version;
+  var selectedVersion = data.version;
 
   // Ensure we are not overwriting a version that already exists.
   if (currentVersions.includes(selectedVersion)) {
@@ -107,28 +112,18 @@ async function runAdd(filename) {
       inquirer
         .prompt([
           {
-            message: 'Enter version number:',
+            message: 'Enter a unique version number:',
             name: 'newVersion',
             type: 'text'
           },
         ])
-        .then(selectedVersion => {
-          newVersion = selectedVersion;
-          resolve(newVersion);
+        .then(answers => {
+          selectedVersion = answers.newVersion;
+//          console.info('Selected version:', selectedVersion)
+          resolve(selectedVersion);
         });
     }));
   }
-
-
-/*
-    console.log(
-      `If you are attempting to replace an existing dictionary version, use ${chalk.green(
-        'npm run remove',
-      )} to remove this version, then run the add script again to add this file.`,
-    );
-    return;
-  }
-*/
 
   currentVersions.push(selectedVersion); // add new version to currentVersions list
   currentVersions.sort((a, b) => b - a); // sort descending
