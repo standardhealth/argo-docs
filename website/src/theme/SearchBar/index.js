@@ -14,18 +14,6 @@ const Search = props => {
         })}
         tabIndex={0}
       />
-      <input
-        ref={inputRef}
-        id="search_input_react"
-        type="search"
-        placeholder="Search"
-        aria-label="Search"
-        className={classnames(
-          'navbar__search-input',
-          { 'search-bar-expanded': props.isSearchBarExpanded },
-          { 'search-bar': !props.isSearchBarExpanded },
-        )}
-      />
     </div>
   );
 };

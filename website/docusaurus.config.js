@@ -43,14 +43,16 @@ module.exports = {
 
     disableDarkMode: true,
     navbar: {
-      title: '',
+      title: 'COVID-19 Healthcare Coalition Data Standards',
       logo: {
         alt: 'MITRE C19HCC',
         src: 'img/logos/home_icon.png',
       },
       links: [
         { to: 'docs/submission-overview', label: 'Overview', position: 'right' },
-        { to: 'dictionary', label: 'Dictionary', position: 'right' },
+        { to: 'docs/vocabulary', label: 'Vocabulary', position: 'right' },
+        { to: 'docs/cohorts', label: 'Cohorts', position: 'right' },
+        { to: 'dictionary', label: 'Data Dictionary', position: 'right' },
         // {
         //   href: 'https://platform.standardhealth.org/contact',
         //   label: 'Contact',
