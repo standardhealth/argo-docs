@@ -3,14 +3,25 @@ id: cohorts
 title: Cohorts
 ---
 
-# COVID-19 cohorts
+# EHR data cohorts for evaluating effect of drugs on COVID-19 outcomes
 
-## Safety and efficacy of novel use of hydroxycloroquine for the treatment if COVID-19
+## Hydroxychloroquine cohorts and cohort pathways
+
+### Prophylactic use of hydroxychloroquine in COVID-exposed individuals
+
+Does prophylactic hydroxychloroquine have a protective effect for individuals exposed to SARS-CoV2?
+
+
+### Novel use of hydroxycloroquine for COVID-19 treatment
+
+For patients with new COVID-19 infection, how does the addition of hydroxychloroquine affect the development of severe symptoms, hospitalization, ICU admission/intubation/mechanical ventilation, or death?
+
+![hydroxycholoroquine cohort pathways](/static/img/hydroxy_cohorts.png)
 
 **Target cohort**:
-* [COVID-19-like illness adult hospitalizations](c-19-adult-hosp) and [New user of hydroxycloriquine]()
+* [COVID-19-like illness adult hospitalizations](c-19-adult-hosp) and [New user of hydroxycloriquine](c-19-new-hydroxy)
 
 **Outcome cohorts**:
-* [ICU admission]()
-* [Ventilator use]()
-* [Death]()
+* [COVID-19-like illness adult hospitalizations](c-19-adult-hosp) and [New user of hydroxycloriquine]() and [ICU admission]()
+* [COVID-19-like illness adult hospitalizations](c-19-adult-hosp) and [New user of hydroxycloriquine]() and [ICU admission]() and [Ventilator use]()
+* [COVID-19-like illness adult hospitalizations](c-19-adult-hosp) and [New user of hydroxycloriquine]() and [ICU admission]() and [Ventilator use]() and [Death]()

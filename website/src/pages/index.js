@@ -21,7 +21,6 @@ function HomeSplash() {
 
   const SearchBanner = props => (
     <section className={styles.searchBanner}>
-      <span className={styles.bannerText}> </span>
     </section>
   );
 
@@ -95,8 +94,10 @@ function Index() {
                 Cohorts
                 <img src="img/icons/chevron-right.svg" height={8} width={8} />
               </a>
+              <br/>
             </ContentBlock>
           </div>
+
           <div className={styles.row}>
             <ContentBlock
               title="Release Notes"
