@@ -26,11 +26,11 @@ The cohorts described here are intended to support an initial use case of produc
 
 | Cohort | Description | Related EHR Data Elements |
 | --- | --- | --- |
-| <mark>TODO: </mark>[High-Flow Oxygen therapy]() | Defines how to identify individuals who are on high-flow oxygen therapy, which can be an indicator of ICU-level care. | `Procedure.code`, `Procedure.start_datetime`, <mark>`ICU flowsheet data`</mark> |
-| <mark>TODO: </mark>[Mechanical Ventilation]()        | Defines how to identify individuals who received mechanical ventilation. | `procedure.code`, <mark>completed orders, ICU flowsheet data?</mark>
-<mark>TODO: </mark>[Death during hospitalization]() | Defines how to identify individuals who expired during a hospitalization. |
-| <mark>TODO: </mark>[ICU level of care]() | Defines how to identify patients receiving ICU-level of care |
-| <mark>TODO: </mark>[Death within 6 weeks of COVID-19 confirmation]() |
+| <mark>TODO </mark>[High-Flow Oxygen therapy]() | Defines how to identify individuals who are on high-flow oxygen therapy, which can be an indicator of ICU-level care. | `Procedure.code`, `Procedure.start_datetime`, <mark>`ICU flowsheet data`</mark> |
+| <mark>TODO </mark>[Mechanical Ventilation]()        | Defines how to identify individuals who received mechanical ventilation. | `procedure.code`, <mark>completed orders, ICU flowsheet data?</mark>
+<mark>TODO </mark>[Death during hospitalization]() | Defines how to identify individuals who expired during a hospitalization. |
+| <mark>TODO </mark>[ICU level of care]() | Defines how to identify patients receiving ICU-level of care |
+| <mark>TODO </mark>[Death within 6 weeks of COVID-19 confirmation]() |
 
 
 ### EHR data cohorts for evaluating effect of drugs on COVID-19 outcomes
