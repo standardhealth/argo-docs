@@ -3,6 +3,9 @@ id: c-19-new-hydroxy
 title: New user of hydroxychloroquine
 ---
 
+:::caution
+This content is preliminary and is expected to change quickly as we work with C19HCC partners to align and refine definitions.
+::: 
 
 **Cohort name**: New user of hydroxychloroquine
 
@@ -24,13 +27,20 @@ title: New user of hydroxychloroquine
 Patients meeting meeting _all_ of the following:
 
 * **Drug exposure to hydroxychloroquine**
-    * `med_exposure` :
-        * `code` in in [CH19HCC Hydroxychloroquine Ingredient]()
+    * At least 1 occurrence of a `med_exposure` meeting all of the following:
+        * `code` in in [CH19HCC Hydroxychloroquine]()
         * `start_date` is on or after index date
 
 ### Exclusion Criteria
 
 Patients meeting meeting _any_ of the following:
+
+* **No previous exposure to hydroxychloroquine**
+    * Exactly 0 occurrences of a `med_exposure` meeting all of the following:
+        * `code` in in [CH19HCC Hydroxychloroquine]() 
+        * `start_date` is before index date
+        * 
+    _Note_: `med_exposure` includes medications in the admission medication list at admission or on outpatient medication list prior to admission
 
 * **Condition suggesting prior hydroxychloroquine use**:
     * **Diagnosis of systemic lupus erythematosus (`Lupus_confirmed`)**:

@@ -2,7 +2,9 @@
 id: c-19-adult-hosp
 title: COVID-19-like illness adult hospitalizations
 ---
-
+:::caution
+This content is preliminary and is expected to change quickly as we work with C19HCC partners to align and refine definitions.
+:::
 
 **Cohort name**: COVID-19-like illness adult hospitalizations
 
