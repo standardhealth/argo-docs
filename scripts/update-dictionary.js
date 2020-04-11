@@ -81,11 +81,11 @@ async function runAdd(filename) {
         const fileContent = fs.readFileSync(filePath, 'utf8');
         if (f === 'main.json') {
           defaultData = JSON.parse(fileContent);
-console.info(JSON.stringify(defaultData));
+//console.info(JSON.stringify(defaultData));
 //          const dateElement = {updatedAt: new Date()};
           defaultData["updatedAt"] = new Date();
 //console.info(JSON.stringify(dateElement));
-console.info(JSON.stringify(defaultData));
+//console.info(JSON.stringify(defaultData));
           return;
         }
         return JSON.parse(fileContent);

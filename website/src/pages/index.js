@@ -61,7 +61,7 @@ function Index() {
               <span className={styles.contentDescription}>
                 The dictionary describes the guidelines that data submitters should follow when exporting clinical data files from their electronic health record (EHR) systems.
               </span>
-              <a className={styles.contentAction} href="/dictionary">
+              <a className={styles.contentAction} href="dictionary">
                 Data Dictionary Viewer
                 <img src="img/icons/chevron-right.svg" height={8} width={8} />
               </a>
@@ -90,7 +90,7 @@ function Index() {
               <span className={styles.contentDescription}>
                 COVID-19 cohorts provide standardized definitions for relevant metrics and populations of interest. Following these definitions assures consistent metrics and comparable cohorts.
               </span>
-              <a className={styles.contentAction} href="/docs/cohorts">
+              <a className={styles.contentAction} href="docs/cohorts">
                 Cohorts
                 <img src="img/icons/chevron-right.svg" height={8} width={8} />
               </a>
