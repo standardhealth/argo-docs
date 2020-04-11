@@ -3,9 +3,8 @@ id: c-19-new-hydroxy
 title: New user of hydroxychloroquine
 ---
 
-:::caution
+> Notice:
 This content is preliminary and is expected to change quickly as we work with C19HCC partners to align and refine definitions.
-::: 
 
 **Cohort name**: New user of hydroxychloroquine
 
