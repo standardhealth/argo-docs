@@ -2,10 +2,10 @@ const path = require('path');
 
 module.exports = {
   title: 'C19HCC',
-  url: 'https://warp.mitre.org/c19hcc-dictionary',
-  baseUrl: '/c19hcc-dictionary/',
+  url: 'https://mdpatron.github.io',
+  baseUrl: '/github.io/',
   organizationName: 'MITRE Corporation',
-  projectName: 'C19HCC-dictionary',
+  projectName: 'github.io',
 
   favicon: 'favicon.ico',
   tagline: 'Data Dictionary',

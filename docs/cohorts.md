@@ -22,9 +22,9 @@ For patients with new COVID-19 infection, how does the addition of hydroxychloro
 />
 
 **Target cohort**:
-* [COVID-19-like illness adult hospitalizations](c-19-adult-hosp) and [New user of hydroxycloriquine](c-19-new-hydroxy)
+* [COVID-19-like illness adult hospitalizations](c-19-adult-hosp.md) and [New user of hydroxycloriquine](c-19-new-hydroxy.md)
 
 **Outcome cohorts**:
-* [COVID-19-like illness adult hospitalizations](c-19-adult-hosp) and [New user of hydroxycloriquine](c-19-new-hydroxy) and [ICU admission]()
-* [COVID-19-like illness adult hospitalizations](c-19-adult-hosp) and [New user of hydroxycloriquine](c-19-new-hydroxy) and [ICU admission]() and [Ventilator use]()
-* [COVID-19-like illness adult hospitalizations](c-19-adult-hosp) and [New user of hydroxycloriquine](c-19-new-hydroxy) and [ICU admission]() and [Ventilator use]() and [Death]()
+* [COVID-19-like illness adult hospitalizations](c-19-adult-hosp.md) and [New user of hydroxycloriquine](c-19-new-hydroxy.md) and [ICU admission]()
+* [COVID-19-like illness adult hospitalizations](c-19-adult-hosp.md) and [New user of hydroxycloriquine](c-19-new-hydroxy.md) and [ICU admission]() and [Ventilator use]()
+* [COVID-19-like illness adult hospitalizations](c-19-adult-hosp.md) and [New user of hydroxycloriquine](c-19-new-hydroxy.md) and [ICU admission]() and [Ventilator use]() and [Death]()
