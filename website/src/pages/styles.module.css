@@ -1,10 +1,10 @@
 /* Search Banner */
 
 .homeSplashFade {
-  background-image: url('/c19hcc-dictionary/img/c19hcc-splash.png');
-  background-size: 1000px;
-  background-repeat: no-repeat;
-  background-position: center;
+    background-image: url('/github.io/img/c19hcc-splash.png');
+    background-size: 1000px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .homeContainer .homeWrapper {
   padding: 0;
