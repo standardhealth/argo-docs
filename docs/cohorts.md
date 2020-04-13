@@ -16,10 +16,7 @@ Does prophylactic hydroxychloroquine have a protective effect for individuals ex
 
 For patients with new COVID-19 infection, how does the addition of hydroxychloroquine affect the development of severe symptoms, hospitalization, ICU admission/intubation/mechanical ventilation, or death?
 
-<img 
-   alt="Hydroxycholoroquine cohort pathways"
-  src={useBaseUrl('img/hydroxy_cohorts.png')}
-/>
+![Hydroxycholoroquine cohort pathways](img/hydroxy_cohorts.png)
 
 **Target cohort**:
 * [COVID-19-like illness adult hospitalizations](c-19-adult-hosp.md) and [New user of hydroxycloriquine](c-19-new-hydroxy.md)

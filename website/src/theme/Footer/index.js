@@ -35,17 +35,12 @@ function Footer() {
           <section className={styles.footerLinks}>
             {/* <a href="https://platform.standardhealth.org/contact">Contact</a>
             <Slash /> */}
-            <a href="">Privacy Policy</a>
-            <Slash />
-            <a href="">Terms & Conditions</a>
-            <Slash />
-            <a href="">Publication Policy</a>
           </section>
           <section className={styles['legal-text']}>
             {siteConfig.themeConfig.footer.copyright}
           </section>
           <section className={styles['legal-text']}>
-            <a href="https://www.icgc-argo.org" target="_blank">ARGO Data Platform</a>{' '}
+            <a href="https://www.icgc-argo.org" target="_blank">Based on the ARGO Data Platform</a>{' '}
             {/*1.0.0 - API v1 - 8e37309*/}
           </section>
         </div>
@@ -54,7 +49,7 @@ function Footer() {
             <img
               src={useBaseUrl(`img/logos/mitre_logo.svg`)}
               alt="MITRE Corporation"
-              height="44px"
+              height="40px"
             />
           </a>
         </div>
