@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   title: 'C19HCC',
-  url: 'https://mdpatron.github.io',
+  url: 'https://markkramerus.github.io',
   baseUrl: '/github.io/',
   organizationName: 'MITRE Corporation',
   projectName: 'github.io',
