@@ -46,20 +46,6 @@ class ContentBlock extends React.Component {
   }
 }
 
-class TitleBlock extends React.Component {
-  render() {
-    const { title } = this.props;
-    return (
-      <div className={styles.titleBlock}>
-        <div className={styles.titleBlockHeader}>
-          <span className={styles.titleBlockTitle}>{title}</span>
-        </div>
-        <div className={styles.titleBlockInner}>{this.props.children}</div>
-      </div>
-    );
-  }
-}
-
 function Index() {
   return (
     <Layout permalink="/" title="C19HCC">
@@ -67,37 +53,36 @@ function Index() {
         <HomeSplash />
         <div className={styles.mainContainer}>
           <div className={styles.row}>
-          <TitleBlock
-              title="Distributed Analytics for COVID-19"
-          >
-          <span className={styles.contentDescription}>
-          <p>The clinical data needed to derive insights on COVID-19 screening and management is a moving target. Many organizations are defining data elements and codes to represent COVID-19 related data. We can unlock at-scale analytics for COVID-19 to produce valuable clinical insights by creating:</p><br/>
-          <ul>
-            <li>Standard COVID-19 cohorts for relevant measures and populations of interest. Following these definitions assures consistent metrics and comparable cohorts.</li>
-            <li>A base set of data requirements for clinical data providers, to guide data extraction with minimal effort and fewest assumptions.</li>
-            <li>Terminologies and value sets that help extract the relevant and intended data, independent of local variations in data.</li>
-          </ul>
-          <p>Because moving data can encounter logistical, contractual, and regulatory barriers, it is usually easier and faster to move the queries to the data owners, have them evaluate the queries, and then federate the results. By carefully defining the queries themselves, we assure the results are comparable.</p>
-          <br/>
-          </span>
-          </TitleBlock>
-          </div>
-          <div className={styles.row}>
-          <ContentBlock
-              title="COVID-19 Observational Studies"
-              color="#0774d3"
-              icon="img/icons/home/data-release.svg"
+            <ContentBlock
+              title="Data Dictionary"
+              color="#4bcee5"
+              icon="img/icons/home/data-dictionary.svg"
             >
-            <span className={styles.contentDescription}>
-                A list of observational studies undertaken as part of the COVID-19 Healthcare Coalition. Each study is defined by a set of row-level source data, cohorts (phenotypes), and metrics.
+              <span className={styles.contentDescription}>
+                The dictionary describes the guidelines that data submitters should follow when exporting clinical data files from their electronic health record (EHR) systems.
               </span>
-              <a className={styles.contentAction} href="docs/studies">
-                STUDIES 
+              <a className={styles.contentAction} href="dictionary">
+                Data Dictionary Viewer
                 <img src="img/icons/chevron-right.svg" height={8} width={8} />
               </a>
-              <br/>
-          </ContentBlock>
-          <ContentBlock
+            </ContentBlock>
+            <ContentBlock title="COVID-19 Vocabulary" color="#fea430" icon="img/icons/home/faq.svg">
+              <p className={styles.contentDescription}>
+                COVID-19 value sets used in the data dictionary, derived elements and cohort definitions are available in the <a href="https://vsac.nlm.nih.gov/valueset/expansions?pr=all&rel=Latest&q=c19hccValue" target="_blank">Value Set Authority Center</a>.
+              </p>
+              {/* <ul>
+                <li>
+                  <a href="/docs/faq">Can I submit molecular data before registering IDs?</a>
+                </li>
+                <li>
+                  <a href="/docs/faq">What does "clinical completeness" mean?</a>
+                </li>
+                <li>
+                  <a href="/docs/faq">How do I track data processing stage?</a>
+                </li>
+              </ul>*/}
+            </ContentBlock>
+            <ContentBlock
               title="COVID-19 Cohorts"
               color="#7f55cc"
               icon="img/icons/home/controlled-data.svg"
@@ -114,27 +99,23 @@ function Index() {
           </div>
 
           <div className={styles.row}>
-          <ContentBlock
-              title="Data Dictionary"
-              color="#4bcee5"
-              icon="img/icons/home/data-dictionary.svg"
+            <ContentBlock
+              title="Release Notes"
+              color="#0774d3"
+              icon="img/icons/home/data-release.svg"
             >
-              <span className={styles.contentDescription}>
-                The dictionary describes the guidelines that data submitters should follow when exporting clinical data files from their electronic health record (EHR) systems.
-              </span>
-              <a className={styles.contentAction} href="dictionary">
-                Data Dictionary Viewer
-                <img src="img/icons/chevron-right.svg" height={8} width={8} />
-              </a>
-            </ContentBlock>
-            <ContentBlock 
-              title="COVID-19 Vocabulary"
-              color="#fea430"
-              icon="img/icons/home/faq.svg"
-              >
-              <span className={styles.contentDescription}>
-                COVID-19 value sets used in the data dictionary, derived elements and cohort definitions are available in the <a href="https://vsac.nlm.nih.gov/valueset/expansions?pr=all&rel=Latest&q=c19hccValue" target="_blank">Value Set Authority Center</a>.
-              </span>
+              Coming Soon
+              {/* <ul>
+                <li>
+                  <a href="#">Data Dictionary Releases</a>
+                </li>
+                <li>
+                  <a href="#">Data Releases</a>
+                </li>
+                <li>
+                  <a href="#">Platform Software Releases</a>
+                </li>
+              </ul> */}
             </ContentBlock>
           </div> 
         </div>

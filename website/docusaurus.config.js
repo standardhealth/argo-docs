@@ -49,10 +49,9 @@ module.exports = {
       },
       links: [
         { to: 'docs/overview', label: 'Overview', position: 'right' },
-        { to: 'docs/studies', label: 'Studies', position: 'right' },
+        { to: 'docs/vocabulary', label: 'Vocabulary', position: 'right' },
         { to: 'docs/cohorts', label: 'Cohorts', position: 'right' },
-        { to: 'dictionary', label: 'Data Dictionary', position: 'right' },
-        { to: 'docs/vocabulary', label: 'Vocabulary', position: 'right' }
+        { to: 'dictionary', label: 'Data Dictionary', position: 'right' }
         // {
         //   href: 'https://platform.standardhealth.org/contact',
         //   label: 'Contact',
