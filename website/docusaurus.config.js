@@ -1,14 +1,13 @@
 const path = require('path');
 
 module.exports = {
-  title: 'C19HCC',
-  url: 'https://warp.mitre.org/c19hcc-dictionary',
-  baseUrl: '/c19hcc-dictionary/',
+  title: 'C19HCC Cohorts',
+  url: '/',
+  baseUrl: '/',
   organizationName: 'MITRE Corporation',
-  projectName: 'C19HCC-dictionary',
-
+  projectName: 'C19HCC Cohorts',
   favicon: 'favicon.ico',
-  tagline: 'Data Dictionary',
+  tagline: 'Cohorts and Metrics',
 
   stylesheets: [
     'https://fonts.googleapis.com/css?family=Source+Code+Pro|Work+Sans&display=swap',
@@ -46,13 +45,13 @@ module.exports = {
       title: 'COVID-19 Healthcare Coalition Data Standards',
       logo: {
         alt: 'MITRE C19HCC',
-        src: 'img/logos/home_icon.png',
+        src: 'img/logos/home_icon.png'
       },
       links: [
         { to: 'docs/overview', label: 'Overview', position: 'right' },
         { to: 'docs/vocabulary', label: 'Vocabulary', position: 'right' },
         { to: 'docs/cohorts', label: 'Cohorts', position: 'right' },
-        { to: 'dictionary', label: 'Data Dictionary', position: 'right' },
+        { to: 'dictionary', label: 'Data Dictionary', position: 'right' }
         // {
         //   href: 'https://platform.standardhealth.org/contact',
         //   label: 'Contact',
@@ -62,11 +61,7 @@ module.exports = {
     },
     footer: {
       logo: null,
-      copyright: `© ${new Date().getFullYear()} MITRE Corporation. All Rights reserved.`,
+      copyright: `© ${new Date().getFullYear()} MITRE Corporation. All Rights reserved. Approved for Public Release Distribution Unlimited 19-03332.`
     },
-  },
-  customFields: {
-    PLATFORM_UI_ROOT: 'https://platform.standardhealth.org/',
-    GATEWAY_API_ROOT: 'https://api.platform.standardhealth.org/',
-  },
+  }
 };

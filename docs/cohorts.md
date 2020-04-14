@@ -41,16 +41,12 @@ The cohorts described here are intended to support an initial use case of produc
 
 For patients with new COVID-19 infection, how does the addition of hydroxychloroquine affect the development of severe symptoms, hospitalization, ICU admission/intubation/mechanical ventilation, or death?
 
-<img 
-   alt="Hydroxycholoroquine cohort pathways"
-  src={useBaseUrl('img/hydroxy_cohorts.png')}
-/>
+![Hydroxycholoroquine cohort pathways](img/hydroxy_cohorts.png)
 
-| Entry cohort | Choose one of three entry cohorts[Adult Hospitalization](c-19-adult-hosp) AND [COVID-19 like illness]() AND [] OR [Adult Hospitalization](c-19-adult-hosp) AND [Suspected COVID-19 Infection]() OR [Adult Hospitalization](c-19-adult-hosp) AND [COVID-19 infection confirmed]()|
+| Entry cohort | Choose one of three entry cohorts[Adult Hospitalization](c-19-adult-hosp.md) AND [COVID-19 like illness]() AND [] OR [Adult Hospitalization](c-19-adult-hosp.md) AND [Suspected COVID-19 Infection]() OR [Adult Hospitalization](c-19-adult-hosp.md) AND [COVID-19 infection confirmed]()|
 | --- | --- |
 
 | Cohort | Outcome: Death | Outcome: No Death
 | --- | --- | --- |
-| Target: Entry cohort AND [Novel use of hydroxychloroquine during hospitalization]() | Target Cohort AND [Death during hospitalization]() | Target Cohort AND NOT [Death during hospitalization]() |
-| Control: Entry cohort AND NOT [Novel use of hydroxychloroquine during hospitalization]() | Control Cohort AND [Death during hospitalization]() | Control Cohort AND NOT [Death during hospitalization]() |
-
+| Target: Entry cohort AND [Novel use of hydroxychloroquine during hospitalization](c-19-new-hydroxy.md) | Target Cohort AND [Death during hospitalization]() | Target Cohort AND NOT [Death during hospitalization]() |
+| Control: Entry cohort AND NOT [Novel use of hydroxychloroquine during hospitalization](c-19-new-hydroxy.md) | Control Cohort AND [Death during hospitalization]() | Control Cohort AND NOT [Death during hospitalization]() |
