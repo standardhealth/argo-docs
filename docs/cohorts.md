@@ -2,7 +2,6 @@
 id: cohorts
 title: Cohorts
 ---
-import useBaseUrl from '@docusaurus/useBaseUrl';
 
 > Notice:
 This content is preliminary and is expected to change quickly as we work with C19HCC partners to align and refine definitions.
@@ -41,7 +40,7 @@ The cohorts described here are intended to support an initial use case of produc
 
 For patients with new COVID-19 infection, how does the addition of hydroxychloroquine affect the development of severe symptoms, hospitalization, ICU admission/intubation/mechanical ventilation, or death?
 
-![Hydroxycholoroquine cohort pathways](img/hydroxy_cohorts.png)
+
 
 | Entry cohort | Choose one of three entry cohorts[Adult Hospitalization](c-19-adult-hosp.md) AND [COVID-19 like illness]() AND [] OR [Adult Hospitalization](c-19-adult-hosp.md) AND [Suspected COVID-19 Infection]() OR [Adult Hospitalization](c-19-adult-hosp.md) AND [COVID-19 infection confirmed]()|
 | --- | --- |
