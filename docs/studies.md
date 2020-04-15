@@ -16,22 +16,13 @@ Hydroxychloroquine and a related drug, chloroquine, are currently under study as
 The study involves inpatient use of HCQ and its effect on two outcomes:
 
 * Invasive mechanical ventilation (IVM)
-* Inpatient death due to COVID-19
+* Inpatient death
 
 IMV serves as a proxy for serious, life-threatening disease, as opposed to "mild" disease.
 
-The study involves two study arms (those receiving or not receiving HCQ), as depicted below:
+The study involves two study cohorts (those receiving or not receiving HCQ), as depicted below:
 
 ![Hydroxycholoroquine cohort pathways](img/hydroxy_cohorts.png)
-
-The four possible outcomes are:
-
-1. IVM + Inpatient Death
-1. No IVM + Inpatient Death
-1. IVM + No Inpatient Death
-1. No IVM + No Inpatient Death
-
-If IMV is applied to most seriously affected patients (those who eventually succumb to the disease), the second outcome is expected to be relatively small.
 
 ### Cohorts
 
