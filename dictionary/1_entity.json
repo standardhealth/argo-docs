@@ -133,6 +133,13 @@
           ]
         },
         "notes":"Cause of death is only required to be submitted if the patient is deceased. Mortality coding of COVID-19 with ICD-10 see: https://www.who.int/classifications/icd/COVID-19-coding-icd10.pdf?ua=1"
+      },
+      {
+        "name":"date_of_death",
+        "description":"Indicates the actual or approximate date of a patient's death.",
+        "valueType":"date",
+        "required": "conditional",
+        "notes":"Date of death is only required to be submitted if the patient is deceased."
       }
     ]
   },
