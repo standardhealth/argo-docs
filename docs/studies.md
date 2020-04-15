@@ -13,18 +13,23 @@ Hydroxychloroquine and a related drug, chloroquine, are currently under study as
 
 ### Study Design
 
-The study involves inpatient use of HCQ and its effect on two outcomes:
-
-* Invasive mechanical ventilation (IVM)
-* Inpatient death
-
-IMV serves as a proxy for serious, life-threatening disease, as opposed to "mild" disease.
-
-The study involves two study cohorts (those receiving or not receiving HCQ), as depicted below:
+The study involves inpatient use of HCQ and its effect on disease severity. The study involves two study groups (those receiving or not receiving HCQ), as depicted below:
 
 ![Hydroxycholoroquine cohort pathways](img/hydroxy_cohorts.png)
 
+Three outcomes are considered:
+
+1. Discharge without being placed on mechanical ventilation during stay
+2. Discharge after invasive mechanical ventilation (IVM) during stay
+3. Inpatient death
+
+These outcomes correspond to three levels disease severity. They are retrospective over the entire patient visit and captures the worst severity of illness during the visit. The study uses mechanical ventilation as a proxy for severe but not fatal disease. If the patient succumbs to the disease, they would be classified as outcome 3, regardless of whether they were ventilated during the stay.
+
+[Siddiqi and Mehra](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7118652/) have proposed a staging system for COVID-19 aligned to the stages of the disease, from early infection (Stage 1) to pulmonary involvement (Stage 2) to systemic hyperinflammation (Stage 3). This system focuses of the progression, rather than the severity of the disease, although clearly the two are related.
+
 ### Cohorts
+
+#### Definitions
 
 * `COVID-19-positive`: clinical Dx of confirmed COVID-19 OR COVID-19 confirmatory lab test [1]
 * `COVID-19-positive-date`: earliest of (first confirmatory specimen collection date or first physician Dx)
@@ -65,10 +70,10 @@ The study involves two study cohorts (those receiving or not receiving HCQ), as 
 
 ### Value Sets
 
-* Clinical Dx of confirmed COVID-19
+* [Clinical Dx of confirmed COVID-19](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.117/definition)
 * Confirmatory lab test
 * Inpatient respiratory diagnosis (clinical or billing code)
-* HCQ drug codes (for outpatient/admission medication list and inpatient medication administration )
+* HCQ drug codes (for outpatient/admission medication list and inpatient medication administration)
 * Any intubation procedure or mechanical ventilation-associated procedure performed
 
 #### Notes:
