@@ -2,9 +2,9 @@
 
 Github pages does some weird things to links. It places a forward slash after the URL, whether or not it is called for in the link. This has many unintended consequences, almost random-appearing especially broken links to pages and images, and malfunctions of the back and page reload buttons. The following methods were determined to be most reliable:
 
-* Pages should be added to the `/docs` directory.
+* Markdown pages should be added to the `/docs` directory.
 
-* Images on doc pages must be added to `/website/static/docs/{pagename}/` directory, i.e, you need to make a directory for each page that has an image and drop the image file into it.
+* Images appearing on doc pages must be added to `/website/static/docs/{pagename}/` directory, i.e, you need to make a directory for each page that has an image and drop the image file into it.
 
 > NOTE: Do not put images intended for doc pages in the `website/static/img` directory
 
@@ -14,7 +14,9 @@ Github pages does some weird things to links. It places a forward slash after th
 
 * Links to images must be in the form: `![Observational Study Process](process-overview.png)`
 
-* Links in custom pages (such as `website/scr/pages/index.js) are **different**. Here are some examples:
+> NOTE: No slashes or directory needed for images.
+
+* Links in _custom_ pages (e.g., `website/scr/pages/index.js`) are **different**. Here are some examples:
   * `<a className={styles.contentAction} href="docs/cohorts/">`
   * `<img src="img/icons/chevron-right.svg" height={8} width={8} />`
 
@@ -105,17 +107,22 @@ The docs should open in a new page in your browser. While the server is running,
 
 ## Deploying to the `mcovid.org` website
 
-The `mcovid.org` site displays pages from `github.com/markkramerus/markkramerus.github.io` repository through redirection. 
+The `mcovid.org` site displays pages from `github.com/markkramerus/markkramerus.github.io` repository through redirection.
 
-Mark Kramer bought the mcovid.org domain through GoDaddy and has access the GoDaddy site. The `mcovid.org` DNS is controlled through GoDaddy.org control panel. The domain is due to expire around 4/7/2021.
+Mark Kramer bought the mcovid.org domain around 4/7/2020 through GoDaddy. The domain is due to expire around 4/7/2021. The connection between github pages and `mcovid.org` is controlled through DNS setting accessed from the GoDaddy control panel, and the CNAME file at the root of `markkramer.github.io` repo.
 
 1. Clone the `github.com/markkramerus/markkramerus.github.io` repository.
-1. From the `/website` directory:
-```
+2. From the `/website` directory run:
+
+```sh
  $ npm run build
 ```
-1. Copy the all files in `website/build` to your local copy of the `markkramerus.github.io` repository. 
+
+3. Copy the all files in `website/build` to your local copy of the `markkramerus.github.io` repository.
+
 > NOTE: When cleaning the old files, **be careful not to delete the CNAME file**! If you do, the mcovid.org site will bring up a message like "Not github pages found at this location".
-1. Commit the new files to `markkramerus.github.io` repository master branch (or do a pull request)
-1. Github pages does the rest; new pages should be viewable in less than a minute
+
+4. Commit the new files to `markkramerus.github.io` repository master branch (or do a pull request)
+
+5. Github pages does the rest; new pages should be viewable in less than a minute
 
