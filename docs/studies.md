@@ -5,15 +5,15 @@ title: Studies
 
 ## Study 1
 
-**RESEARCH QUESTION: For patients with new COVID-19 infection, how does the addition of hydroxychloroquine (HCQ) affect outcomes (mechanical ventilation, inpatient death)?**
+**RESEARCH QUESTION: For patients with new COVID-19 infection, how does the addition of hydroxychloroquine (HCQ) affect the outcomes (1) severe disease (indicated by mechanical ventilation) and (2) inpatient death?**
 
 ### Background
 
-Hydroxychloroquine and a related drug, chloroquine, are currently under study as possible treatments for COVID-19. Before randomized clinical trials read out, an observational trial can provide insight into the efficacy of this drug.
+Hydroxychloroquine and a related drug, chloroquine, are currently under study as possible treatments for COVID-19. Before randomized clinical trials read out, a retrospective observational study can provide insight into the efficacy of this drug.
 
 ### Study Design
 
-The study involves inpatient use of HCQ and its effect on disease severity. The study involves two study groups (those receiving or not receiving HCQ), as depicted below:
+The study involves inpatient use of HCQ and its effect on disease severity. The study involves two study groups, those receiving HCQ and those not receiving HCQ, as depicted below:
 
 ![Hydroxycholoroquine cohort pathways](hydroxy_cohorts.png)
 
@@ -23,27 +23,40 @@ Three outcomes are considered:
 2. Discharge after invasive mechanical ventilation (IVM) during stay
 3. Inpatient death
 
-These outcomes correspond to three levels disease severity. They are retrospective over the entire patient visit and captures the worst severity of illness during the visit. The study uses mechanical ventilation as a proxy for severe but not fatal disease. If the patient succumbs to the disease, they would be classified as outcome 3, regardless of whether they were ventilated during the stay.
+These outcomes correspond to increasing levels disease severity. They are retrospective over the entire patient visit and capture the worst severity of illness during the visit. The study uses mechanical ventilation as a proxy for severe non-fatal disease. Worst severity means that if a patient is put on a ventilator and then succumbs to the disease, they are outcome 3 (death).
 
-[Siddiqi and Mehra](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7118652/) have proposed a staging system for COVID-19 aligned to the stages of the disease, from early infection (Stage 1) to pulmonary involvement (Stage 2) to systemic hyperinflammation (Stage 3). That staging system focuses of the progression, rather than the severity of the disease, although clearly the two are related.
+As a side note, [Siddiqi and Mehra](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7118652/) have proposed a staging system for COVID-19 aligned to the stages of the disease, from early infection (Stage 1) to pulmonary involvement (Stage 2) to systemic hyperinflammation (Stage 3). That staging system focuses of the progression, rather than the severity of the disease, although clearly the two are related.
 
 ### Cohorts
 
 #### Definitions
 
-* `COVID-19-positive`: Clinical Dx of confirmed COVID-19 OR COVID-19 confirmatory lab test [1]
-* `COVID-19-positive-date`: Earliest of (first confirmatory specimen collection date or first physician Dx)
-  * Laboratory order date can be used in place of specimen collection date if the latter is unknown
-* `COVID-19-related-hospitalization`:
-  * `COVID-19-positive-date` during any hospitalization OR
-  * (Hospitalization within 14 days after `COVID-19-positive-date`) AND (any respiratory diagnosis at admission or during hospitalization) [2]
+* `COVID-19-positive`: Inpatient clinical Dx of confirmed COVID-19 **OR** COVID-19 confirmatory lab test [1]
+* `COVID-19-positive-date`: Earliest date of `COVID-19-positive` status
+  * Note that lab test date is the date of specimen collection
+* `COVID-19-related-hospitalization` (also see [alternate definition](#alternate-definition-of-COVID-19-related-hospitalization) below):
+  * Any respiratory-related condition at admission [2] **AND**
+  * `COVID-19-positive-date` during hospitalization or up to 14 days prior to hospitalization
 * `Prior-HCQ-use`:
-  * HCQ on admission medication list or outpatient medication list
+  * HCQ on admission medication list or (if available) outpatient medication list 
 * `Inpatient-HCQ-use`:
   * HCQ medication administration during `COVID-19-related-hospitalization`
     * Includes any dose, form, duration of HCQ
     * Includes any level of disease severity while on HCQ
     * Includes patients on other medications
+
+##### **Alternate definition of `COVID-19-related-hospitalization`:**
+> Based on the definitions of `COVID-19-positive` and `COVID-19-positive-date`, the criteria for `COVID-19-related-hospitalization` can be re-written as:
+>
+>  * Any respiratory-related condition at admission **AND**
+>
+>  **ANY OF**:
+>
+>  * Inpatient clinical Dx of confirmed COVID-19 **OR**
+>  * COVID-19 confirmatory lab test during hospitalization **OR**
+>  * COVID-19 confirmatory lab test up to 14 days prior to hospitalization
+>
+
 
 #### Study Groups
 
@@ -65,8 +78,8 @@ These outcomes correspond to three levels disease severity. They are retrospecti
 
 ### Data Dictionary-Based Criteria
 
-* **Clinical Dx of COVID-19**: Confirmed COVID-19 diagnosis code in `encounter.admitting_diagnosis`, `condition.code`, or `encounter.discharge_diagnosis`
-* **Inpatient encounter**:  `encounter` with `encounter_class` = `IMP (inpatient encounter)` or `ACUTE (inpatient acute)` or `NONAC (inpatient non-acute)`
+* **Clinical Dx of COVID-19**: Confirmed COVID-19 diagnosis code in `encounter.chief_complaint`, `encounter.admitting_diagnosis`, `condition.code`, or `encounter.discharge_diagnosis`
+* **Inpatient encounter**: `encounter` with `encounter_class` = `IMP (inpatient encounter)` or `ACUTE (inpatient acute)` or `NONAC (inpatient non-acute)`
 * **Patient death prior to discharge**: `date_of_death` during `COVID-19-related-hospitalization`
 
 ### Value Sets
@@ -79,7 +92,7 @@ These outcomes correspond to three levels disease severity. They are retrospecti
 
 #### Notes:
 
-[1] Study includes confirmed cases only<br/>
-[2] Serves a confirmation that hospital admission is related to COVID-19 infection (as opposed to broken arm, etc.)<br/>
+[1] Study is designed to include only confirmed cases<br/>
+[2] Respiratory condition on admission serves as confirmation that hospital admission is related to COVID-19 infection (as opposed to broken arm, etc.)<br/>
 [3] Patients with prior use of HCQ (e.g., as treatment for autoimmune disease) are excluded from study
 
