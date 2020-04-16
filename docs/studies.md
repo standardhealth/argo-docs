@@ -57,7 +57,6 @@ As a side note, [Siddiqi and Mehra](https://www.ncbi.nlm.nih.gov/pmc/articles/PM
 >  * COVID-19 confirmatory lab test up to 14 days prior to hospitalization
 >
 
-
 #### Study Groups
 
 * All cohorts:
@@ -67,6 +66,44 @@ As a side note, [Siddiqi and Mehra](https://www.ncbi.nlm.nih.gov/pmc/articles/PM
   * `Inpatient-HCQ-use` AND NOT `Prior-HCQ-use` [3]
 * **Control Group**:
   * NOT `Inpatient-HCQ-use` AND NOT `Prior-HCQ-use` [3]
+
+#### Study Cohort Examples
+
+Person A (included in study):
+* Presents with fever and difficulty breathing
+* Admitted with diagnosis of suspected COVID-19
+* Tests positive while during hospital stay (even if results received after discharge)
+* No history of HCQ usage
+
+Person B (included in study):
+* Has fever and cough
+* Swabbed for COVID-19, sent home
+* Test results positive
+* Arrives at hospital 10 days later with dyspnea
+* Admitted
+
+Person C (excluded from study):
+* Presents with fever, difficulty breathing
+* Admitted with admission diagnosis of suspected COVID-19
+* Tests negative
+
+Person D (excluded from study):
+* Admitted to hospital for CHF
+* During stay, experiences fever and cough
+* Tests positive for COVID-19
+
+Person E (excluded from study):
+* Asymptomatic
+* Tests positive for COVID-19 during population screening
+* Admitted to hospital 5 days later for trauma injury
+
+Person F (included in study):
+* Has fever and cough
+* Swabbed for COVID-19, sent home
+* Test results positive
+* Arrives at hospital 18 days later with dyspnea
+* Admitted with suspected COVID-19
+* Clinical diagnosis of COVID-19
 
 #### Outcomes
 
