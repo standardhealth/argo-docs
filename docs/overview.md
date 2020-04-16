@@ -11,15 +11,16 @@ We welcome clinical data providers and analytics teams to share their needs and 
 
 ## Observational Studies
 
-![Observational Study Process](img/process-overview.png)
+![Observational Study Process](process-overview.png)
 
 ## Next Steps
 
-* Explore standardized cohort definitions in the **[C19HCC Cohorts](cohorts).**
+* Explore study definitions in the **[C19HCC Studies](/docs/studies/).**
 
-* Explore the details of the COVID-19 clinical data set in the **[C19HCC Data Dictionary Viewer](dictionary).**
+* Explore standardized cohort definitions in the **[C19HCC Cohorts](/docs/cohorts/).**
 
-* Explore COVID-19 value sets in the **[C19HCC Vocabulary](vocabulary).**
+* Explore the details of the COVID-19 clinical data set in the **[C19HCC Data Dictionary Viewer](/dictionary/).**
 
+* Explore COVID-19 value sets in the **[C19HCC Vocabulary](/docs/vocabulary/).**
 
 If you have any questions about the cohorts, vocabulary or data dictionary, please contact us at C19hcc@mitre.org.
