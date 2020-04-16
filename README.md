@@ -1,69 +1,33 @@
-# ICGC-ARGO Doc Site
+## Most Important
 
-User documentation for the ICGC-ARGO platform.
+Github pages does some weird things to links. It places a forward slash after the URL, whether or not it is called for in the link. This has many unintended consequences, almost random-appearing especially broken links to pages and images, and malfunctions of the back and page reload buttons. The following methods were determined to be most reliable:
 
-## Visit Site
+* Pages should be added to the `/docs` directory.
 
-[ICGC-ARGO Platform - User Documentation](https://docs.standardhealth.org)
+* Images on doc pages must be added to `/website/static/docs/{pagename}/` directory, i.e, you need to make a directory for each page that has an image and drop the image file into it.
 
-## Contents
+> NOTE: Do not put images intended for doc pages in the `website/static/img` directory
 
-This docs site has been generated using [Docusaurus](https://docusaurus.io/).
+* Links from one doc page to another doc page must be in the form: `[Link to Studies page](/docs/studies/)`
 
-Documentation is written in [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) and can be found in [/docs](docs).
+> NOTE: the slashes before and after the link. Do not include the `.md` suffix. See test-page.md for further details.
 
-The website, including the docusaurus library, custom pages and components, and all styling is kept in [/website](website).
+* Links to images must be in the form: `![Observational Study Process](process-overview.png)`
 
-## Dependencies
+* Links in custom pages (such as `website/scr/pages/index.js) are **different**. Here are some examples:
+  * `<a className={styles.contentAction} href="docs/cohorts/">`
+  * `<img src="img/icons/chevron-right.svg" height={8} width={8} />`
 
-To run the docs site requires:
+* Menu bar links, defined in `docusaurus.config.js` are similar to custom pages:
+  * `{ to: 'docs/overview/', label: 'Overview', position: 'right' },`
 
-- NodeJS version 12+
-  - This is done best using nvm (node version manager). A good summary of this process can be found here for your reference: https://gist.github.com/d2s/372b5943bce17b964a79
+## Updating Data Dictionary Contents
 
-## Contributing
+The data dictionary is built from the contents of the `/dictionary` directory. Changes are NOT automatically included in the website. The dictionary content can be split among multiple files. See one of the existing files for format. 
 
-To contribute to the docs:
+The only required file is `main.json`.
 
-1. Clone the repository to your machine:
-
-```
-git clone git@github.com:standardhealth/argo-docs.git
-```
-
-2. Move into the website directory ...
-
-```
-cd argo-docs/website
-```
-
-...and install dependencies via npm:
-
-```
-npm ci
-```
-
-3. Run the development server to see your edits live in the browser:
-
-```
-npm start
-```
-
-The site should open in a new page in your browser at the address: [localhost:3000](http://localhost:3000)
-
-4. Edit the markdown files in [/docs](docs)! The content in the browser will update whenever you save the file.
-
-   For other changes to the site, see the extended editing guide in [/website](website):
-
-   - add new documentation pages
-   - modify the links in the Header or Footer
-   - update the sidebar links
-
-## Updating Dictionary Content
-
-The dictionary content is included as static files included in this repository. This allows the docs site to be completely static and not have to load the dictionary from the source everytime it is requested.
-
-To simplify updating the dictionary content, the process has been scripted so it can be run by following the commands below.
+To update the data dictionary contents, the process has been scripted so it can be run by following the commands below:
 
 1. From the argo-docs root directory:
 
@@ -71,7 +35,7 @@ To simplify updating the dictionary content, the process has been scripted so it
 cd scripts
 ```
 
-2. Install script dependencies:
+2. Install script dependencies (first time only):
 
 ```
 npm ci
@@ -83,9 +47,11 @@ npm ci
 npm run add
 ```
 
-4. Follow the prompts in the script - You will need to provide the filename, including the full file path, when prompted. Once the new data has been saved, the script will ask you which version to make the default on the site - select this version from the list using your keyboard arrow keys.
+4. Follow the prompts in the script - you should accept the default file location. You can specify the version of the DD from the prompt (if you forgot to do it in `main.json`.
 
-5. The script has added files in the following places:
+5. Once the new data has been saved, the script will ask you which version to make the default on the site - select this version from the list using your keyboard arrow keys.
+
+6. The script adds files in the following places:
 
    - /website/static/data/schemas/{{version number}}
    - /website/static/data/schemas/diffs/{{version number}}
@@ -96,14 +62,60 @@ npm run add
    - /website/src/pages/dictionary/data.json
    - /website/src/pages/dictionary/tree.json
 
-   Commit all these added and modified files to git. The following command will work from the docs root directory:
+### Adding custom pages (rare)
 
-   ```
-   git add ./website/static/data/schemas/ ./website/src/pages/dictionary/data.json
+1. Docusaurus uses React components to build pages. The components are saved as .js files in `website/pages/en`:
+1. If you want your page to show up in your navigation header, you will need to update `website/siteConfig.js` to add to the `headerLinks` element:
 
-   git commit
-   ```
+`website/siteConfig.js`
 
-6. Open a PR in the Docs github
+```javascript
+{
+  headerLinks: [
+    ...
+    { page: 'my-new-custom-page', label: 'My New Custom Page' },
+    ...
+  ],
+  ...
+}
+```
 
-The scripts directory has several other features available. Run `npm run help` to see the full list. At the moment this includes scripts to remove dictionary versions, or to select a different version as default.
+For more information about custom pages, click [here](https://docusaurus.io/docs/en/custom-pages).
+
+## Running the Site Locally
+
+You can run the doc site locally to see edits to the documents in real time. To get started:
+
+1. Make sure all the dependencies for the website are installed:
+
+```sh
+# Install dependencies
+$ npm i
+```
+
+2. Run the dev server:
+
+```sh
+# Start the site
+$ npm start
+```
+
+The docs should open in a new page in your browser. While the server is running, you can find the site at [http://localhost:3000](http://localhost:3000)
+
+
+## Deploying to the `mcovid.org` website
+
+The `mcovid.org` site displays pages from `github.com/markkramerus/markkramerus.github.io` repository through redirection. 
+
+Mark Kramer bought the mcovid.org domain through GoDaddy and has access the GoDaddy site. The `mcovid.org` DNS is controlled through GoDaddy.org control panel. The domain is due to expire around 4/7/2021.
+
+1. Clone the `github.com/markkramerus/markkramerus.github.io` repository.
+1. From the `/website` directory:
+```
+ $ npm run build
+```
+1. Copy the all files in `website/build` to your local copy of the `markkramerus.github.io` repository. 
+> NOTE: When cleaning the old files, **be careful not to delete the CNAME file**! If you do, the mcovid.org site will bring up a message like "Not github pages found at this location".
+1. Commit the new files to `markkramerus.github.io` repository master branch (or do a pull request)
+1. Github pages does the rest; new pages should be viewable in less than a minute
+
