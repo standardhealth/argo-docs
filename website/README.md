@@ -69,6 +69,9 @@ For more information about docs, click [here](https://docusaurus.io/docs/en/navi
 
 For more information about the navigation bar, click [here](https://docusaurus.io/docs/en/navigation)
 
+
+
+
 ### Adding custom pages
 
 1. Docusaurus uses React components to build pages. The components are saved as .js files in `website/pages/en`:

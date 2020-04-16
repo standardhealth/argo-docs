@@ -91,7 +91,7 @@ function Index() {
             <span className={styles.contentDescription}>
                 A list of observational studies undertaken as part of the COVID-19 Healthcare Coalition. Each study is defined by a set of row-level source data, cohorts (phenotypes), and metrics.
               </span>
-              <a className={styles.contentAction} href="docs/studies">
+              <a className={styles.contentAction} href="docs/studies/">
                 STUDIES 
                 <img src="img/icons/chevron-right.svg" height={8} width={8} />
               </a>
@@ -105,7 +105,7 @@ function Index() {
               <span className={styles.contentDescription}>
                 COVID-19 cohorts provide standardized definitions for relevant metrics and populations of interest. Following these definitions assures consistent metrics and comparable cohorts.
               </span>
-              <a className={styles.contentAction} href="docs/cohorts">
+              <a className={styles.contentAction} href="docs/cohorts/">
                 Cohorts
                 <img src="img/icons/chevron-right.svg" height={8} width={8} />
               </a>
@@ -122,7 +122,7 @@ function Index() {
               <span className={styles.contentDescription}>
                 The dictionary describes the guidelines that data submitters should follow when exporting clinical data files from their electronic health record (EHR) systems.
               </span>
-              <a className={styles.contentAction} href="dictionary">
+              <a className={styles.contentAction} href="dictionary/">
                 Data Dictionary Viewer
                 <img src="img/icons/chevron-right.svg" height={8} width={8} />
               </a>
@@ -133,8 +133,12 @@ function Index() {
               icon="img/icons/home/faq.svg"
               >
               <span className={styles.contentDescription}>
-                COVID-19 value sets used in the data dictionary, derived elements and cohort definitions are available in the <a href="https://vsac.nlm.nih.gov/valueset/expansions?pr=all&rel=Latest&q=c19hccValue" target="_blank">Value Set Authority Center</a>.
+                Documentation and sources for value sets and terminologies used in COVID-19 cohort definitions and data dictionary elements.
               </span>
+              <a className={styles.contentAction} href="docs/vocabulary/">
+                Vocabulary
+                <img src="img/icons/chevron-right.svg" height={8} width={8} />
+              </a>
             </ContentBlock>
           </div> 
         </div>
