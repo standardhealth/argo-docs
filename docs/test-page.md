@@ -9,39 +9,47 @@ Goal is link: https://mcovid.org/docs/studies/
 
 1. Explore study definitions in the **[C19HCC Studies](/studies/).**
 
-Result: https://mcovid.org/studies/
-404 PAGE NOT FOUND
+* Write it this way:  `[C19HCC Studies](/studies/)`
+* Routed to: https://mcovid.org/studies/
+* Result: 404 PAGE NOT FOUND
 
 2. Explore study definitions in the **[C19HCC Studies](studies/).**
 
-Result: https://mcovid.org/docs/test-page/studies/
-404 PAGE NOT FOUND 
+* Write it this way:  `[C19HCC Studies](studies/)`
+* Routed to: https://mcovid.org/docs/test-page/studies/
+* Result: 404 PAGE NOT FOUND 
 
 3. Explore study definitions in the **[C19HCC Studies](/studies.md).**
 
-Result: https://mcovid.org/docs/studies
-LOADS to https://mcovid.org/docs/studies with BROKEN LINKS
+* Write it this way:  `[C19HCC Studies](/studies.md)`
+* Routed to: https://mcovid.org/docs/studies
+* Result: LOADS page but with BROKEN LINKS
 
 4. Explore study definitions in the **[C19HCC Studies](studies.md).**
 
-Result: https://mcovid.org/docs/studies
-LOADS to https://mcovid.org/docs/studies with BROKEN LINKS
+* Source `[C19HCC Studies](studies.md)`
+* Routed to: https://mcovid.org/docs/studies
+* Result: LOADS page but with BROKEN LINKS
 
 5. Explore study definitions in the **[C19HCC Studies](studies).**
 
-Result: https://mcovid.org/docs/test-page/studies
-404 PAGE NOT FOUND 
+* Write it this way:  `[C19HCC Studies](studies)`
+* Routed to: https://mcovid.org/docs/test-page/studies
+* Result: 404 PAGE NOT FOUND
 
 6. Explore study definitions in the **[C19HCC Studies](/studies.md/).**
 
-Result: https://mcovid.org/docs/studies/
-WORKS!
+* Write it this way:  `[C19HCC Studies](/studies.md/)`
+* Routed to: https://mcovid.org/docs/studies/
+* Result: WORKS!
 
 ---
 USE THIS ONE:
 
 7. Explore study definitions in the **[C19HCC Studies](/docs/studies/).**
 
-Result: https://mcovid.org/docs/studies/
-WORKS!
+* Write it this way:  `[C19HCC Studies](/docs/studies/)`
+* Routed to: https://mcovid.org/docs/studies/
+* Result: WORKS!
+
 ---
