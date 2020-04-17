@@ -17,7 +17,7 @@ The study examines the effect of initiation of HCQ in hospitalized COVID-19 pati
 
 **Study Period**: January 1, 2020 - Present (Index date: `COVID-19-positive-date`)
 
-![Hydroxycholoroquine cohort pathways](img/hydroxy_cohorts.png)
+![Hydroxycholoroquine cohort pathways](hydroxy_cohorts.png)
 
 Three outcomes are considered:
 
@@ -141,5 +141,3 @@ Person F (included in study):
 [6] This definition includes patients diagnosed with COVID-19 during a hospital visit even if the reason for hospitalization is not COVID-related; e.g., patients with undetected COVID-19 admitted for other reasons, and nosocomial COVID-19 infections ​<br/>
 [7] Serves a confirmation that hospital admission is related to COVID-19 infection (as opposed to broken arm, etc.)<br/>
 [8] ICU flowsheet data may not be accessible to all data partners
-
-
