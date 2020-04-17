@@ -77,7 +77,7 @@ function Index() {
               <li>A base set of data requirements for clinical data providers, to guide data extraction with minimal effort and fewest assumptions.</li>
               <li>Terminologies and value sets that help extract the relevant and intended data, independent of local variations in data.</li>
             </ul>
-            <p>Because moving data can encounter logistical, contractual, and regulatory barriers, it is usually easier and faster to move the queries to the data owners, have them evaluate the queries, and then federate the results. By carefully defining the queries themselves, we assure the results are comparable.</p>
+            <p>Because moving data can encounter logistical, contractual, and regulatory barriers, it is usually easier and faster to move the queries to the data owners, have them evaluate the queries, and then federate the results. With careful definition of the cohorts, the results from disparate sources can be comparable.</p>
             <br/>
             <center><img alt="Hydroxychloroquine molecule by Johan Vec (CC BY-SA 4.0)" src="img/hcq.png" width={300} /></center>
             <center><a href="docs/studies/">Hydroxychloroquine Study</a> now underway!</center>
@@ -126,7 +126,7 @@ function Index() {
                 The dictionary describes the guidelines that data submitters should follow when exporting clinical data files from their electronic health record (EHR) systems.
               </span>
               <a className={styles.contentAction} href="dictionary/">
-                Data Dictionary Viewer
+                Data Dictionary
                 <img src="img/icons/chevron-right.svg" height={8} width={8} />
               </a>
             </ContentBlock>
