@@ -17,7 +17,7 @@ The study examines the effect of initiation of HCQ in hospitalized COVID-19 pati
 
 **Study Period**: January 1, 2020 - Present (Index date: `COVID-19-positive-date`)
 
-![Hydroxycholoroquine cohort pathways](img/hydroxy_cohorts.png)
+![Hydroxycholoroquine cohort pathways](hydroxy_cohorts.png)
 
 Three outcomes are considered:
 
@@ -40,7 +40,7 @@ As a side note, [Siddiqi and Mehra](https://www.ncbi.nlm.nih.gov/pmc/articles/PM
   * `COVID-19-related hospitalization`
 * **Target Cohort**:
   * Entry Cohort AND
-  * `Inpatient-HCQ-use` AND NOT `Prior-HCQ-use` [1]
+  * `Inpatient-HCQ-use` AND NOT `Prior-HCQ-use` [1](#foot1)
 * **Control Cohort**:
   * Entry Cohort AND
   * NOT `Inpatient-HCQ-use` AND NOT `Prior-HCQ-use` [1]
@@ -133,7 +133,7 @@ Person F (included in study):
 * Invasive mechanical ventilation: Any intubation procedure or mechanical ventilation-associated procedure. Excludes supplemental oxygen (high or low flow), CPAP, and BiPAP, ECMO (SNOMED CT, CPT, ICD-10-PCS)
 
 #### Notes:
-[1] Patients with prior use of HCQ (e.g., as treatment for autoimmune disease) are excluded from study<br/>
+<a name="#foot1">[1]</a> Patients with prior use of HCQ (e.g., as treatment for autoimmune disease) are excluded from study<br/>
 [2] Study includes confirmed cases only<br/>
 [3] A clinical diagnosis can be any diagnosis associated with an encounter, such as chief complaint, admitting diagnosis, working diagnosis, final diagnosis, or discharge diagnosis. It can also be a problem list entry.<br/>
 [4] There may be local value sets/groupers for laboratory tests to detect SARS-CoV-2. Only PCR and NAAT tests with qualitative results should be considered for this purpose. See [C19HCC SARS-CoV-2 Qualitative Laboratory Test](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.109/definition) and [C19HCC SARS-related Qualitative Laboratory Test]() for details on inclusions and exclusions.<br/>
