@@ -36,7 +36,7 @@ import flattenDeep from 'lodash/flattenDeep';
 export const useModalState = () => {
   const [visibility, setVisibility] = useState(false);
 
-  const setModalVisibility = visibility => {
+  const setModalVisibility = (visibility) => {
     setVisibility(visibility);
     const bodyClassList = document.getElementsByTagName('html')[0].classList;
     if (visibility) {
@@ -84,7 +84,7 @@ async function fetchDiff(version, diffVersion) {
 
 const RenderDictionary = ({ schemas, menuContents, isLatestSchema }) =>
   schemas.length > 0 ? (
-    schemas.map(schema => {
+    schemas.map((schema) => {
       const menuItem = find(menuContents, { name: startCase(schema.name) });
       return <Schema schema={schema} menuItem={menuItem} isLatestSchema={isLatestSchema} />;
     })
@@ -100,7 +100,7 @@ function DataDictionary() {
   const [searchParams, setSearchParams] = useState({ tier: '', attribute: '' });
   const [searchValue, setSearchValue] = useState('');
 
-  const updateVersion = async newVersion => {
+  const updateVersion = async (newVersion) => {
     try {
       const { dict, tree } = await fetchDictionary(newVersion);
       setVersion(newVersion);
@@ -118,8 +118,8 @@ function DataDictionary() {
           <Select
             aria-label="version-select"
             value={version}
-            options={data.versions.map(d => ({ content: `Version ${d}`, value: d }))}
-            onChange={val => updateVersion(val)}
+            options={data.versions.map((d) => ({ content: `Version ${d}`, value: d }))}
+            onChange={(val) => updateVersion(val)}
           />
         </div>
       </form>
@@ -136,7 +136,7 @@ function DataDictionary() {
   const filters = React.useMemo(() => {
     const schemas = get(dictionary, 'schemas', []);
 
-    const fields = schemas.map(schema => schema.fields);
+    const fields = schemas.map((schema) => schema.fields);
 
     const filters = flattenDeep(fields).reduce(
       (acc, field) => {
@@ -157,9 +157,9 @@ function DataDictionary() {
   const filteredSchemas = React.useMemo(
     () =>
       dictionary.schemas
-        .map(schema => {
+        .map((schema) => {
           const { tier, attribute } = searchParams;
-          const filteredFields = schema.fields.filter(field => {
+          const filteredFields = schema.fields.filter((field) => {
 
             const required = get(field, 'required', "optional");
 
@@ -183,16 +183,16 @@ function DataDictionary() {
           });
           return { ...schema, fields: filteredFields };
         })
-        .filter(schema => schema.fields.length > 0),
+        .filter((schema) => schema.fields.length > 0),
     [searchParams, dictionary],
   );
 
   const fileCount = filteredSchemas.length;
   const fieldCount = filteredSchemas.reduce((acc, schema) => acc + schema.fields.length, 0);
 
-  const generateMenuContents = activeSchemas => {
-    const activeSchemaNames = activeSchemas.map(s => s.name);
-    return dictionary.schemas.map(schema => ({
+  const generateMenuContents = (activeSchemas) => {
+    const activeSchemaNames = activeSchemas.map((s) => s.name);
+    return dictionary.schemas.map((schema) => ({
       key: schema.name,
       name: startCase(schema.name),
       contentRef: createRef(),
@@ -207,7 +207,7 @@ function DataDictionary() {
     OVERVIEW: 'OVERVIEW',
     DETAILS: 'DETAILS',
   });
-  const [selectedTab, setSelectedTab] = React.useState(TAB_STATE.OVERVIEW);
+  const [selectedTab, setSelectedTab] = React.useState(TAB_STATE.DETAILS);
   const onTabChange = (e, newValue) => {
     setSelectedTab(newValue);
   };
@@ -253,10 +253,11 @@ function DataDictionary() {
                   Data Dictionary
                 </Typography>
                 <Typography variant="paragraph" color="#000">
-                  The C19HCC Data Dictionary expresses the details of the data model, which
-                  adheres to specific formats and restrictions to ensure a standard of data quality.
-                  The following list describes the attributes and permissible values for all of the
-                  classes in the dictionary.
+                  The C19HCC Data Dictionary anchors the cohort descriptions and other definitions.
+                  The classes and elements are not expected to be literally presented in any EHR.
+                  It will require manual effort to map the EHR to the cohort definitions. 
+                  The classes and elements listed here align to standard models such as FHIR and 
+                  OHDSI CDM, borrowing concepts from both. 
                 </Typography>
               </div>
 
@@ -320,8 +321,9 @@ function DataDictionary() {
                     marginBottom: '-2px',
                   }}
                 >
+                  {/* MK 4-17-2020 remove tree view tab -- see https://github.com/icgc-argo/argo-docs/pull/195/files
                   <StyledTab value={TAB_STATE.OVERVIEW} label="Overview" />
-                  <StyledTab value={TAB_STATE.DETAILS} label="Details" />
+                  <StyledTab value={TAB_STATE.DETAILS} label="Details" />*/}
                 </Tabs>
 
                 <div />
@@ -331,16 +333,16 @@ function DataDictionary() {
                 files={fileCount}
                 fields={fieldCount}
                 dataTiers={DEFAULT_FILTER.concat(
-                  filters.tiers.map(d => ({ content: startCase(d), value: d })),
+                  filters.tiers.map((d) => ({ content: startCase(d), value: d })),
                 )}
                 dataAttributes={DEFAULT_FILTER.concat(
-                  filters.attributes.map(d => ({
+                  filters.attributes.map((d) => ({
                     content: startCase(d),
                     value: d,
                   })),
                 )}
                 searchParams={searchParams}
-                onSearch={search => setSearchParams(search)}
+                onSearch={(search) => setSearchParams(search)}
               />
 
               <Display visible={selectedTab === TAB_STATE.DETAILS}>
@@ -351,20 +353,21 @@ function DataDictionary() {
                 />
               </Display>
 
-              <Display visible={selectedTab === TAB_STATE.OVERVIEW}>
+              {/* <Display visible={selectedTab === TAB_STATE.OVERVIEW}>  MK 4-17-2020 remove tree view tab */}
+              <Display visible={false}> 
                 <TreeView searchValue={searchValue} data={treeData} />
               </Display>
             </div>
 
-            <Display visible={true}>
+            <Display visible={true}>  
               <div className={styles.menu}>
                 <SchemaMenu
                   title="Clinical Files"
                   contents={menuContents}
                   color="#0774d3"
                   scrollYOffset="70"
-                  dataTiers={filters.tiers.map(d => ({ content: startCase(d), value: d }))}
-                  dataAttributes={filters.attributes.map(d => ({
+                  dataTiers={filters.tiers.map((d) => ({ content: startCase(d), value: d }))}
+                  dataAttributes={filters.attributes.map((d) => ({
                     content: startCase(d),
                     value: d,
                   }))}
