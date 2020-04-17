@@ -40,7 +40,7 @@ As a side note, [Siddiqi and Mehra](https://www.ncbi.nlm.nih.gov/pmc/articles/PM
   * `COVID-19-related hospitalization`
 * **Target Cohort**:
   * Entry Cohort AND
-  * `Inpatient-HCQ-use` AND NOT `Prior-HCQ-use` [1](#foot1)
+  * `Inpatient-HCQ-use` AND NOT `Prior-HCQ-use` [1]
 * **Control Cohort**:
   * Entry Cohort AND
   * NOT `Inpatient-HCQ-use` AND NOT `Prior-HCQ-use` [1]
@@ -133,7 +133,7 @@ Person F (included in study):
 * Invasive mechanical ventilation: Any intubation procedure or mechanical ventilation-associated procedure. Excludes supplemental oxygen (high or low flow), CPAP, and BiPAP, ECMO (SNOMED CT, CPT, ICD-10-PCS)
 
 #### Notes:
-<a name="#foot1">[1]</a> Patients with prior use of HCQ (e.g., as treatment for autoimmune disease) are excluded from study<br/>
+[1] Patients with prior use of HCQ (e.g., as treatment for autoimmune disease) are excluded from study<br/>
 [2] Study includes confirmed cases only<br/>
 [3] A clinical diagnosis can be any diagnosis associated with an encounter, such as chief complaint, admitting diagnosis, working diagnosis, final diagnosis, or discharge diagnosis. It can also be a problem list entry.<br/>
 [4] There may be local value sets/groupers for laboratory tests to detect SARS-CoV-2. Only PCR and NAAT tests with qualitative results should be considered for this purpose. See [C19HCC SARS-CoV-2 Qualitative Laboratory Test](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.109/definition) and [C19HCC SARS-related Qualitative Laboratory Test]() for details on inclusions and exclusions.<br/>
@@ -141,5 +141,3 @@ Person F (included in study):
 [6] This definition includes patients diagnosed with COVID-19 during a hospital visit even if the reason for hospitalization is not COVID-related; e.g., patients with undetected COVID-19 admitted for other reasons, and nosocomial COVID-19 infections ​<br/>
 [7] Serves a confirmation that hospital admission is related to COVID-19 infection (as opposed to broken arm, etc.)<br/>
 [8] ICU flowsheet data may not be accessible to all data partners
-
-
