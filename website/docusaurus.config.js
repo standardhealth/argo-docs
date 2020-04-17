@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   title: 'C19HCC Cohorts',
-  url: '/',
+  url: 'https://mcovid.org',
   baseUrl: '/',
   organizationName: 'MITRE Corporation',
   projectName: 'C19HCC Cohorts',
@@ -10,7 +10,7 @@ module.exports = {
   tagline: 'Cohorts and Metrics',
 
   stylesheets: [
-    'https://fonts.googleapis.com/css?family=Source+Code+Pro|Work+Sans&display=swap',
+    'https://fonts.googleapis.com/css?family=Source+Code+Pro|Roboto+condensed&display=swap',    // was Work+sans but Roboto+condensed is standard for C19HCC sites
   ],
 
   plugins: [path.resolve(__dirname, './svg-plugin'), path.resolve(__dirname, './dotenv-plugin')],
