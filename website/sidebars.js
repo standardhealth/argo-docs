@@ -2,11 +2,13 @@ module.exports = {
   docs: {
     'Overview': [
     ],
+    'Studies': [
+    ],
+    'Cohorts':[
+    ],
     'Dictionary': [
     ],
-    'COVID-19 Cohorts':[
-    ],
-    'COVID-19 Terminology':[
+    'Vocabulary':[
     ],
   },
 };
