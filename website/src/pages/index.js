@@ -67,10 +67,9 @@ function Index() {
         <HomeSplash />
         <div className={styles.mainContainer}>
           <div className={styles.row}>
-            <TitleBlock
-                title="Distributed Analytics for COVID-19"
+          <TitleBlock
             >
-            <span className={styles.contentDescription}>
+            <span className={styles.titleBlockInner}>
             <p>The clinical data needed to derive insights on COVID-19 screening and management is a moving target. Many organizations are defining data elements and codes to represent COVID-19 related data. We can unlock at-scale analytics for COVID-19 to produce valuable clinical insights by creating:</p><br/>
             <ul>
               <li>Standard COVID-19 cohorts for relevant measures and populations of interest. Following these definitions assures consistent metrics and comparable cohorts.</li>

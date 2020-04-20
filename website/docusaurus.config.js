@@ -42,17 +42,17 @@ module.exports = {
 
     disableDarkMode: true,
     navbar: {
-      title: 'COVID-19 Healthcare Coalition Data Standards',
+      // title: 'COVID-19 Healthcare Coalition Data Standards',
       logo: {
         alt: 'MITRE C19HCC',
         src: 'img/logos/home_icon.png'
       },
       links: [
-        { to: 'docs/overview/', label: 'Overview', position: 'right' },
-        { to: 'docs/studies/', label: 'Studies', position: 'right' },
-        { to: 'docs/cohorts/', label: 'Cohorts', position: 'right' },
-        { to: 'dictionary/', label: 'Data Dictionary', position: 'right' },
-        { to: 'docs/vocabulary/', label: 'Vocabulary', position: 'right' }
+        { to: 'docs/overview/', label: 'OVERVIEW', position: 'right' },
+        { to: 'docs/studies/', label: 'STUDIES', position: 'right' },
+        { to: 'docs/cohorts/', label: 'COHORTS', position: 'right' },
+        { to: 'dictionary/', label: 'DICTIONARY', position: 'right' },
+        { to: 'docs/vocabulary/', label: 'VOCABULARY', position: 'right' }
         // {
         //   href: 'https://platform.standardhealth.org/contact',
         //   label: 'Contact',

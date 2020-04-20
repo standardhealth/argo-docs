@@ -92,11 +92,10 @@
 
 .titleBlockInner {
   display: flex;
+  font-size: 18px;
+  font-weight: normal;
   flex-direction: column;
-
-  font-size: 13px;
-  font-weight: bold;
-  line-height: 1.64;
+  line-height: 1.5;
 }
 
 .highlightColumn {
