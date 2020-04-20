@@ -73,7 +73,12 @@ const TreeView = ({ data, searchValue }) => {
               top: 8,
             }}
           >
-            <Typography color="primary">Filter by Data Tier</Typography>
+            <Typography 
+              color="primary"
+              css={{
+                fontFamily: 'Roboto Condensed'
+              }}
+            >Filter by Data Tier</Typography>
             <Button variant="secondary" onClick={() => onCollapseAllClick(resetTransform)}>
               Collapse All
             </Button>

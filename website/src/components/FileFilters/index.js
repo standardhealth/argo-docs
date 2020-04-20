@@ -27,7 +27,13 @@ const FileFilters = ({
   const [inputValue, setInputValue] = React.useState('');
   const applySearch = debounce(onSearch, 500);
   return (
-    <Typography variant="data" color="#151c3d">
+    <Typography 
+      variant="data" 
+      color="#151c3d"
+      css={{
+        fontFamily: 'Roboto Condensed'
+      }}
+    >
       <div className={styles.fileFilters}>
         {`${files} files > ${fields} fields`}
 

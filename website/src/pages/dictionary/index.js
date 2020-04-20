@@ -107,7 +107,7 @@ function DataDictionary() {
       setDictionary(dict);
       setTreeData(tree);
     } catch (err) {
-      alert('DICTIONARY FETCHING ERROR - TODO: MAKE THIS A TOASTER');
+      alert('DICTIONARY FETCHING ERROR - VERSION NOT AVAILABLE');
     }
   };
 
@@ -115,7 +115,7 @@ function DataDictionary() {
     return (
       <form>
         <div style={{ width: '150px', marginRight: '10px' }}>
-          <Select
+          <Select  
             aria-label="version-select"
             value={version}
             options={data.versions.map((d) => ({ content: `Version ${d}`, value: d }))}
@@ -243,6 +243,7 @@ function DataDictionary() {
                 <Typography
                   color="#151c3d"
                   css={{
+                    fontFamily: 'Roboto Condensed',
                     fontSize: '28px',
                     display: 'inline-block',
                     marginRight: '55px',
@@ -252,7 +253,13 @@ function DataDictionary() {
                 >
                   Data Dictionary
                 </Typography>
-                <Typography variant="paragraph" color="#000">
+                <Typography 
+                  variant="paragraph"
+                  color="#000"
+                  css={{
+                    fontFamily: 'Roboto Condensed'
+                  }}                
+                >
                   The C19HCC Data Dictionary anchors the cohort descriptions and other definitions.
                   The classes and elements are not expected to be literally presented in any EHR.
                   It will require manual effort to map the EHR to the cohort definitions. 
@@ -265,8 +272,19 @@ function DataDictionary() {
                 <div>
                   {renderVersionSelect()}
                   <span>
-                    <Typography variant="data">Last updated: </Typography>
-                    <Typography variant="data" bold>
+                    <Typography 
+                      variant="data"
+                      css={{
+                        fontFamily: 'Roboto Condensed'
+                      }}
+                    >Last updated: </Typography>
+                    <Typography 
+                      variant="data"
+                      bold
+                      css={{
+                        fontFamily: 'Roboto Condensed'
+                      }}                    
+                    >
                       {formatDate(get(dictionary, 'updatedAt', ''), 'MMMM D, YYYY')}
                     </Typography>
                   </span>
@@ -359,10 +377,12 @@ function DataDictionary() {
               </Display>
             </div>
 
-            <Display visible={true}>  
+            <Display 
+              visible={true}
+            >  
               <div className={styles.menu}>
                 <SchemaMenu
-                  title="Clinical Files"
+                  title="Clinical Classes"
                   contents={menuContents}
                   color="#0774d3"
                   scrollYOffset="70"

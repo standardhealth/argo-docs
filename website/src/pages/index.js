@@ -89,6 +89,9 @@ function Index() {
                 title="COVID-19 Observational Studies"
                 color="#0774d3"
                 icon="img/icons/home/data-release.svg"
+                css={{
+                  fontFamily: 'Roboto Condensed'
+                }}  
               >
               <span className={styles.contentDescription}>
                   Observational studies undertaken as part of the COVID-19 Healthcare Coalition. Each study is defined by a set of row-level source data, cohorts (phenotypes), and metrics.

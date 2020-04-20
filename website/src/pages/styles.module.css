@@ -98,12 +98,6 @@
   line-height: 1.5;
 }
 
-.highlightColumn {
-  float: right;
-  min-width: 300px;
-}
-
-
 
 @media only screen and (max-width: 996px) {
   .row {
