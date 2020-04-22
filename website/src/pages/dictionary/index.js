@@ -243,7 +243,7 @@ function DataDictionary() {
                 <Typography
                   color="#151c3d"
                   css={{
-                    fontFamily: 'Roboto Condensed',
+                    fontFamily: 'trade-gothic-next-condensed',
                     fontSize: '28px',
                     display: 'inline-block',
                     marginRight: '55px',
@@ -257,8 +257,8 @@ function DataDictionary() {
                   variant="paragraph"
                   color="#000"
                   css={{
-                    fontFamily: 'Roboto Condensed'
-                  }}                
+                    fontFamily: 'trade-gothic-next'
+                  }}           
                 >
                   The C19HCC Data Dictionary anchors the cohort descriptions and other definitions.
                   The classes and elements are not expected to be literally presented in any EHR.
@@ -275,15 +275,15 @@ function DataDictionary() {
                     <Typography 
                       variant="data"
                       css={{
-                        fontFamily: 'Roboto Condensed'
-                      }}
+                        fontFamily: 'trade-gothic-next'
+                      }} 
                     >Last updated: </Typography>
                     <Typography 
                       variant="data"
-                      bold
+                      bold  
                       css={{
-                        fontFamily: 'Roboto Condensed'
-                      }}                    
+                        fontFamily: 'trade-gothic-next'
+                      }}                
                     >
                       {formatDate(get(dictionary, 'updatedAt', ''), 'MMMM D, YYYY')}
                     </Typography>
@@ -367,7 +367,7 @@ function DataDictionary() {
                 <RenderDictionary
                   schemas={filteredSchemas}
                   menuContents={menuContents}
-                  isLatestSchema={isLatestSchema}
+                  isLatestSchema={isLatestSchema}                  
                 />
               </Display>
 

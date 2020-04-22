@@ -23,13 +23,7 @@ function Footer() {
     <footer className={styles['nav-footer']} id="footer">
       <div className={styles.footerWrapper}>
         <div className={styles.footerLogo}>
-          <a href="https://c19hcc.org/">
-            <img
-              src={useBaseUrl(`img/logos/c19hcc.png`)}
-              alt="COVID-19 Healthcare Coalition"
-              width="240px"
-            />
-          </a>
+
         </div>
         <div className={styles.footerContent}>
           <section className={styles.footerLinks}>
@@ -45,13 +39,7 @@ function Footer() {
           </section>
         </div>
         <div className={styles.footerLogo}>
-          <a href="https://mitre.org/">
-            <img
-              src={useBaseUrl(`img/logos/mitre_logo.svg`)}
-              alt="MITRE Corporation"
-              height="40px"
-            />
-          </a>
+
         </div>
       </div>
     </footer>

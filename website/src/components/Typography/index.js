@@ -6,9 +6,6 @@ export const DataTypography = ({ children, ...rest }) => (
     variant="data"
     component="div"
     color="#000" 
-    css={{
-      fontFamily: 'Roboto Condensed'
-    }}
     {...rest}
     >
     {children}
@@ -18,9 +15,6 @@ export const SchemaTitle = ({ children, ...rest }) => (
   <Typography 
     variant="subtitle" 
     color="#151c3d"
-    css={{
-      fontFamily: 'Roboto Condensed'
-    }}
     {...rest}
   >
     {children}

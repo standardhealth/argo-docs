@@ -1,14 +1,17 @@
 .mainContainer {
+  font-family: trade-gothic-next;
   padding: 40px 0;
   margin: 0 auto;
   display: flex;
 }
 
 .dict {
+  font-family: trade-gothic-next;
   margin: 0 30px;
 }
 
 .menu {
+  font-family: trade-gothic-next;
   width: 190px;
   margin: 0 15px 0 20px;
   flex-shrink: 0;
@@ -18,12 +21,14 @@
 }
 
 .heading {
+  font-family: trade-gothic-next;
   display: flex;
   flex-direction: row;
   margin-bottom: 30px;
 }
 
 .infobar {
+  font-family: trade-gothic-next;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -32,10 +37,12 @@
 }
 
 .infobar .downloads button:not(:last-child) {
+  font-family: trade-gothic-next;
   margin-right: 8px;
 }
 
 .infobar > div {
+  font-family: trade-gothic-next;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -43,6 +50,7 @@
 
 /* Modal cont */
 .modalCont {
+  font-family: trade-gothic-next;
   position: fixed;
   top: 0;
   left: 0;

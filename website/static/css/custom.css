@@ -81,7 +81,7 @@ mark,
 audio,
 video {
   /* Font family variable $primaryFont configured in siteConfig */
-  font-family: $primaryFont;
+  font-family: trade-gothic-next, sans-serif;
 }
 
 a {

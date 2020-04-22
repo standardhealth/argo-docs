@@ -14,7 +14,10 @@ function HomeSplash() {
   const SplashContainer = props => (
     <div className={styles.homeContainer}>
       <div className={styles.homeSplashFade}>
-        <div className={styles.homeWrapper}>{props.children}</div>
+        <div className={styles.homeWrapper}>
+          <div className={styles.heroText}>STANDARDS FOR </div>
+          <div className={styles.heroTextYellow}>FEDERATED ANALYTICS </div>
+        </div>
       </div>
     </div>
   );
@@ -87,11 +90,8 @@ function Index() {
           <div className={styles.row}>
             <ContentBlock
                 title="COVID-19 Observational Studies"
-                color="#0774d3"
+                color="#005B94"
                 icon="img/icons/home/data-release.svg"
-                css={{
-                  fontFamily: 'Roboto Condensed'
-                }}  
               >
               <span className={styles.contentDescription}>
                   Observational studies undertaken as part of the COVID-19 Healthcare Coalition. Each study is defined by a set of row-level source data, cohorts (phenotypes), and metrics.
@@ -104,7 +104,7 @@ function Index() {
             </ContentBlock>
             <ContentBlock
                 title="COVID-19 Cohorts"
-                color="#7f55cc"
+                color="#005B94"
                 icon="img/icons/home/controlled-data.svg"
               >
                 <span className={styles.contentDescription}>
@@ -121,7 +121,7 @@ function Index() {
           <div className={styles.row}>
           <ContentBlock
               title="Data Dictionary"
-              color="#4bcee5"
+              color="#005B94"
               icon="img/icons/home/data-dictionary.svg"
             >
               <span className={styles.contentDescription}>
@@ -134,7 +134,7 @@ function Index() {
             </ContentBlock>
             <ContentBlock 
               title="COVID-19 Vocabulary"
-              color="#fea430"
+              color="#005B94"
               icon="img/icons/home/faq.svg"
               >
               <span className={styles.contentDescription}>
