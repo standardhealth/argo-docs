@@ -1,7 +1,10 @@
 ---
 id: studies
 title: STUDIES
+hide_title: true
 ---
+
+# Studies
 
 ## Study 1
 

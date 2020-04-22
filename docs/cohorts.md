@@ -1,7 +1,10 @@
 ---
 id: cohorts
 title: COHORTS
+hide_title: true
 ---
+
+# Cohorts
 
 The cohorts described here are intended to support use cases related to COVID-19, not particular studies.
 

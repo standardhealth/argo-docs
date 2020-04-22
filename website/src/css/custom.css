@@ -433,7 +433,22 @@ article header h1.docTitle_node_modules-\@docusaurus-theme-classic-src-theme-Doc
   font-weight: bold;
   line-height: 45px;
   color: #fff;
-  background: #0d2f4f;; 
+  background: #0d2f4f;
+  width: 100%;
+  padding: 20px 0 20px 0;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+article div.markdown h1 {
+  font-family: 'trade-gothic-next-condensed';
+  font-size: 3.0em;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: bold;
+  line-height: 45px;
+  color: #fff;
+  background: #0d2f4f;
   width: 100%;
   padding: 20px 0 20px 0;
   padding-left: 20px;

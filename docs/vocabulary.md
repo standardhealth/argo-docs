@@ -1,9 +1,12 @@
 ---
 id: vocabulary
 title: VOCABULARY
+hide_title: true
 ---
 
-# Value sets supporting cohort definition:
+# Vocabulary
+
+## Value sets supporting cohort definition
 
 | Name                                                             | Code System       | Type        | VSAC OID                 | # Values |
 | ---------------------------------------------------------------- | ----------------- | ----------- | ------------------------------ | -- |

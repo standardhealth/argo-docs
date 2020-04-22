@@ -1,7 +1,10 @@
 ---
 id: overview
 title: Overview
+hide_title: true
 ---
+
+# Overview
 
 ## Clinical Data Standardization for COVID-19: Call to Action
 

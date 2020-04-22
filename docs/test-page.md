@@ -1,7 +1,10 @@
 ---
 id: test-page
-title: TestPage
+title: Test Page
+hide_title: true
 ---
+
+# Test Page
 
 Goal is link: https://mcovid.org/docs/studies/
 

@@ -1,6 +1,7 @@
 ---
 id: c-19-new-hydroxy
 title: New user of hydroxychloroquine
+hide_title: true
 ---
 
 > Notice:

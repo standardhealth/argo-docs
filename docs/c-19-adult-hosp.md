@@ -1,6 +1,7 @@
 ---
 id: c-19-adult-hosp
 title: COVID-19-like illness adult hospitalizations
+hide_title: true
 ---
 
 > Notice:
