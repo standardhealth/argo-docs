@@ -10,7 +10,7 @@ module.exports = {
   tagline: 'Cohorts and Metrics',
 
   stylesheets: [
-    'https://fonts.googleapis.com/css?family=Source+Code+Pro|Roboto+condensed&display=swap',    // was Work+sans but Roboto+condensed is standard for C19HCC sites
+    'https://use.typekit.net/rrd2zlt.css',
   ],
 
   plugins: [path.resolve(__dirname, './svg-plugin'), path.resolve(__dirname, './dotenv-plugin')],
@@ -20,7 +20,7 @@ module.exports = {
       '@docusaurus/preset-classic',
       {
         theme: {
-          customCss: require.resolve('./src/css/custom.css'), // Don't use Array, put more CSS in 'stylesheets' above
+          customCss: require.resolve('./src/css/custom.css'), // Put more CSS in 'stylesheets' above
         },
         docs: {
           // docs folder path relative to website dir.
@@ -61,8 +61,7 @@ module.exports = {
       ],
     },
     footer: {
-      logo: null,
-      copyright: `© ${new Date().getFullYear()} MITRE Corporation. All Rights reserved. Approved for Public Release Distribution Unlimited 19-03332.`
+      copyright: `© 2020, The MITRE Corporation. Approved for Public Release, Distribution Unlimited 19-03332.`
     },
   }
 };

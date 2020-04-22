@@ -243,7 +243,7 @@ function DataDictionary() {
                 <Typography
                   color="#151c3d"
                   css={{
-                    fontFamily: 'Roboto Condensed',
+                    fontFamily: 'trade-gothic-next-condensed',
                     fontSize: '28px',
                     display: 'inline-block',
                     marginRight: '55px',
@@ -255,10 +255,7 @@ function DataDictionary() {
                 </Typography>
                 <Typography 
                   variant="paragraph"
-                  color="#000"
-                  css={{
-                    fontFamily: 'Roboto Condensed'
-                  }}                
+                  color="#000"            
                 >
                   The C19HCC Data Dictionary anchors the cohort descriptions and other definitions.
                   The classes and elements are not expected to be literally presented in any EHR.
@@ -274,16 +271,10 @@ function DataDictionary() {
                   <span>
                     <Typography 
                       variant="data"
-                      css={{
-                        fontFamily: 'Roboto Condensed'
-                      }}
                     >Last updated: </Typography>
                     <Typography 
                       variant="data"
-                      bold
-                      css={{
-                        fontFamily: 'Roboto Condensed'
-                      }}                    
+                      bold                 
                     >
                       {formatDate(get(dictionary, 'updatedAt', ''), 'MMMM D, YYYY')}
                     </Typography>

@@ -31,7 +31,7 @@ const FileFilters = ({
       variant="data" 
       color="#151c3d"
       css={{
-        fontFamily: 'Roboto Condensed'
+        fontFamily: 'trade-gothic-next'
       }}
     >
       <div className={styles.fileFilters}>

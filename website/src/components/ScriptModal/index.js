@@ -7,9 +7,6 @@ const ScriptModal = ({ field, scripts, onCloseClick }) => (
     title={
       <Typography 
         variant="subtitle"
-        css={{
-          fontFamily: 'Roboto Condensed'
-        }}
       >
         Field Script Restriction for: <span style={{ fontWeight: 600 }}>{field}</span>
       </Typography>
