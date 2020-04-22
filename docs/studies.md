@@ -1,6 +1,6 @@
 ---
 id: studies
-title: Studies
+title: STUDIES
 ---
 
 ## Study 1

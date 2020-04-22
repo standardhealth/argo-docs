@@ -1,14 +1,50 @@
 /* Search Banner */
 
 .homeSplashFade {
+    width: 100%;
     background-image: url('/img/c19hcc-splash.png');
-    background-size: 1000px;
     background-repeat: no-repeat;
     background-position: center;
+    background-size: cover;
 }
-.homeContainer .homeWrapper {
-  padding: 0;
+
+.homeWrapper {
+  margin: auto;
+  max-width: 1000px;
+  margin-left: 25px;
+  text-align: left;
 }
+
+.heroText {
+  font-family: 'trade-gothic-next-compressed';
+  margin-top: 26px;
+  font-size: 50px;
+  line-height: 60px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+
+  padding: 20px 0 0px 0;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.heroTextYellow {
+  font-family: 'trade-gothic-next-compressed';
+  font-size: 50px;
+  line-height: 60px;
+  color: #fff601;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+
+  padding: 0px 0 20px 0;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+
 .searchBanner {
   height: 223px;
   padding-top: 45px;

@@ -14,7 +14,10 @@ function HomeSplash() {
   const SplashContainer = props => (
     <div className={styles.homeContainer}>
       <div className={styles.homeSplashFade}>
-        <div className={styles.homeWrapper}>{props.children}</div>
+        <div className={styles.homeWrapper}>
+          <div className={styles.heroText}>STANDARDS FOR </div>
+          <div className={styles.heroTextYellow}>FEDERATED ANALYTICS </div>
+        </div>
       </div>
     </div>
   );

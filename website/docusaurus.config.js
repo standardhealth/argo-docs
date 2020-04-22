@@ -42,10 +42,9 @@ module.exports = {
 
     disableDarkMode: true,
     navbar: {
-      title: 'COVID-19 Healthcare Coalition',
       logo: {
         alt: 'MITRE C19HCC',
-        src: 'img/logos/home_icon.png'
+        src: 'img/Coalition-logo.svg'
       },
       links: [
         { to: 'docs/overview/', label: 'OVERVIEW', position: 'right' },

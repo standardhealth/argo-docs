@@ -1,6 +1,6 @@
 ---
 id: vocabulary
-title: Vocabulary
+title: VOCABULARY
 ---
 
 # Value sets supporting cohort definition:

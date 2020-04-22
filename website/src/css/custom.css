@@ -100,7 +100,7 @@ li + li {
 }
 
 :root {
-  --ifm-font-family-base: trade-gothic-next ;
+  --ifm-font-family-base: trade-gothic-next;
 
   --ifm-color-primary: #ffffff;
   --ifm-color-primary-dark: #ffffff;
@@ -127,12 +127,12 @@ li + li {
 }
 
 a {
-  color: #523785;
+  color: #005B94;
   text-decoration: underline;
 }
 
 html a:hover {
-  color: #9f7fd8;
+  color: #0B2338;
   text-decoration: underline;
 }
 
@@ -155,11 +155,6 @@ button:focus {
   font-family: 'trade-gothic-next-compressed';
   /* max-width: none; */
 }
-
-.navbar .navbar__brand {
-  font-size: 22px;
-}
-
 
 .navbar .navbar__inner .navbar__items--right {
   display: flex;
@@ -185,7 +180,8 @@ button:focus {
 }
 
 .navbar .navbar__inner .navbar__items a {
-  height: 22px;
+  height: 15px;
+  vertical-align: bottom;
   text-decoration: none;
 }
 
@@ -400,22 +396,48 @@ div.menu {
   }
 }
 
+article div.markdown thead {
+  font-family: 'trade-gothic-next';
+  font-weight: normal;
+  text-align: left;
+  font-size: 14px;
+  margin-top: 1.5em;
+}
+
+
+
+article div.markdown td {
+  font-family: 'trade-gothic-next';
+  font-weight: normal;
+  font-size: 12px;
+  margin-top: 1.5em;
+}
+
+
 /* Markdown Custom */
 article {
   line-height: 1.64;
 }
 
 div.docItemContainer_node_modules-\@docusaurus-theme-classic-src-theme-DocItem- {
+  padding: 0 20px;
   max-width: 1400px;
   padding: 0 20px;
 }
 
 article header h1.docTitle_node_modules-\@docusaurus-theme-classic-src-theme-DocItem- {
   font-family: 'trade-gothic-next-condensed';
-  font-size: 40px;
+  font-size: 3.0em;
+  text-transform: uppercase;
+  letter-spacing: 3px;
   font-weight: bold;
   line-height: 45px;
-  color: #005b94;
+  color: #fff;
+  background: #0d2f4f;; 
+  width: 100%;
+  padding: 20px 0 20px 0;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 article div.markdown h2 {
@@ -439,7 +461,7 @@ article div.markdown h4 {
   font-family: 'trade-gothic-next-condensed';
   font-size: 20px;
   margin-top: 1.5em;
-  line-height: 25px;
+  line-height: 20px;
   color: #005b94;
 }
 
