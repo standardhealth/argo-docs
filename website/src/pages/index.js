@@ -15,7 +15,7 @@ function HomeSplash() {
     <div className={styles.homeContainer}>
       <div className={styles.homeSplashFade}>
         <div className={styles.homeWrapper}>
-          <div className={styles.heroText}>STANDARDS FOR </div>
+          <div className={styles.heroText}>COVID-19 STANDARDS FOR </div>
           <div className={styles.heroTextYellow}>FEDERATED ANALYTICS </div>
         </div>
       </div>
