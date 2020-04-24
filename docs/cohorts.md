@@ -6,7 +6,9 @@ hide_title: true
 
 # Cohorts
 
-The cohorts described here are intended to support use cases related to COVID-19, not particular studies.
+The cohorts described here are intended to support multiple use cases related to COVID-19.
+
+Each cohort will be cross-referenced to a OHDSI/ATLAS cohort.
 
 > Notice:
 This content is rough draft or placeholder quality, and is expected to change quickly as we work with C19HCC partners to align and refine definitions.

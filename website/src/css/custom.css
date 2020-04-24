@@ -117,13 +117,27 @@ li + li {
   --ifm-color-secondary-light: #f8f8fb;
   --ifm-color-secondary-lighter: #f8f8fb;
   --ifm-color-secondary-lightest: #f8f8fb;
-
   --ifm-heading-color: #151c3d;
-
   --ifm-navbar-height: 57px;
-
   --argo-grey-2: #dcdde1;
   --argo-grey-4: #f8f8fb;
+
+  --ifm-tabs-color-active: #005B94;
+}
+
+.tabs {
+  color: #87DEFF; /* unselected tab text color */
+  margin-bottom: 0;
+  padding-left: 0;
+  text-transform: uppercase;
+  font-family: 'trade-gothic-next-condensed';
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tabItem_node_modules-\@docusaurus-theme-classic-src-theme-Tabs- {
+  font-size: 1.1em;
+  line-height: 15px;
 }
 
 a {
@@ -440,6 +454,7 @@ article header h1.docTitle_node_modules-\@docusaurus-theme-classic-src-theme-Doc
   padding-right: 20px;
 }
 
+
 article div.markdown h1 {
   font-family: 'trade-gothic-next-condensed';
   font-size: 3.0em;
@@ -453,6 +468,10 @@ article div.markdown h1 {
   padding: 20px 0 20px 0;
   padding-left: 20px;
   padding-right: 20px;
+}
+
+article div.markdown h1 span {
+  color: #fff601;
 }
 
 article div.markdown h2 {
@@ -479,6 +498,16 @@ article div.markdown h4 {
   line-height: 20px;
   color: #005b94;
 }
+
+article div.markdown tabs {
+  font-family: 'trade-gothic-next-condensed';
+  font-size: 50px;
+  margin-top: 1.5em;
+  line-height: 20px;
+  color: #005b94;
+}
+
+
 
 article h2::after {
   content: '';
@@ -516,6 +545,7 @@ article div.markdown p {
   font-weight: normal;
   margin-bottom: 14px;
 }
+
 article div.markdown ul {
   font-size: 14px;
   margin-bottom: 14px;

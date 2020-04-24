@@ -47,11 +47,10 @@ module.exports = {
         src: 'img/Coalition-logo.svg'
       },
       links: [
-        { to: 'docs/overview/', label: 'OVERVIEW', position: 'right' },
         { to: 'docs/studies/', label: 'STUDIES', position: 'right' },
         { to: 'docs/cohorts/', label: 'COHORTS', position: 'right' },
-        { to: 'dictionary/', label: 'DICTIONARY', position: 'right' },
-        { to: 'docs/vocabulary/', label: 'VOCABULARY', position: 'right' }
+        { to: 'docs/vocabulary/', label: 'VOCABULARY', position: 'right' },
+        { to: 'dictionary/', label: 'DICTIONARY', position: 'right' }
         // {
         //   href: 'https://platform.standardhealth.org/contact',
         //   label: 'Contact',

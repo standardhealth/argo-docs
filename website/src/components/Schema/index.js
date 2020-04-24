@@ -17,7 +17,8 @@ import { styled } from '@icgc-argo/uikit';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 const Notes = styled('div')`
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+  font-family: trade-gothic-next;
 `;
 
 const TagContainer = styled('div')`
@@ -118,7 +119,6 @@ const Schema = ({ schema, menuItem, isLatestSchema }) => {
     );
   };
 
-
   const cols = [
     {
       Header: 'Field & Description',
@@ -127,6 +127,7 @@ const Schema = ({ schema, menuItem, isLatestSchema }) => {
         <FieldDescription name={name} description={description} />
       ),
       style: { whiteSpace: 'normal', wordWrap: 'break-word', padding: '8px' },
+      width: 200,
     },
     {
       Header: 'Required?',
@@ -177,6 +178,7 @@ const Schema = ({ schema, menuItem, isLatestSchema }) => {
         }
       },
       style: { whiteSpace: 'normal', wordWrap: 'break-word', padding: '8px' },
+      width: 150,
     },
 /*   {
       Header: 'COVID-19 Values',
@@ -204,7 +206,7 @@ const Schema = ({ schema, menuItem, isLatestSchema }) => {
     },
 */
     {
-      Header: 'Notes',
+      Header: 'Notes & Mappings',
       Cell: NoteCell,
       style: { whiteSpace: 'normal', wordWrap: 'break-word', padding: '8px' },
     }
@@ -270,7 +272,7 @@ const Schema = ({ schema, menuItem, isLatestSchema }) => {
       style: { whiteSpace: 'normal', wordWrap: 'break-word', padding: '8px' },
     },
     {
-      Header: 'Notes',
+      Header: 'Notes & Mappings',
       Cell: NoteCell,
       style: { whiteSpace: 'normal', wordWrap: 'break-word', padding: '8px' },
     }
@@ -299,7 +301,7 @@ const Schema = ({ schema, menuItem, isLatestSchema }) => {
           display: 'flex',
           flexDirection: 'row',
           alignItems: 'center',
-          marginBottom: '11px',
+          marginBottom: '10px',
         }}
       >
         <HeaderName name={schema.name} />
@@ -308,7 +310,7 @@ const Schema = ({ schema, menuItem, isLatestSchema }) => {
 
       <div
         style={{
-          marginBottom: '11px',
+          marginBottom: '10px',
           display: 'flex',
           flexDirection: 'row',
           justifyContent: 'space-between',
