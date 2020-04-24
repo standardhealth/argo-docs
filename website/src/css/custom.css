@@ -455,6 +455,12 @@ article div.markdown h1 {
   padding-right: 20px;
 }
 
+article div.markdown h1 span {
+  color: #fff601;
+}
+
+
+
 article div.markdown h2 {
   font-family: 'trade-gothic-next-condensed';
   font-weight: bold;
