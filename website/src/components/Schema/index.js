@@ -119,15 +119,6 @@ const Schema = ({ schema, menuItem, isLatestSchema }) => {
     );
   };
 
-  const MappingCell = ({ original: { map } }) => {
-    return (
-      <div>
-        {map && <Notes>{map}</Notes>}
-      </div>
-    );
-  };
-
-
   const cols = [
     {
       Header: 'Field & Description',
@@ -215,15 +206,9 @@ const Schema = ({ schema, menuItem, isLatestSchema }) => {
     },
 */
     {
-      Header: 'Notes',
+      Header: 'Notes & Mappings',
       Cell: NoteCell,
       style: { whiteSpace: 'normal', wordWrap: 'break-word', padding: '8px' },
-      width: 250
-    },
-    {
-      Header: 'Mappings',
-      Cell: MappingCell,
-      style: { whiteSpace: 'normal', wordWrap: 'break-word', padding: '8px' }
     }
   ];
   
@@ -287,14 +272,9 @@ const Schema = ({ schema, menuItem, isLatestSchema }) => {
       style: { whiteSpace: 'normal', wordWrap: 'break-word', padding: '8px' },
     },
     {
-      Header: 'Notes',
+      Header: 'Notes & Mappings',
       Cell: NoteCell,
       style: { whiteSpace: 'normal', wordWrap: 'break-word', padding: '8px' },
-    },
-    {
-      Header: 'Mappings',
-      Cell: MappingCell,
-      style: { whiteSpace: 'normal', wordWrap: 'break-word', padding: '8px' }
     }
 
   ]; 

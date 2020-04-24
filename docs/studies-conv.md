@@ -7,6 +7,10 @@ hide_title: true
 
 **RESEARCH QUESTION: For patients with new COVID-19 infection, how does the addition of convalescent serum (CS) affect the outcomes (1) severe disease (indicated by mechanical ventilation) and (2) inpatient death?**
 
+> Notice:
+This content is rough draft or placeholder quality, and is expected to change quickly as we work with C19HCC partners to align and refine definitions.
+
+
 ### Background
 
 CS is currently under study as possible treatments for COVID-19. Before randomized clinical trials read out, a retrospective observational study can provide insight into the efficacy of this treatment.
