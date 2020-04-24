@@ -7,11 +7,11 @@ hide_title: true
 
 **RESEARCH QUESTION: For patients with new COVID-19 infection, how does the addition of hydroxychloroquine (HCQ) affect the outcomes (1) severe disease (indicated by mechanical ventilation) and (2) inpatient death?**
 
-## Background
+### Background
 
 Hydroxychloroquine and a related drug, chloroquine, are currently under study as possible treatments for COVID-19. Before randomized clinical trials read out, a retrospective observational study can provide insight into the efficacy of this drug.
 
-## Study Design
+### Study Design
 
 The study examines the effect of initiation of HCQ in hospitalized COVID-19 patients on disease severity. The study involves two study groups (those receiving or not receiving HCQ), as depicted below:
 
@@ -32,7 +32,7 @@ These outcomes correspond to increasing levels disease severity. The study uses 
 
 As a side note, [Siddiqi and Mehra](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7118652/) proposed a staging system for COVID-19 aligned to the stages of the disease, from early infection (Stage 1) to pulmonary involvement (Stage 2) to systemic hyperinflammation (Stage 3). That staging system focuses on progression rather than severity, although the two are related.
 
-## Study Populations
+### Study Populations
 
 * **Entry Cohort**:
   * Age at `COVID-19-positive-date` ≥ 18 years AND
@@ -45,7 +45,7 @@ As a side note, [Siddiqi and Mehra](https://www.ncbi.nlm.nih.gov/pmc/articles/PM
   * Entry Cohort AND
   * NOT `Inpatient-HCQ-use` AND NOT `Prior-HCQ-use` [1]
 
-### Definitions
+#### Definitions
 
 * `COVID-19-positive` [2]:
   * Any clinical diagnosis [3] code in set `C19HCC Confirmed COVID-19 infection` OR
@@ -114,7 +114,7 @@ Person F (included in study):
 * Admitted with suspected COVID-19
 * Receives clinical diagnosis of COVID-19 as inpatient
 
-## Outcome Definitions
+### Outcome Definitions
 
 * **Invasive Mechanical Ventilation (IMV)**:
   * `Invasive mechanical ventilation` procedure during `COVID-19-related-hospitalization` OR
@@ -123,7 +123,7 @@ Person F (included in study):
 * **COVID-19 Inpatient Death**:
   * `COVID-19 related hospitalization` discharge disposition like `expired` OR date of death is during `COVID-19 related hospitalization`
 
-## Value Sets
+### Value Sets
 
 * [C19HCC Confirmed COVID-19 Infection](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.117/expansion/Latest)  (SNOMED CT, ICD-10-CM)
 * [C19HCC SARS-CoV-2 Qualitative Laboratory Test](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.109/expansion/Latest) (LOINC)
@@ -132,7 +132,7 @@ Person F (included in study):
 * [Hydroxychloroquine](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.1564.2220/expansion/Latest) (RxNorm)
 * Invasive mechanical ventilation: Any intubation procedure or mechanical ventilation-associated procedure. Excludes supplemental oxygen (high or low flow), CPAP, and BiPAP, ECMO (SNOMED CT, CPT, ICD-10-PCS)
 
-### Notes:
+#### Notes:
 [1] Patients with prior use of HCQ (e.g., as treatment for autoimmune disease) are excluded from study<br/>
 [2] Study includes confirmed cases only<br/>
 [3] A clinical diagnosis can be any diagnosis associated with an encounter, such as chief complaint, admitting diagnosis, working diagnosis, final diagnosis, or discharge diagnosis. It can also be a problem list entry.<br/>

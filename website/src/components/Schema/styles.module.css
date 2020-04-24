@@ -1,5 +1,5 @@
 .schema {
-  margin-top: 38px;
+  margin-top: 36px;
 }
 
 .schemaTable_column {
@@ -7,40 +7,33 @@
   min-width: 100px;
 }
 
-.requiredTag {
-  background-color: #df1b42;
-  font-size: 12px;
-  color: white;
-  border-radius: 5px;
-  text-align: center;
-}
-
-.fieldDescription {
-  font-size: 12px;
-}
-
 .fieldEnumValue {
   font-size: 10px;
+  font-family: trade-gothic-next;
 }
 
 .regexRestriction {
   font-size: 10px;
+  font-family: trade-gothic-next;
 }
 
 /* Fields Tag */
 .tag.fields {
   margin-left: 7px;
   background-color: #4f546d;
+  font-family: trade-gothic-next;
 }
 
 .fileExampleHighlight {
   font-weight: 600;
+  font-family: trade-gothic-next;
 }
 
 /* Field Description */
 .fieldDescription {
   width: 100%;
   font-size: 12px;
+  font-family: trade-gothic-next;
 }
 
 .fieldDescription .name {
@@ -53,6 +46,7 @@
 .codeList {
   padding: 4px 0;
   color: #1411b8;
+  font-family: trade-gothic-next;
 }
 
 .codeList .toggleMore {

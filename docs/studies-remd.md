@@ -17,7 +17,7 @@ The study examines the effect of initiation of Remdesivir in hospitalized COVID-
 
 **Study Period**: January 1, 2020 - Present (Index date: `COVID-19-positive-date`)
 
-![Remdesivir cohort pathways](remdesivir_cohorts.png)
+![Remdesivir cohort pathways](remd_cohorts.png)
 
 Three outcomes are considered:
 

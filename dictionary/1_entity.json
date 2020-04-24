@@ -30,7 +30,8 @@
         "name":"patient_id",
         "valueType":"ID",
         "description":"Unique identifier assigned to the patient.",
-        "required":"required"
+        "required":"required",
+        "note":""
       },
       {
         "name":"date_of_birth",
@@ -40,7 +41,7 @@
       },
       {
         "name":"administrative_gender",
-        "description":"Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.",
+        "description":"The gender that the patient is considered to have for administration and record keeping purposes.",
         "required":"required",
         "valueType":"code",
         "permissible":{
