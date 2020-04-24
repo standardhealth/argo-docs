@@ -73,17 +73,14 @@ function Index() {
           <TitleBlock
             >
             <span className={styles.titleBlockInner}>
-            <p>The clinical data needed to derive insights on COVID-19 screening and management is a moving target. Many organizations are defining data elements and codes to represent COVID-19 related data. We can unlock at-scale analytics for COVID-19 to produce valuable clinical insights by creating:</p><br/>
-            <ul>
-              <li>Standard COVID-19 cohorts for relevant measures and populations of interest. Following these definitions assures consistent metrics and comparable cohorts.</li>
-              <li>A base set of data requirements for clinical data providers, to guide data extraction with minimal effort and fewest assumptions.</li>
-              <li>Terminologies and value sets that help extract the relevant and intended data, independent of local variations in data.</li>
-            </ul>
-            <p>Because moving data can encounter logistical, contractual, and regulatory barriers, it is usually easier and faster to move the queries to the data owners, have them evaluate the queries, and then federate the results. With careful definition of the cohorts, the results from disparate sources can be comparable.</p>
+            <p>The <strong>COVID-19 Healthcare Coalition</strong> (C19HCC) is a collaborative private-industry response to novel coronavirus. Our mission is to save lives by providing real-time learning to preserve healthcare delivery and protect populations. We are bringing together the best, brightest minds, assets and insights from across private industry to coordinate a response. </p>
             <br/>
-            <center><img alt="Hydroxychloroquine molecule by Johan Vec (CC BY-SA 4.0)" src="img/hcq.png" width={300} /></center>
-            <center><a href="docs/studies/">Hydroxychloroquine Study</a> now underway!</center>
+            <p>To advance our understanding and find effective treatments for the pandemic, we must share resources, plans, and work together. Clinical data is a key asset. Moving patient-level data can encounter logistical, contractual, and regulatory barriers. It is faster and easier to move the queries to the data owners, have them evaluate the queries, and then federate the results. We can unlock large-scale analytics for COVID-19 in three steps:</p>
             <br/>
+            <br/>
+            <center><img src="/img/work-process.png" alt="Our work process" width="70%"></img></center>
+            <br/>
+            <p>By coordinating and sharing information, we will shorten the pandemic and save lives. We welcome clinical data providers and analytics teams to share their needs and priorities to guide and contribute to this effort!</p><br/><br/>
             </span>
             </TitleBlock>
           </div>
@@ -125,7 +122,7 @@ function Index() {
               icon="img/icons/home/data-dictionary.svg"
             >
               <span className={styles.contentDescription}>
-                The dictionary describes the guidelines that data submitters should follow when exporting clinical data files from their electronic health record (EHR) systems.
+                The dictionary describes the guidelines that data submitters should follow when exporting clinical data files from their electronic health record (EHR) systems. Mapping to standard research models such as OHDSI CDM, I2B2, and exchange standards such as FHIR.
               </span>
               <a className={styles.contentAction} href="dictionary/">
                 Data Dictionary
