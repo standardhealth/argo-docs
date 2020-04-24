@@ -41,19 +41,19 @@ For individuals matching the Index Event (`c19_hosp`), include individuals match
 * **Confirmed or suspected COVID-19 (`c19_like_illness`)**:
     * **Confirmed COVID-19 condition (`c19_condition_confirmed`)**:
         * At least 1 occurrence of a `condition` meeting _all_ of the following:
-            * `condition_code` in [CH19HCC Confirmed COVID-19](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.117/definition)
+            * `condition_code` in [CH19HCC Confirmed COVID-19](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.117/expansion/Latest)
             * `condition_onset` between 21 days before index start date and 0 days after index end date
             * `condition_type` is (**chief complaint** or **admitting diagnosis** or **problem list entry** or **encounter diagnosis** or **final diagnosis** or **discharge diagnosis**)
 
     * **Laboratory-confirmed COVID-19 infection (`c19_lab_confirmed`)**:
         * At least 1 occurrence of a `laboratory_test` meeting _all_ of the following criteria:
-            * `code` in [C19HCC SARSCoV2 Qualitative Detection Laboratory Test](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.109/definition) or in [C19HCC SARS-related Qualitative Detection Laboratory Test](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.113/definition)
+            * `code` in [C19HCC SARSCoV2 Qualitative Detection Laboratory Test](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.109/expansion/Latest) or in [C19HCC SARS-related Qualitative Detection Laboratory Test](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.113/expansion/Latest)
             *   `result_date` between 21 days before index start date and 0 days after index end date
             *   `result` is **positive** or **detected** or **present**
 
     * **Suspected COVID-19 or COVID-19-like condition (`c19_condition_suspected`)**:
         * At least 1 occurrence of a `condition` meeting _all_ of the following:
-            * `code` in [C19HCC Suspected COVID19 Infection](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.116/definition)
+            * `code` in [C19HCC Suspected COVID19 Infection](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.116/expansion/Latest)
             * `onset` between 21 days before index start date and 0 days after index end date
             * `type` is (**chief complaint** or **admitting diagnosis** or **problem list entry** or **encounter diagnosis** or **final diagnosis** or **discharge diagnosis**)
 
