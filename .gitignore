@@ -1,13 +1,16 @@
 .DS_Store
 .vscode
 */node_modules
+!*/node_modules/@docusaurus
 lib/core/metadata.js
 lib/core/MetadataBlog.js
 temp/
+
 .env
 website/build
 website/.docusaurus
 website/.cache-loader
+
 website/.DS_Store
 website/.env.example
 website/npm-debug.log*
