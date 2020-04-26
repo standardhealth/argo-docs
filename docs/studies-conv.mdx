@@ -3,6 +3,10 @@ id: studies-conv
 title: CONVALESCENT SERUM (CS) STUDY
 hide_title: true
 ---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 <h1>Convalescent <span>Serum</span></h1>
 
 **RESEARCH QUESTION: For patients with new COVID-19 infection, how does the addition of convalescent serum (CS) affect the outcomes (1) severe disease (indicated by mechanical ventilation) and (2) inpatient death?**
@@ -10,6 +14,17 @@ hide_title: true
 > Notice:
 This content is rough draft or placeholder quality, and is expected to change quickly as we work with C19HCC partners to align and refine definitions.
 
+<Tabs
+  defaultValue="overview"
+  values={[
+    { label: 'Overview', value: 'overview'},
+    { label: 'Cohorts', value: 'cohorts'},
+    { label: 'Value Sets', value: 'valuesets'},
+    { label: 'Results', value: 'results'},
+    { label: 'Conclusions', value: 'conclusions'},
+  ]}>
+
+<TabItem value="overview">
 
 ### Background
 
@@ -43,6 +58,9 @@ Alternatively, results can be reported in terms of four outcomes:
   b. Death with IMV during stay
 
 Data with four outcome categories can be easily transformed into three categories, since categories 3a and 3b together account for all patient deaths, category 3.
+
+</TabItem>
+<TabItem value="cohorts">
 
 ### Study Populations
 
@@ -83,6 +101,19 @@ Data with four outcome categories can be easily transformed into three categorie
 * **COVID-19 Inpatient Death**:
   * `COVID-19 related hospitalization` discharge disposition like `expired` OR date of death is during `COVID-19 related hospitalization`
 
+
+#### Notes:
+[2] Study includes confirmed cases only<br/>
+[3] A clinical diagnosis can be any diagnosis associated with an encounter, such as chief complaint, admitting diagnosis, working diagnosis, final diagnosis, or discharge diagnosis. It can also be a problem list entry.<br/>
+[4] There may be local value sets/groupers for laboratory tests to detect SARS-CoV-2. Only PCR and NAAT tests with qualitative results should be considered for this purpose. See [C19HCC SARS-CoV-2 Qualitative Laboratory Test](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.109/expansion/Latest) and [C19HCC SARS-related Qualitative Laboratory Test]() for details on inclusions and exclusions.<br/>
+[5] The relevant date for laboratory test is the specimen collection data, not when results are reported. Laboratory order date can be used when specimen collection date is not available.<br/>
+[6] This definition includes patients diagnosed with COVID-19 during a hospital visit even if the reason for hospitalization is not COVID-related; e.g., patients with undetected COVID-19 admitted for other reasons, and nosocomial COVID-19 infections ​<br/>
+[7] Serves a confirmation that hospital admission is related to COVID-19 infection (as opposed to broken arm, etc.)<br/>
+[8] ICU flowsheet data may not be accessible to all data partners
+
+</TabItem>
+<TabItem value="valuesets">
+
 ### Value Sets
 
 * [C19HCC Confirmed COVID-19 Infection](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.117/expansion/Latest) (SNOMED CT, ICD-10-CM)
@@ -91,12 +122,16 @@ Data with four outcome categories can be easily transformed into three categorie
 * [Convalescent Serum]() -- TBD
 * Invasive mechanical ventilation: Any intubation procedure or mechanical ventilation-associated procedure. Excludes supplemental oxygen (high or low flow), CPAP, and BiPAP, ECMO (SNOMED CT, CPT, ICD-10-PCS)
 
-#### Notes:
+</TabItem>
+<TabItem value="results">
 
-[2] Study includes confirmed cases only<br/>
-[3] A clinical diagnosis can be any diagnosis associated with an encounter, such as chief complaint, admitting diagnosis, working diagnosis, final diagnosis, or discharge diagnosis. It can also be a problem list entry.<br/>
-[4] There may be local value sets/groupers for laboratory tests to detect SARS-CoV-2. Only PCR and NAAT tests with qualitative results should be considered for this purpose. See [C19HCC SARS-CoV-2 Qualitative Laboratory Test](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.109/expansion/Latest) and [C19HCC SARS-related Qualitative Laboratory Test]() for details on inclusions and exclusions.<br/>
-[5] The relevant date for laboratory test is the specimen collection data, not when results are reported. Laboratory order date can be used when specimen collection date is not available.<br/>
-[6] This definition includes patients diagnosed with COVID-19 during a hospital visit even if the reason for hospitalization is not COVID-related; e.g., patients with undetected COVID-19 admitted for other reasons, and nosocomial COVID-19 infections ​<br/>
-[7] Serves a confirmation that hospital admission is related to COVID-19 infection (as opposed to broken arm, etc.)<br/>
-[8] ICU flowsheet data may not be accessible to all data partners
+TBD
+
+</TabItem>
+<TabItem value="conclusions">
+
+</TabItem>
+</Tabs>
+
+
+
