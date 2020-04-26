@@ -47,7 +47,26 @@ module.exports = {
         src: 'img/Coalition-logo.svg'
       },
       links: [
-        { to: 'docs/studies/', label: 'STUDIES', position: 'right' },
+        { 
+          label: 'STUDIES', 
+          to: 'docs/studies/', 
+          position: 'right',
+          activeBasePath: 'docs',
+          items: [
+            {
+              label: 'Hydroxychloroquine',
+              to: 'docs/studies-hcq/',
+            },
+            {
+              label: 'Remdesivir',
+              to: 'docs/studies-remd/',
+            },
+            {
+              label: 'Convalescent Serum',
+              to: 'docs/studies-conv/',
+            },
+          ],
+        },
         { to: 'docs/cohorts/', label: 'COHORTS', position: 'right' },
         { to: 'docs/vocabulary/', label: 'VOCABULARY', position: 'right' },
         { to: 'dictionary/', label: 'DICTIONARY', position: 'right' }

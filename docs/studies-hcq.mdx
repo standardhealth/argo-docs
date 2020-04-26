@@ -3,9 +3,25 @@ id: studies-hcq
 title: HYDROXYCHLOROQUINE STUDY
 hide_title: true
 ---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Hydroxychloroquine
 
 **RESEARCH QUESTION: For patients with new COVID-19 infection, how does the addition of hydroxychloroquine (HCQ) affect the outcomes (1) severe disease (indicated by mechanical ventilation) and (2) inpatient death?**
+
+<Tabs
+  defaultValue="overview"
+  values={[
+    { label: 'Overview', value: 'overview'},
+    { label: 'Cohorts', value: 'cohorts'},
+    { label: 'Value Sets', value: 'valuesets'},
+    { label: 'Results', value: 'results'},
+    { label: 'Conclusions', value: 'conclusions'},
+  ]}>
+
+<TabItem value="overview">
 
 ### Background
 
@@ -31,6 +47,9 @@ These outcomes correspond to increasing levels disease severity. The study uses 
 * Patient is temporarily put on a ventilator (level 2), then taken off the ventilator (level 1) and discharged; the outcome level 2.
 
 As a side note, [Siddiqi and Mehra](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7118652/) proposed a staging system for COVID-19 aligned to the stages of the disease, from early infection (Stage 1) to pulmonary involvement (Stage 2) to systemic hyperinflammation (Stage 3). That staging system focuses on progression rather than severity, although the two are related.
+
+</TabItem>
+<TabItem value="cohorts">
 
 ### Study Populations
 
@@ -123,15 +142,6 @@ Person F (included in study):
 * **COVID-19 Inpatient Death**:
   * `COVID-19 related hospitalization` discharge disposition like `expired` OR date of death is during `COVID-19 related hospitalization`
 
-### Value Sets
-
-* [C19HCC Confirmed COVID-19 Infection](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.117/expansion/Latest)  (SNOMED CT, ICD-10-CM)
-* [C19HCC SARS-CoV-2 Qualitative Laboratory Test](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.109/expansion/Latest) (LOINC)
-* [C19HCC SARS-related Qualitative Laboratory Test](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.113/expansion/Latest) (LOINC)
-* Respiratory Condition (ICD-10-CM J00-J99)
-* [Hydroxychloroquine](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.1564.2220/expansion/Latest) (RxNorm)
-* Invasive mechanical ventilation: Any intubation procedure or mechanical ventilation-associated procedure. Excludes supplemental oxygen (high or low flow), CPAP, and BiPAP, ECMO (SNOMED CT, CPT, ICD-10-PCS)
-
 #### Notes:
 [1] Patients with prior use of HCQ (e.g., as treatment for autoimmune disease) are excluded from study<br/>
 [2] Study includes confirmed cases only<br/>
@@ -141,3 +151,31 @@ Person F (included in study):
 [6] This definition includes patients diagnosed with COVID-19 during a hospital visit even if the reason for hospitalization is not COVID-related; e.g., patients with undetected COVID-19 admitted for other reasons, and nosocomial COVID-19 infections ​<br/>
 [7] Serves a confirmation that hospital admission is related to COVID-19 infection (as opposed to broken arm, etc.)<br/>
 [8] ICU flowsheet data may not be accessible to all data partners
+
+
+</TabItem>
+<TabItem value="valuesets">
+
+### Value Sets
+
+* [C19HCC Confirmed COVID-19 Infection](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.117/expansion/Latest)  (SNOMED CT, ICD-10-CM)
+* [C19HCC SARS-CoV-2 Qualitative Laboratory Test](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.109/expansion/Latest) (LOINC)
+* [C19HCC SARS-related Qualitative Laboratory Test](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.113/expansion/Latest) (LOINC)
+* Respiratory Condition (ICD-10-CM J00-J99)
+* [Hydroxychloroquine](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.1564.2220/expansion/Latest) (RxNorm)
+* Invasive mechanical ventilation: Any intubation procedure or mechanical ventilation-associated procedure. Excludes supplemental oxygen (high or low flow), CPAP, and BiPAP, ECMO (SNOMED CT, CPT, ICD-10-PCS)
+
+</TabItem>
+<TabItem value="results">
+
+TBD
+
+</TabItem>
+<TabItem value="conclusions">
+
+TBD
+
+</TabItem>
+</Tabs>
+
+
