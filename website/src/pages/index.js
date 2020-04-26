@@ -78,7 +78,7 @@ function Index() {
             <p>To advance our understanding and find effective treatments for the pandemic, we must share resources, plans, and work together. Clinical data is a key asset. Moving patient-level data can encounter logistical, contractual, and regulatory barriers. It is faster and easier to move the queries to the data owners, have them evaluate the queries, and then federate the results. We can unlock large-scale analytics for COVID-19 in three steps:</p>
             <br/>
             <br/>
-            <center><img src="/img/work-process.png" alt="Our work process" width="70%"></img></center>
+            <center><img src="/img/work-process.jpg" alt="Our work process" width="70%"></img></center>
             <br/>
             <p>By coordinating and sharing information, we will shorten the pandemic and save lives. We welcome clinical data providers and analytics teams to share their needs and priorities to guide and contribute to this effort!</p><br/><br/>
             </span>
