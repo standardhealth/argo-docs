@@ -1,6 +1,7 @@
 .DS_Store
 .vscode
 */node_modules
+!website/node_modules/@docusaurus/**
 lib/core/metadata.js
 lib/core/MetadataBlog.js
 temp/
