@@ -8,13 +8,15 @@
             "name":"condition_id",
             "valueType":"ID",
             "description":"Unique identifier assigned to this instance of condition in the patient.",
-            "required":"required"
+            "required":"required",
+            "notes":"FHIR: Condition.id, PCORnet: Diagnosis.diagnosisid, Condition.conditionid, OHDSI CDM: Condition_occurrence.condition_occurrence_id"
           },
           {
             "name":"patient_id",
             "valueType":"ID",
             "description":"Unique identifier of the patient.",
-            "required":"required"
+            "required":"required",
+            "notes":"FHIR: Condition.subject, PCORnet: Diagnosis.patid, Condition.patid, OHDSI CDM: Condition_occurrence.person_id"
           },
           {
             "name":"code",
@@ -27,7 +29,7 @@
                 "SNOMED CT disorder code"
               ]
             },
-            "notes":"This field accepts either ICD-10-CM or SNOMED-CT disorder codes."
+            "notes":"This field accepts either ICD-10-CM or SNOMED-CT disorder codes. FHIR: Condition.code, PCORnet: Diagnosis.dx, Diagnosis.dx_type, Condition.condition, Condition.condition_type, OHDSI CDM: Condition_occurrence.condition_concept_id, I2B2: Diagnosis.DIAGNOSIS_CODE, Diagnosis.DIAGNOSIS_CODING_SYSTEM, Diagnosis.DIAGNOSIS_CODING_SYSTEM_VERSION."
           },
           {
             "name":"category",
@@ -39,26 +41,28 @@
               ]
             },
             "valueType":"code",
-            "notes":"Include all codes defined in http://terminology.hl7.org/CodeSystem/condition-category.\n"
+            "notes":"Include all codes defined in http://terminology.hl7.org/CodeSystem/condition-category. FHIR: Condition.category, I2B2: Diagnosis.DIAGNOSIS_SOURCE"
           },
           {
             "name":"recorded_date",
             "description":"The date that the condition was recorded.",
             "required":"required",
             "valueType":"date",
-            "notes":"This is different from the condition onset date which could be a period of time prior to the date recorded by the provider."
+            "notes":"This is different from the condition onset date which could be a period of time prior to the date recorded by the provider. FHIR: Condition.recordedDate, PCORnet: Condition.report_date"
           },
           {
             "name":"onset_date",
             "description":"An estimate or actual date that the patient reported experiencing the condition.",
             "required":"required",
-            "valueType":"date"
+            "valueType":"date",
+            "notes": "FHIR: Condition.onsetDateTime, PCORnet: Condition.onset_date, I2B2: Diagnosis.DIAGNOSIS_DATE"
           },
           {
             "name":"verification_date",
             "description":"Date when condition was confirmed by positive test, imaging, biopsy, or other method.",
             "required":"optional",
-            "valueType":"date"
+            "valueType":"date",
+            "notes":"TBD"
           },
           {
             "name":"clinical_status",
@@ -75,13 +79,13 @@
                 "resolved"
               ]
             },
-            "notes":"The clinical status terms are described at http://hl7.org/fhir/valueset-condition-clinical.html."
+            "notes":"The clinical status terms are described at http://hl7.org/fhir/valueset-condition-clinical.html. FHIR: Condition.clinicalStatus, PCORnet: Condition.condition_status, OHDSI CDM: Condition_occurrence.condition_status_concept_id"
           }
         ]
       },
       {
         "name": "med_exposure",
-        "description": "An instance of a medication or substance introduced into the body. Medication exposures provide uniform format for medication orders, medication list, and medication statements for the purposes of reporting.",
+        "description": "An instance of a medication or substance introduced into the body. Medication exposures are indicated by a variety of records: medication orders, medication administrations, medication lists, and patient-reported medication statements.",
         "parent": "patient",
         "fields": [
           {
@@ -107,12 +111,13 @@
                 "NDC code: http://hl7.org/fhir/sid/ndc"
              ]
             },
-            "notes": "Medications can be reported in NDC or RxNorm. For NDC, the product code or package code is acceptable. For RxNorm, the ingredient  (IN) or multiple ingredient (MIN) codes are preferred over the brand codes or combination (Ingredient + Strength (SCDC), Ingredient + Dose Form (SCDF), etc.)."
+            "notes": "Medications can be reported in NDC or RxNorm. For NDC, the product code or package code is acceptable. For RxNorm, the ingredient  (IN) or multiple ingredient (MIN) codes are preferred over the brand codes or combination (Ingredient + Strength (SCDC), Ingredient + Dose Form (SCDF), etc.). FHIR: MedicationDispense.medicationCodeableConcept, MedicationRequest.medicationCodeableConcept, MedicationStatement.medicationCodeableConcept, PCORnet: Prescribing.rxnorm_cui, OHDSI CDM: Drug_exposure.drug_concept_id, Drug_exposure.drug_type_concept_id, I2B2: Medication.MEDICATION_ CLASSIFICATION_SYSTEM, Medication.MEDICATION_ CODING_SYSTEM, Medication.MEDICATION_ CLASSIFICATION_SYSTEM_VERSION, Medication.MEDICATION_ CLASSIFICATION_SYSTEM, Medication.MEDICATION_CODE, Medication.MEDICATION_CODING_SYSTEM_VERSION, Medication.RAW_ MEDICATION_CODE"
           },
           {
             "name": "med_dose_quantity",
             "description": "The amount of the medication given at one administration event.",
-            "valueType": "quantity"
+            "valueType": "quantity",
+            "notes":"FHIR: MedicationRequest(MedicationDispense).dosageInstruction.doseAndRate.dose[x], MedicationStatement.dosage.doseAndRate.dose[x], PCORnet: Prescribing.rx_dose_form, Prescribing.rx_dose_ordered, Prescribing.rx_dose_ordered_unit, OHDSI CDM: Drug_exposure.quantity"
           },
           {
             "name": "med_dose_units",
@@ -121,7 +126,7 @@
             "permissible": {
               "codeList": ["UCUM code"]
             },
-            "notes": "Nomenclature conforms to the Unified Code for Units of Measure (UCUM): https://unitsofmeasure.org/trac"
+            "notes": "Nomenclature conforms to the Unified Code for Units of Measure (UCUM): https://unitsofmeasure.org/trac. FHIR: MedicationRequest(MedicationDispense).dosageInstruction.doseAndRate.doseQuantity.system/code, PCORNet: Prescribing.rx._dose_ordered_unit"
           },
           {
             "name": "med_route",
@@ -131,26 +136,28 @@
                   "Include codes from http://snomed.info/sct  where concept is-a 284009009 (Route of administration values)"
                ]
             },
-            "valueType": "code"
+            "valueType": "code",
+            "notes": "FHIR: MedicationDispense(MedicationRequest).dosageInstruction.route, PCORnet: Dispensing.dispense_route, PCORnet: Prescribing.rx_route, OHDSI CDM: Drug_exposure.route_concept_id, I2B2: Medication.RAW_MEDICATION_ROUTE"
           },
           {
             "name": "med_frequency",
             "description": "The timing for the frequency that the medication was taken.",
             "valueType": "string",
-            "notes": "Frequency should be reported as a string instead of a complex data structure to simplify the collection of data."
+            "notes": "Frequency should be reported as a string instead of a complex data structure to simplify the collection of data. FHIR: MedicationRequest.dosageInstruction.timing, PCORnet: Prescribing.rx_frequency"
           },
           {
             "name": "med_start_date",
             "description": "The date when the medication was started.",
             "required": "required",
-            "valueType": "date"
+            "valueType": "date",
+            "notes": "FHIR: MedicationDispense.whenHandedOver, MedicationStatement.effectivePeriod.start, PCORnet: Dispensing.dispense_date, OHDSI CDM: Drug_exposure.drug_exposure_start_date, Drug_exposure.drug_exposure_start_datetime"
           },
           {
             "name": "med_stop_date",
             "description": "The date when the medication as administered to the patient.",
             "required": "required",
             "valueType": "date",
-            "note":"If the stop date is not provided, it is assumed the medication is ongoing at the time of the report."
+            "notes":"If the stop date is not provided, it is assumed the medication is ongoing at the time of the report. FHIR: MedicationStatement.effectivePeriod.end, OHDSI CDM: Drug_exposure.drug_exposure_end_date, Drug_exposure.drug_exposure_end_datetime. May be calculated from FHIR: MedicationStatement.basedOn(MedicationRequest).dispenseRequest.expectedSupplyDuration, OHDSI CDM: Drug_exposure.days_supply"
           }
         ]
       },
@@ -163,7 +170,8 @@
             "name": "procedure_id",
             "valueType": "ID",
             "description": "Unique identifier assigned to the procedure occurrence.",
-            "required": "required"
+            "required": "required",
+            "notes": "FHIR: Procedure.id, PCORnet: Procedures.proceduresid, OHDSI CDM: Device_exposure.device_exposure_id, Procedure_occurrence.procedure_occurrence_id"
           },
           {
             "name":"patient_id",
@@ -176,7 +184,7 @@
             "description": "The code representing the procedure. A procedure is an action performed on a patient, including diagnostic tests, therapies - such as respiratory therapy, surgeries, and other clinical interventions.",
             "required": "required",
             "valueType": "code",
-            "notes": "SNOMED CT (preferred), ICD-10-CM (preferred) or HCPCS (alternative)."
+            "notes": "SNOMED CT (preferred), ICD-10-CM (preferred) or HCPCS (alternative). FHIR: Procedure.code, PCORnet: Procedures.px, Procedures.px_type, OHDSI CDM: Procedure_occurrence.procedure_concept_id, I2B2: Procedure.PROCEDURE_ CODING_SYSTEM, Procedure.PROCEDURE_CODE, Procedure.PROCEDURE_CODING_SYSTEM_VERSION"
           },
           {
             "name": "status",
@@ -191,13 +199,15 @@
             "name": "start_date",
             "description": "The date and time the procedure started.",
             "required": "required",
-            "valueType": "date"
+            "valueType": "date",
+            "notes": "FHIR: Procedure.performedDateTime, Procedure.performedPeriod.start, PCORnet: Procedures.px_date, OHDSI CDM: Procedure_occurrence.procedure_date, Procedure_occurrence.procedure_datetime, I2B2: Procedure.PROCEDURE_DATE"
           },
           {
             "name": "end_date",
             "description": "The date and time the procedure ended.",
             "required":"optional",
-            "valueType": "date"
+            "valueType": "date",
+            "notes":"FHIR: Procedure.performedPeriod.end, OHDSI CDM: Device_exposure.device_exposure_end_date, Device_exposure.device_exposure_end_datetime"
           }
         ]
       },
@@ -210,13 +220,15 @@
             "name":"lab_result_id",
             "description":"Unique identifier of the lab test.",
             "required":"required",
-            "valueType":"ID"
+            "valueType":"ID",
+            "notes":"FHIR: Observation.id, PCORnet: Lab_result_cm.lab_result_cm_id, OHDSI CDM: Measurement.measurement_id, Observation.observation_id"
           },
           {
             "name":"patient_id",
             "valueType":"ID",
             "description":"Unique identifier of the patient.",
-            "required":"required"
+            "required":"required",
+            "notes":"FHIR: Observation.subject, PCORnet: Vital.patid, Lab_result_cm.patid, OHDSI CDM: Measurement.person_id, Observation.person_id"
           },
           {
             "name": "code",
@@ -226,24 +238,33 @@
             "permissible": {
               "codeList": ["LOINC code"]
             },
-            "notes": "LOINC is preferred as the coding system for the lab test. In cases where there is a no LOINC code immediately available, a local test code would be accepted provided that there is a code system listing where the code originated."
+            "notes": "LOINC is preferred as the coding system for the lab test. In cases where there is a no LOINC code immediately available, a local test code would be accepted provided that there is a code system listing where the code originated. FHIR: Observation.code, PCORnet: Lab_result_cm.lab_loinc, Lab_result_cm.raw_lab_name, OHDSI CDM: Measurement.measurement_concept_id, Observation.observation_concept_id, I2B2: Laboratory_test.RAW_PANEL, Laboratory_test.LAB_ CLASSIFICATION _SYSTEM_VERSION, Laboratory_test.LAB_ CLASSIFICATION_SYSTEM, Laboratory_test.LAB_ CODING_SYSTEM, Laboratory_test.LAB_CODE, Laboratory_test.LAB_CODING_SYSTEM_VERSION, Laboratory_test.RAW_LAB_CODE"
           },
           {
-            "name": "recorded_date",
-            "valueType": "date",
-            "description": "The date when the lab result was recorded."
+            "name": "relevant_dateTime",
+            "valueType": "dateTime",
+            "description": "The date or dateTime when the specimen was collected.",
+            "notes": "FHIR: Observation.effectiveDateTime, Observation.basedOn(ServiceRequest).occurrenceDateTime, PCORnet: Lab_result_cm.lab_order_date, OHDSI CDM: Measurement.measurement_date, Measurement.measurement_datetime, Observation.observation_date, Observation.observation_datetime"
+          },
+          {
+            "name": "result_dateTime",
+            "valueType": "dateTime",
+            "description": "The date or dateTime when the result was reported.",
+            "notes": "FHIR: Observation.issued, PCORnet: Lab_result_cm.result_date, Lab_result_cm.result_time"
           },
           {
             "name": "result_code",
             "description": "The value associated with a lab result, represented as a code.",
             "valueType": "code",
-            "notes": "A lab result can have many variations of data_types. The implementer should only select one type of lab_result_value associated with each lab result."
+            "notes": "A lab result can have many variations of data_types. The implementer should only select one type of lab_result_value associated with each lab result.",
+            "notes": "FHIR: Observation.valueCodeableConcept, PCORnet: Lab_result_cm.result_snomed, OHDSI CDM: Measurement.value_as_concept_id, Observation.value_as_concept_id, I2B2: Laboratory_test.RESULT_QUALITATIVE"
           },
           {
             "name": "result_quantity",
             "description": "The value associated with a lab result, represented as a number. The number can be either an integer or a float.",
             "valueType": "quantity",
-            "notes": "A lab result can have many variations of data_types. The implementer should only select one type of lab_result_value associated with each lab result."
+            "notes": "A lab result can have many variations of data_types. The implementer should only select one type of lab_result_value associated with each lab result.",
+            "notes": "FHIR: Observation.valueQuantity, PCORnet: Lab_result_cm.result_qual, Lab_result_cm.result_num, Lab_result_cm.result_modifier,Lab_result_cm.raw_result, Measurement.value_as_number, Observation.value_as_number, I2B2: Laboratory_test.RAW_RESULT, Laboratory_test.RESULT_MODIFIER, Laboratory_test.RESULT_NUMERICAL"
           },
           {
             "name": "result_units",
@@ -252,7 +273,7 @@
             "permissible": {
               "codeList": ["UCUM code"]
             },
-            "notes": "Nomenclature conforms to the Unified Code for Units of Measure (UCUM): https://unitsofmeasure.org/trac"
+            "notes": "Nomenclature conforms to the Unified Code for Units of Measure (UCUM): https://unitsofmeasure.org/trac. FHIR: Observation.valueQuantity.system/codes PCORnet: Lab_result_cm.result_unit, OHDSI CDM: Measurement.unit_concept_id, I2B2: Laboratory_test.RAW_UNIT, Laboratory_test.RESULT_UNIT"
           },
           {
             "name":"lab_result_interpretation",
@@ -262,7 +283,8 @@
               "codeList":[
                 "Any of the codes specified in the http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation value set."
               ]
-            }
+            },
+            "notes":"FHIR: Observation.interpretation, PCORnet: Lab_result_cm.abn_ind, I2B2: Laboratory_test.ABNORMAL_RESULT_INDICATOR"
           }
         ]
       },
@@ -275,19 +297,22 @@
             "name":"encounter_id",
             "description":"A unique identifier for the encounter.",
             "required": "required",
-            "valueType":"ID"
+            "valueType":"ID",
+            "notes": "FHIR: Encounter.id, PCORnet: Encounter.encounterid, OHDSI CDM: Visit_occurrence.visit_occurrence_id, Sentinel: Encounter.EncounterID"
           },
           {
             "name":"patient_id",
             "valueType":"ID",
             "description":"Unique identifier of the patient.",
-            "required":"required"
+            "required":"required",
+            "notes":"FHIR: Encounter.subject, PCORnet: Encounter.patid, OHDSI CDM: Visit_occurrence.person_id, Sentinel: Encounter.PatID"
           },
           {
             "name":"facility_id",
             "valueType":"ID",
             "description":"Unique identifier of the facility providing the encounter.",
-            "required":"optional"
+            "required":"optional",
+            "notes":"FHIR: Location.id, OHDSI CDM: Care_site.care_site_id, Location.location_id"
           },         
           {
             "name":"encounter_class",
@@ -309,15 +334,15 @@
                 "VR (virtual)"
               ]
             },
-            "notes": "Permissible values descriptions are available at http://hl7.org/fhir/v3/ActEncounterCode/vs.html."            
+            "notes": "Permissible values descriptions are available at http://hl7.org/fhir/v3/ActEncounterCode/vs.html. FHIR: Encounter.class, PCORnet: Encounter.enc_type, Sentinel: Encounter.EncType, I2B2: Procedure.VISIT.VISIT_TYPE"
           },
           {
             "name":"admission_date",
             "description":"The date the patient was admitted for the encounter",
             "required": "required",
-            "valueType":"date"
+            "valueType":"date",
+            "notes": "FHIR: Encounter.period.start, PCORnet: Encounter.admit_date, Encounter.admit_time, OHDSI CDM: Visit_occurrence.visit_start_date, Visit_occurrence.visit_start_datetime, Sentinel: Encounter.ADATE, I2B2: Procedure.VISIT.ADMIT_DATE"
           },
-
           {
             "name":"admission_source",
             "description":"The type of location the patient originated from.",
@@ -326,13 +351,14 @@
             "permissible":{
               "codeList":["Any of the codes specified in the http://terminology.hl7.org/CodeSystem/admit-source value set"]
             },
-            "notes": "Definitions for the permissible values are available at http://hl7.org/fhir/codesystem-encounter-admit-source.html."            
+            "notes": "Definitions for the permissible values are available at http://hl7.org/fhir/codesystem-encounter-admit-source.html. FHIR: Encounter.hospitalization.admitSource or Encounter.hospitalization.origin(location).type, PCORnet: Encounter.admitting_source, OHDSI CDM: Visit_occurrence.admitting_source_concept_id, Sentinel: Encounter.Admitting_Source"
           },
           {
             "name":"discharge_date",
             "description":"The date the patient was discharged from the encounter",
             "required": "required",
-            "valueType":"date"
+            "valueType":"date",
+            "notes": "FHIR: Encounter.period.end, PCORnet: Encounter.discharge_date, Encounter.discharge_time, OHDSI CDM: Visit_occurrence.visit_end_date, Visit_occurrence.visit_end_datetime, Sentinel: Encounter.DDATE, I2B2: Procedure.VISIT.DISCHARGE_DATE"
           },
           {
             "name": "discharge_disposition",
@@ -354,7 +380,7 @@
                 "other (Other)"
               ]
             },
-            "notes": "Definitions for the permissible values are available at https://www.hl7.org/fhir/valueset-encounter-discharge-disposition.html"
+            "notes": "Definitions for the permissible values are available at https://www.hl7.org/fhir/valueset-encounter-discharge-disposition.html. FHIR: Encounter.extension (Proposed Name: discharge-disposition: CodeableConcept), PCORnet: Encounter.discharge_disposition, Sentinel: Encounter.Discharge_Disposition"
           },
           {
             "name": "initial_diagnosis",
@@ -365,7 +391,8 @@
                 "ICD-10-CM code",
                 "SNOMED CT code"
               ]
-            }
+            },
+            "notes":"FHIR: Encounter.diagnosis.condition (Role = CC), OHDSI CDM: Condition_occurrence with condition_status_concept_id = 4033240,   PCORnet: DIAGNOSIS.DX_SOURCE (IN)"
           },
           {
             "name": "admitting_diagnosis",
@@ -378,7 +405,7 @@
                 "SNOMED CT disorder code"
               ]
             },
-            "notes":"An admitting diagnosis is only expected to be available for inpatient encounters."
+            "notes":"An admitting diagnosis is only expected to be available for inpatient encounters. FHIR: Encounter.diagnosis.condition (Role = AD),OHDSI CDM: Condition_occurrence with condition_status_concept_id = 4203942, PCORnet: DIAGNOSIS with DX_SOURCE=AD"
           },
           {
             "name": "discharge_diagnosis",
@@ -391,12 +418,12 @@
                 "SNOMED CT disorder code"
               ]
             },
-            "notes": "Discharge diagnosis is only expected to be available for inpatient encounters that have been completed."
+            "notes": "Discharge diagnosis is only expected to be available for inpatient encounters that have been completed. FHIR: Encounter.diagnosis.condition (Role = DD), OHDSI CDM: Condition_occurrence with condition_status_concept_id = 4230359, PCORnet: DIAGNOSIS with DX_SOURCE=DI"
           }
         ]
       },
       {
-        "name": "encounter_setting",
+        "name": "encounter_detail",
         "description": "Department, unit or setting the patient visits during the course of an inpatient encounter, such as emergency department or intensive care unit.",
         "parent": "encounter",
         "fields": [
@@ -404,13 +431,15 @@
             "name":"encounter_id",
             "description":"A unique identifier for the encounter.",
             "required": "required",
-            "valueType":"ID"
+            "valueType":"ID",
+            "notes":"OHDSI CDM: visit_detail_parent_id"
           },
           {
-            "name":"encounter_setting_id",
+            "name":"encounter_detail_id",
             "description":"A unique identifier for the instance of encounter setting.",
             "required": "required",
-            "valueType":"ID"      
+            "valueType":"ID",
+            "notes":"OHDSI CDM: visit_detail_id"      
            },
            {
             "name":"type",
@@ -422,19 +451,21 @@
                 "Code from http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType value set."
               ]
             },
-            "notes": "Definitions for the permissible values for setting type are available at http://hl7.org/fhir/v3/ServiceDeliveryLocationRoleType/vs.html"
+            "notes": "Definitions for the permissible values for setting type are available at http://hl7.org/fhir/v3/ServiceDeliveryLocationRoleType/vs.html. OHDSI CDM: visit_detail_type_concept_id"
            },
            {
             "name":"arrival_date",
             "description":"The date the patient arrived at the setting.",
             "required": "optional",
-            "valueType": "date"
+            "valueType": "date",
+            "notes": "OHDSI CDM: visit_detail_start_date, visit_detail_start_datetime"
            },
            {
             "name":"departure_date",
             "description":"The date the patient departed the setting.",
             "required": "optional",
-            "valueType": "date"
+            "valueType": "date",
+            "notes": "OHDSI CDM: visit_detail_end_date, visit_detail_end_datetime"
            },
            {
             "name":"length of stay",
@@ -446,72 +477,23 @@
         ]
       },
       {
-        "name": "vitals",
-        "description": "Data elements associated with the physiologic measurements of a patient that indicate the status of the body's life sustaining functions, also known as vital signs. (Source: United States Core Data for Interoperability (USCDI). https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi)",
-        "parent": "patient",
-        "fields": [
-          {
-            "name":"vital_id",
-            "valueType":"ID",
-            "description":"Unique identifier assigned to the vital sign measurement.",
-            "required":"required"
-          },
-          {
-            "name":"patient_id",
-            "valueType":"ID",
-            "description":"Unique identifier of the patient.",
-            "required":"required"
-          },
-          {
-            "name": "code",
-            "valueType": "code",
-            "description": "A code for the vital sign of interest, e.g. heart rate.",
-            "required": "required",
-            "permissible":{
-              "codeList": ["LOINC code"]
-            }
-          },
-          {
-            "name": "value",
-            "valueType": "quantity",
-            "description": "The result of measuring the vital sign.",
-            "required": "required"
-          },
-          {
-            "name": "unit",
-            "valueType": "string",
-            "description": "The unit for the measured vital sign value.",
-            "required": "required",
-            "permissible": {
-              "codeList": ["UCUM code"]
-            },
-            "notes": "Units associated with each of the permissible vital sign codes are listed in http://hl7.org/fhir/R4/observation-vitalsigns.html"
-          },
-          {
-            "name": "measurement_date",
-            "valueType": "date",
-            "description": "The date and time the measurement of the vital sign occurred.",
-            "required": "required"
-          }
-        ]
-      }
-      ,
-      {
         "name": "patient_observation",
-        "description": "Clinical information obtained through examination, assessment, survey, or questioning.",
+        "description": "Clinical information obtained through examination, assessment, survey, or questioning, including vital signs.",
         "parent":"patient",
         "fields": [
           {
             "name":"observation_id",
             "description":"Unique identifier of the observation.",
             "required":"required",
-            "valueType":"ID"
+            "valueType":"ID",
+            "note": "FHIR: Observation.id, PCORnet: Vital.vitalid, Lab_result_cm.lab_result_cm_id, OMOP: Measurement.measurement_id, Observation.observation_id"
           },
           {
             "name":"patient_id",
             "valueType":"ID",
             "description":"Unique identifier of the patient.",
-            "required":"required"
+            "required":"required",
+            "note":"FHIR: Observation.subject, PCORnet: Vital.patid, Lab_result_cm.patid, OMOP: Measurement.person_id, Observation.person_id"
           },
           {
             "name": "code",
@@ -521,19 +503,19 @@
             "permissible": {
               "codeList": ["LOINC code"]
             },
-            "notes": "LOINC is preferred as the coding system for the lab test. In cases where there is a no LOINC code immediately available, a local test code would be accepted provided that there is a code system listing where the code originated."
+            "notes": "LOINC is preferred as the coding system for the observation. In cases where there is a no LOINC code immediately available, a local test code would be accepted provided that there is a code system listing where the code originated. FHIR: Observation.code, PCORnet: specific VITAL table elements, PRO_CM: CM_LOINC, OHDSI CDM: Measurement.measurement_concept_id, Observation.observation_concept_id"
           },
           {
             "name": "observation_datetime",
             "valueType": "dateTime",
             "description": "The date-time of the observation, if the observation is made at a specific time.",
-            "note": "Either the observation_datetime or the observation_period_start should be reported, but not both."
+            "notes": "Either the observation_datetime or the observation_period_start should be reported, but not both. FHIR: Observation.effectiveDateTime.start, PCORnet: Vital.measure_date, Vital.measure_time, OMOP: Measurement.measurement_date, Measurement.measurement_datetime, Observation.observation_date, Observation.observation_datetime"
           },
           {
             "name": "observation_period_start",
             "valueType": "dateTime",
             "description": "The date or date-time marking the beginning of the clinically-relevant time period of the observation.",
-            "note": "Either the observation_datetime or the observation_period_start should be reported, but not both."
+            "notes": "Either the observation_datetime or the observation_period_start should be reported, but not both."
           },
           {
             "name": "observation_period_end",
@@ -549,12 +531,14 @@
           {
             "name": "result_code",
             "description": "The value associated with the observation, represented as a code.",
-            "valueType": "code"
+            "valueType": "code",
+            "note":"FHIR: Observation.valueCodeableConcept, PCORnet: Vital.ht, Vital.wt, Vital.systolic, Vital.original_bmi, Vital.smoking, Vital.tobacco, Vital.tobacco_type"
           },
           {
             "name": "result_quantity",
             "description": "The value associated with a lab result, represented as a number. The number can be either an integer or a float.",
-            "valueType": "quantity"
+            "valueType": "quantity",
+            "note":"FHIR: Observation.valueQuantity, PCORnet: Vital.ht, Vital.wt, Vital.systolic, Vital.original_bmi"
           },
           {
             "name": "result_units",
@@ -563,7 +547,7 @@
             "permissible": {
               "codeList": ["UCUM code"]
             },
-            "notes": "Nomenclature conforms to the Unified Code for Units of Measure (UCUM): https://unitsofmeasure.org/trac"
+            "notes": "Nomenclature conforms to the Unified Code for Units of Measure (UCUM): https://unitsofmeasure.org/trac. FHIR: Observation.valueQuantity.system/codes PCORnet: OHDSI CDM: Measurement.unit_concept_id"
           },
           {
             "name":"result_interpretation",
@@ -573,7 +557,8 @@
               "codeList":[
                 "Any of the codes specified in the http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation value set."
               ]
-            }
+            },
+            "notes":"FHIR: Observation.interpretation"
           }
         ]
       },
@@ -622,7 +607,7 @@
             "valueType":"ID",
             "description":"Unique identifier of the person included in the group.",
             "required":"optional",
-            "note":"Including the patient_id does not imply PII of the patient is revealed."
+            "notes":"Including the patient_id does not imply PII of the patient is revealed."
           },
           {
             "name":"group_id",
@@ -647,7 +632,7 @@
             "description": "The date when the member no longer was included in the group.",
             "required":"optional",
             "valueType": "date",
-            "note":"If no end date is given, it is assumed the person is still a member of the group on the report date."
+            "notes":"If no end date is given, it is assumed the person is still a member of the group on the report date."
           }         
         ]
       },
@@ -690,7 +675,7 @@
             "name":"measure_id",
             "description":"A code or identifier of the definition of measure reported.",
             "valueType":"ID",
-            "note":"Either measure ID or code should be provided."
+            "notes":"Either measure ID or code should be provided."
           },
           {
             "name": "code",
@@ -705,7 +690,7 @@
             "name":"measure_name",
             "description":"The name of the measure or measure definition reported.",
             "valueType":"string",
-            "note":"Either the name or the ID of the measure should be provided."
+            "notes":"Either the name or the ID of the measure should be provided."
           },
           {
             "name":"measure_subject_id",
@@ -722,7 +707,7 @@
             "name": "measure_period_start",
             "valueType": "dateTime",
             "description": "The date or date-time marking the beginning of the clinically-relevant time period of the measure.",
-            "note": "Either the measure_datetime or the measure_period_start should be reported, but not both."
+            "notes": "Either the measure_datetime or the measure_period_start should be reported, but not both."
           },
           {
             "name": "measure_period_end",
