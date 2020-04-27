@@ -11,13 +11,13 @@
         "name": "reporter_organization_id",
         "valueType": "ID",
         "description": "The identifier of the organization reporting.",
-        "note":"Either the reporting organization or the practitioner should be provided."
+        "notes":"Either the reporting organization or the practitioner should be provided."
       },
       {
         "name": "reporter_practitioner_id",
         "valueType": "ID",
         "description": "The identifier of the practitioner reporting.",
-        "note":"Either the reporting organization or the practitioner should be provided."
+        "notes":"Either the reporting organization or the practitioner should be provided."
       }
     ]
   },
@@ -31,13 +31,14 @@
         "valueType":"ID",
         "description":"Unique identifier assigned to the patient.",
         "required":"required",
-        "note":""
+        "notes":"FHIR: Patient.identifier, PCORnet: Demographics.patid, OHDSI CDM: Person.person_id, Sentinel: Demographic.PatID"
       },
       {
         "name":"date_of_birth",
         "description":"The actual or approximate date of birth.",
         "required":"optional",
-        "valueType":"date"
+        "valueType":"date",
+        "note:": "FHIR: Patient.birthDate, PCORnet: Demographics.birth_date, Demographics.birth_time, OHDSI CDM: Person.year_of_birth, Person.month_of_birth, Person.day_of_birth, Person.birth_datetime, Sentinel: Demographic.Birth-Date, I2B2: Demographics.birth_date"
       },
       {
         "name":"administrative_gender",
@@ -52,7 +53,7 @@
             "Unknown"
           ]
         },
-        "notes": "Codes must align with FHIR Administrative Gender value set (http://hl7.org/fhir/ValueSet/administrative-gender)"
+        "notes": "Codes must align with FHIR Administrative Gender value set (http://hl7.org/fhir/ValueSet/administrative-gender). FHIR: Patient.gender, OHDSI CDM: Person.gender_concept_id, PCORnet: Demographics.sex, Sentinel: Demographic.Sex, I2B2: Demographics.sex"
       },
       {
         "name":"race",
@@ -70,7 +71,7 @@
             "Asked but no answer"
           ]
         },
-        "notes":"Codes from http://hl7.org/fhir/us/core/ValueSet/omb-race-category"
+        "notes":"Codes from http://hl7.org/fhir/us/core/ValueSet/omb-race-category. FHIR: Patient.extension: us-core-race, PCORnet: Demographics.race, OHDSI CDM: Person.race_concept_id, Sentinel: Demographic.Race, I2B2: Demographics.Race"
       },
       {
         "name":"ethnicity",
@@ -83,7 +84,7 @@
             "Non Hispanic or Latino"
           ]
         },
-        "notes":"Codes from http://hl7.org/fhir/us/core/ValueSet/omb-ethnicity-category"
+        "notes":"Codes from http://hl7.org/fhir/us/core/ValueSet/omb-ethnicity-category. FHIR: Patient.extension: us-core-ethnicity, PCORnet: Demographics.hispanic, OHDSI CDM: Person.ethnicity_concept_id, Sentinel: Demographic.Hispanic, I2B2: Demographics.Hispanic"
       },
       {
         "name":"zip_code",
@@ -93,7 +94,7 @@
         "permissible":{
           "regex":"(^\\d{5}$)|(^\\d{9}$)|(^\\d{5}-\\d{4}$)"
         },
-        "notes": "Five digit zip code is acceptable."            
+        "notes": "Five digit zip code is acceptable. FHIR: Patient.address, OHDSI CDM: Person.location_id, Sentinel: Demographic.Zip"            
       }
     ]
   },
@@ -106,7 +107,8 @@
         "name":"patient_id",
         "valueType":"ID",
         "description":"Unique identifier of the patient.",
-        "required":"required"
+        "required":"required",
+        "notes": "FHIR: AdverseEvent.subject, PCORnet: Death.patid, Death_cause.patid, OHDSI CDM: Death.person_id"
       },
       {
         "name":"vital_status",
@@ -119,8 +121,8 @@
             "Deceased",
             "Unknown"
           ]
-
-        }
+        },
+        "notes": "FHIR: Patient.deceasedBoolean, PCORnet: Death.patid, Death_cause.patid, OHDSI CDM: DEATH.person_id (deprecated in CDM 6.0), VISIT_DETAIL.DISCHARGE_TO_CONCEPT_ID = 4216643 'Patient died', OBSERVATION_TYPE_CONCEPT_ID = 44818516 (EHR discharge status 'Expired')."
       },
       {
         "name":"cause_of_death",
@@ -133,14 +135,14 @@
             "SNOMED-CT code"
           ]
         },
-        "notes":"Cause of death is only required to be submitted if the patient is deceased. Mortality coding of COVID-19 with ICD-10 see: https://www.who.int/classifications/icd/COVID-19-coding-icd10.pdf?ua=1"
+        "notes":"Cause of death is only required to be submitted if the patient is deceased. Mortality coding of COVID-19 with ICD-10 see: https://www.who.int/classifications/icd/COVID-19-coding-icd10.pdf?ua=1. FHIR: VRDR Cause of Death Condition profile; FHIR: AdverseEvent.suspectedEntity.causality.Extension (Proposed Name: cause-code : CodeableConcept), PCORnet: Death_cause.death_cause, Death_cause.death_cause_code, OHDSI CDM: Death.death_type_concept_id, Death.cause_concept_id."
       },
       {
         "name":"date_of_death",
         "description":"Indicates the actual or approximate date of a patient's death.",
         "valueType":"date",
         "required": "conditional",
-        "notes":"Date of death is only required to be submitted if the patient is deceased."
+        "notes":"Date of death is only required to be submitted if the patient is deceased. FHIR: Patient.deceasedDateTime, VRDR Death Date profile, AdverseEvent.date, PCORnet: Death.death_date, OHDSI CDM: Death.death_date"
       }
     ]
   },
@@ -154,37 +156,44 @@
         "name":"patient_id",
         "valueType":"ID",
         "description":"Unique identifier of the patient.",
-        "required":"required"
+        "required":"required",
+        "notes":"FHIR: Patient.identifier, PCORnet: Demographics.patid, OHDSI CDM: Person.person_id, Sentinel: Demographic.PatID"
       },
       {
         "name":"family_name",
         "description":"The part of a name that links to the genealogy.",
-        "valueType":"string"
+        "valueType":"string",
+        "notes": "FHIR: Patient.name.family. Patient PII not reported in other systems."
       },
       {
         "name":"given_name(s)",
         "description":"Given names (not always 'first'). Includes middle names.",
-        "valueType":"string"
+        "valueType":"string",
+        "notes": "FHIR: Patient.name.given. Patient PII not reported in other systems."
       },
       {
         "name":"address_line",
         "description":"This component contains the house number, apartment number, street name, street direction, P.O. Box number, delivery hints, and similar address information.",
-        "valueType":"string"
+        "valueType":"string",
+        "notes": "FHIR: Patient.address.line. Patient PII not reported in other systems."
       },
       {
         "name":"address_city",
         "description":"The name of the city, town, suburb, village or other community or delivery center.",
-        "valueType":"string"
+        "valueType":"string",
+        "notes": "FHIR: Patient.address.city. Patient PII not reported in other systems."
       },
       {
         "name":"address_state",
         "description":"US 2 letter state code.",
-        "valueType":"string"
+        "valueType":"string",
+        "notes": "FHIR: Patient.address.state. Patient PII not reported in other systems."
       },
       {
         "name":"primary_phone_number",
         "description":"Preferred phone number for the patient.",
-        "valueType":"string"
+        "valueType":"string",
+        "notes": "FHIR: Patient.contact.telecom. Patient PII not reported in other systems."
       }
     ]
   }]

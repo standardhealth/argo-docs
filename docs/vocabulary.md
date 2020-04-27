@@ -4,6 +4,8 @@ title: VOCABULARY
 hide_title: true
 ---
 
+##### Top
+
 # Vocabulary
 
 ## Value sets supporting cohort definition
@@ -28,3 +30,5 @@ Coming Soon:
 
 * Respiratory Condition: ICD-10-CM J00-J99
 * Invasive mechanical ventilation: Any intubation procedure or mechanical ventilation-associated procedure, excluding supplemental oxygen (high or low flow), CPAP, and BiPAP, ECMO (SNOMED CT, ICD-10-CM).
+
+[TOP](#top)

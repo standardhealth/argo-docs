@@ -4,6 +4,8 @@ title: COHORTS
 hide_title: true
 ---
 
+##### Top
+
 # Cohorts
 
 The cohorts described here are intended to support multiple use cases related to COVID-19.
@@ -25,3 +27,4 @@ This content is rough draft or placeholder quality, and is expected to change qu
 | [ICU level of care]() | Defines how to identify patients receiving ICU-level of care | |
 | [Death within 6 weeks of COVID-19 confirmation]() | |
 
+[TOP](#top)

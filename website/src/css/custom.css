@@ -127,8 +127,6 @@ li + li {
 
 .tabs {
   color: #87DEFF; /* unselected tab text color */
-  margin-bottom: 0;
-  padding-left: 0;
   text-transform: uppercase;
   font-family: 'trade-gothic-next-condensed';
   text-transform: uppercase;
@@ -137,7 +135,20 @@ li + li {
 
 .tabItem_node_modules-\@docusaurus-theme-classic-src-theme-Tabs- {
   font-size: 1.1em;
-  line-height: 15px;
+  line-height: 0px;
+}
+
+.dropdown .dropdown__menu {
+  background-color:#fff;
+  border-radius: var(--ifm-global-radius);
+  box-shadow: var(--ifm-global-shadow-md);
+  display: display-outside;
+  float: inline-end;
+  position: absolute;
+  min-width: 10rem;
+  list-style: none;
+  padding: 0.1rem;
+  z-index: var(--ifm-z-index-dropdown);
 }
 
 a {
@@ -157,27 +168,16 @@ button:focus {
   outline: none;
 }
 
-/* Header */
 .navbar {
   background: #ffffff;
-  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.08);
-  padding: 16px;
-}
-
-.navbar .navbar__inner {
   margin: 0px 20px;
   font-family: 'trade-gothic-next-compressed';
-  /* max-width: none; */
 }
 
-.navbar .navbar__inner .navbar__items--right {
-  display: flex;
-  flex: 1;
-}
+
 .navbar .navbar__inner a {
   color: #005b94;
   font-weight: bold;
-  text-align: center;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -193,19 +193,13 @@ button:focus {
   /* border-bottom: 3px solid #0774d3; */
 }
 
-.navbar .navbar__inner .navbar__items a {
-  height: 15px;
-  vertical-align: bottom;
-  text-decoration: none;
+.navbar .navbar__items {
+  flex: 1 1 0;
 }
 
 .navbar .navbar__inner .navbar__items img {
   margin: 0px;
-  height: 100%;
-}
-
-.navbar .navbar__items {
-  flex: 1 1 0;
+  height: 15px;
 }
 
 /* Docs Page */
@@ -439,22 +433,9 @@ div.docItemContainer_node_modules-\@docusaurus-theme-classic-src-theme-DocItem- 
   padding: 0 20px;
 }
 
-article header h1.docTitle_node_modules-\@docusaurus-theme-classic-src-theme-DocItem- {
-  font-family: 'trade-gothic-next-condensed';
-  font-size: 3.0em;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-weight: bold;
-  line-height: 45px;
-  color: #fff;
-  background: #0d2f4f;
-  width: 100%;
-  padding: 20px 0 20px 0;
-  padding-left: 20px;
-  padding-right: 20px;
-}
 
 
+/* heading on doc pages */
 article div.markdown h1 {
   font-family: 'trade-gothic-next-condensed';
   font-size: 3.0em;
@@ -465,9 +446,9 @@ article div.markdown h1 {
   color: #fff;
   background: #0d2f4f;
   width: 100%;
-  padding: 20px 0 20px 0;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  margin-top: 0px;
 }
 
 article div.markdown h1 span {
@@ -499,14 +480,14 @@ article div.markdown h4 {
   color: #005b94;
 }
 
-article div.markdown tabs {
+article div.markdown h5 {
   font-family: 'trade-gothic-next-condensed';
-  font-size: 50px;
-  margin-top: 1.5em;
-  line-height: 20px;
-  color: #005b94;
+  font-size: 0px;
+  margin: 0px;
+  padding: 0px;
+  line-height: 0px;
+  color: transparent;
 }
-
 
 
 article h2::after {
@@ -629,4 +610,10 @@ nav.pagination-nav a.pagination-nav__link:hover .pagination-nav__link--label {
 .modal-open {
   overflow: hidden;
 }
+
+/* This will be removed after new release of Infima */
+.navbar__item.dropdown > .navbar__link {
+  pointer-events: none;
+}
+
 
