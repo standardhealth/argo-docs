@@ -448,6 +448,7 @@ article div.markdown h1 {
   width: 100%;
   padding: 20px;
   margin-bottom: 20px;
+  margin-top: 0px;
 }
 
 article div.markdown h1 span {
@@ -478,6 +479,16 @@ article div.markdown h4 {
   line-height: 20px;
   color: #005b94;
 }
+
+article div.markdown h5 {
+  font-family: 'trade-gothic-next-condensed';
+  font-size: 0px;
+  margin: 0px;
+  padding: 0px;
+  line-height: 0px;
+  color: transparent;
+}
+
 
 article h2::after {
   content: '';
