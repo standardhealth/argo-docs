@@ -58,10 +58,6 @@ module.exports = {
               to: 'docs/studies-hcq/',
             },
             {
-              label: 'Remdesivir',
-              to: 'docs/studies-remd/',
-            },
-            {
               label: 'Convalescent Serum',
               to: 'docs/studies-conv/',
             },
