@@ -25,7 +25,6 @@ This content is rough draft or placeholder quality, and is expected to change qu
     { label: 'Cohorts', value: 'cohorts'},
     { label: 'Value Sets', value: 'valuesets'},
     { label: 'Results', value: 'results'},
-    { label: 'Conclusions', value: 'conclusions'},
   ]}>
 
 <TabItem value="overview">
@@ -112,7 +111,7 @@ Data with four outcome categories can be easily transformed into three categorie
 #### Notes:
 [2] Study includes confirmed cases only<br/>
 [3] A clinical diagnosis can be any diagnosis associated with an encounter, such as chief complaint, admitting diagnosis, working diagnosis, final diagnosis, or discharge diagnosis. It can also be a problem list entry.<br/>
-[4] There may be local value sets/groupers for laboratory tests to detect SARS-CoV-2. Only PCR and NAAT tests with qualitative results should be considered for this purpose. See [C19HCC SARS-CoV-2 Qualitative Laboratory Test](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.109/expansion/Latest) and [C19HCC SARS-related Qualitative Laboratory Test]() for details on inclusions and exclusions.<br/>
+[4] There may be local value sets/groupers for laboratory tests to detect SARS-CoV-2. Only PCR and NAAT tests with qualitative results should be considered for this purpose. See [C19HCC SARS-CoV-2 Qualitative Laboratory Test](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.109/expansion/20200417) and [C19HCC SARS-related Qualitative Laboratory Test]() for details on inclusions and exclusions.<br/>
 [5] The relevant date for laboratory test is the specimen collection data, not when results are reported. Laboratory order date can be used when specimen collection date is not available.<br/>
 [6] This definition includes patients diagnosed with COVID-19 during a hospital visit even if the reason for hospitalization is not COVID-related; e.g., patients with undetected COVID-19 admitted for other reasons, and nosocomial COVID-19 infections ​<br/>
 [7] Serves a confirmation that hospital admission is related to COVID-19 infection (as opposed to broken arm, etc.)<br/>
@@ -125,28 +124,22 @@ Data with four outcome categories can be easily transformed into three categorie
 
 ### Value Sets
 
-* [C19HCC Confirmed COVID-19 Infection](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.117/expansion/Latest) (SNOMED CT, ICD-10-CM)
-* [C19HCC SARS-CoV-2 Qualitative Laboratory Test](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.109/expansion/Latest) (LOINC)
-* [C19HCC SARS-related Qualitative Laboratory Test](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.113/expansion/Latest) (LOINC)
+* [C19HCC Confirmed COVID-19 Infection](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.117/expansion/20200410) (SNOMED CT, ICD-10-CM)
+* [C19HCC SARS-CoV-2 Qualitative Laboratory Test](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.109/expansion/20200417) (LOINC)
+* [C19HCC SARS-related Qualitative Laboratory Test](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.113/expansion/20200410) (LOINC)
 * [Convalescent Serum]() -- TBD
-* Invasive mechanical ventilation: Any intubation procedure or mechanical ventilation-associated procedure. Excludes supplemental oxygen (high or low flow), CPAP, and BiPAP, ECMO (SNOMED CT, CPT, ICD-10-PCS)
+* Invasive mechanical ventilation: Any intubation procedure or mechanical ventilation-associated procedure. Does not include supplemental oxygen (high or low flow), CPAP, and BiPAP, ECMO (SNOMED CT, CPT, ICD-10-PCS)
 
 [TOP](#top)
 
 </TabItem>
 <TabItem value="results">
 
-TBD
+Results will be reported on https://c19hcc.org. Please stay tuned.
 
 [TOP](#top)
 
 </TabItem>
-<TabItem value="conclusions">
 
-TBD
-
-[TOP](#top)
-
-</TabItem>
 </Tabs>
 
