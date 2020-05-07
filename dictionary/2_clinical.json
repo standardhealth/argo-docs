@@ -12,13 +12,6 @@
             "notes":"FHIR: Condition.id, PCORnet: Diagnosis.diagnosisid, Condition.conditionid, OHDSI CDM: Condition_occurrence.condition_occurrence_id"
           },
           {
-            "name":"patient_id",
-            "valueType":"ID",
-            "description":"Unique identifier of the patient.",
-            "required":"required",
-            "notes":"FHIR: Condition.subject, PCORnet: Diagnosis.patid, Condition.patid, OHDSI CDM: Condition_occurrence.person_id"
-          },
-          {
             "name":"code",
             "valueType":"code",
             "description":"The code to represent the condition, diagnosis or problem.",
@@ -42,13 +35,6 @@
             },
             "valueType":"code",
             "notes":"Include all codes defined in http://terminology.hl7.org/CodeSystem/condition-category. FHIR: Condition.category, I2B2: Diagnosis.DIAGNOSIS_SOURCE"
-          },
-          {
-            "name":"recorded_date",
-            "description":"The date that the condition was recorded.",
-            "required":"required",
-            "valueType":"date",
-            "notes":"This is different from the condition onset date which could be a period of time prior to the date recorded by the provider. FHIR: Condition.recordedDate, PCORnet: Condition.report_date"
           },
           {
             "name":"onset_date",
@@ -93,12 +79,6 @@
             "valueType": "ID",
             "description": "Unique identifier assigned to the medication exposure episode.",
             "required": "required"
-          },
-          {
-            "name":"patient_id",
-            "valueType":"ID",
-            "description":"Unique identifier of the patient.",
-            "required":"required"
           },
           {
             "name": "code",
@@ -174,12 +154,6 @@
             "notes": "FHIR: Procedure.id, PCORnet: Procedures.proceduresid, OHDSI CDM: Device_exposure.device_exposure_id, Procedure_occurrence.procedure_occurrence_id"
           },
           {
-            "name":"patient_id",
-            "valueType":"ID",
-            "description":"Unique identifier of the patient.",
-            "required":"required"
-          },
-          {
             "name": "code",
             "description": "The code representing the procedure. A procedure is an action performed on a patient, including diagnostic tests, therapies - such as respiratory therapy, surgeries, and other clinical interventions.",
             "required": "required",
@@ -222,13 +196,6 @@
             "required":"required",
             "valueType":"ID",
             "notes":"FHIR: Observation.id, PCORnet: Lab_result_cm.lab_result_cm_id, OHDSI CDM: Measurement.measurement_id, Observation.observation_id"
-          },
-          {
-            "name":"patient_id",
-            "valueType":"ID",
-            "description":"Unique identifier of the patient.",
-            "required":"required",
-            "notes":"FHIR: Observation.subject, PCORnet: Vital.patid, Lab_result_cm.patid, OHDSI CDM: Measurement.person_id, Observation.person_id"
           },
           {
             "name": "code",
@@ -299,13 +266,6 @@
             "required": "required",
             "valueType":"ID",
             "notes": "FHIR: Encounter.id, PCORnet: Encounter.encounterid, OHDSI CDM: Visit_occurrence.visit_occurrence_id, Sentinel: Encounter.EncounterID"
-          },
-          {
-            "name":"patient_id",
-            "valueType":"ID",
-            "description":"Unique identifier of the patient.",
-            "required":"required",
-            "notes":"FHIR: Encounter.subject, PCORnet: Encounter.patid, OHDSI CDM: Visit_occurrence.person_id, Sentinel: Encounter.PatID"
           },
           {
             "name":"facility_id",
@@ -489,13 +449,6 @@
             "note": "FHIR: Observation.id, PCORnet: Vital.vitalid, Lab_result_cm.lab_result_cm_id, OMOP: Measurement.measurement_id, Observation.observation_id"
           },
           {
-            "name":"patient_id",
-            "valueType":"ID",
-            "description":"Unique identifier of the patient.",
-            "required":"required",
-            "note":"FHIR: Observation.subject, PCORnet: Vital.patid, Lab_result_cm.patid, OMOP: Measurement.person_id, Observation.person_id"
-          },
-          {
             "name": "code",
             "valueType": "code",
             "description": "The code identifying the type of observation.",
@@ -559,104 +512,6 @@
               ]
             },
             "notes":"FHIR: Observation.interpretation"
-          }
-        ]
-      },
-      {
-        "name":"group",
-        "description": "A specific sub-population or cohort with common characteristics.",
-        "parent":"root",
-        "fields":[
-          {
-            "name":"group_id",
-            "valueType":"ID",
-            "description":"The id of the group definition.",
-            "required":"required"
-          },
-          {
-            "name":"description",
-            "description":"A narrative explanation of the composition of the group.",
-            "valueType":"text",
-            "required": "required"
-          },
-          {
-            "name": "managing_organization_id",
-            "description": "The lead organization responsible for the group.",
-            "valueType": "ID"
-          },
-          {
-            "name": "managing_practitioner_id",
-            "description": "The lead practitioner responsible for the group.",
-            "valueType": "ID"
-          }
-        ]
-      },
-      {
-        "name":"group_member",
-        "description":"A specific sub-population or cohort with common characteristics.",
-        "parent":"group",
-        "fields":[
-          {
-            "name":"group_member_id",
-            "valueType":"ID",
-            "description":"Unique identifier assigned to patient in the context of the group or cohort, for example, ",
-            "required":"required"
-          },
-          {
-            "name":"patient_id",
-            "valueType":"ID",
-            "description":"Unique identifier of the person included in the group.",
-            "required":"optional",
-            "notes":"Including the patient_id does not imply PII of the patient is revealed."
-          },
-          {
-            "name":"group_id",
-            "valueType":"ID",
-            "description":"The id of the group definition.",
-            "required":"required"
-          },
-          {
-            "name":"description",
-            "description":"A narrative explanation of the composition of the group.",
-            "valueType":"text",
-            "required": "required"
-          },
-          {
-            "name": "member_start_date",
-            "description": "The date when the member was included in the group.",
-            "required": "required",
-            "valueType": "date"
-          },
-          {
-            "name": "member_end_date",
-            "description": "The date when the member no longer was included in the group.",
-            "required":"optional",
-            "valueType": "date",
-            "notes":"If no end date is given, it is assumed the person is still a member of the group on the report date."
-          }         
-        ]
-      },
-      {
-        "name":"facility",
-        "description": "An institution (physical or organizational) where healthcare is delivered.",
-        "parent":"root",
-        "fields":[
-          {
-            "name":"facility_id",
-            "description":"Unique identifier of the facility.",
-            "required":"required",
-            "valueType":"ID"
-          },
-          {
-            "name":"facility_name",
-            "description":"Name of the facility.",
-            "required":"required",
-            "valueType":"string"
-          },
-          {
-            "name":"location_id",
-            "description":"Identifier of the physical location of the facility.",
-            "valueType":"ID"
           }
         ]
       }

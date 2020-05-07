@@ -260,7 +260,7 @@ function DataDictionary() {
                     fontFamily: 'trade-gothic-next'
                   }}           
                 >
-                  The C19HCC Data Dictionary anchors the cohort descriptions and other definitions.
+                  The C19HCC Data Dictionary anchors the patient cohort descriptions and other definitions.
                   The classes and elements are not expected to be literally presented in any EHR.
                   It will require manual effort to map the EHR to the cohort definitions. 
                   The classes and elements listed here align to standard models such as FHIR and 
