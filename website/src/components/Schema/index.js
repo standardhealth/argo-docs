@@ -129,7 +129,7 @@ const Schema = ({ schema, menuItem, isLatestSchema }) => {
       style: { whiteSpace: 'normal', wordWrap: 'break-word', padding: '8px' },
       width: 200,
     },
-    {
+/*    {
       Header: 'Required?',
       id: 'attributes',
       Cell: ({ original }) => {
@@ -146,13 +146,13 @@ const Schema = ({ schema, menuItem, isLatestSchema }) => {
       },
       style: { padding: '8px' },
       width: 96,
-    },
+    }, */
     {
       Header: 'Type',
       id: 'valueType',
       accessor: ({ valueType }) => formatFieldType(valueType),
       style: { padding: '8px' },
-      width: 70,
+      width: 90,
     },
     {
       Header: 'Permissible Values',
@@ -360,7 +360,7 @@ const Schema = ({ schema, menuItem, isLatestSchema }) => {
           sortable={true}
           cellAlignment="top"
           withOutsideBorder
-        /> : <p>No COVID 19-specific patterns defined.</p>
+        /> : <p> </p>
         }
       </div>
     </div>
