@@ -38,6 +38,10 @@ Type: Grouping
 
 TBD
 
+### Hydroxychloroquine VS
+
+TBD
+
 ### Intravesical Administration of BCG Procedure VS
 
 Scope/Purpose: Identifies procedures for intravesical administration of live BCG vaccine. Used to identify patients who received BCG as cellular therapy for bladder cancer.
@@ -79,6 +83,10 @@ Scope/Purpose: Represent the administration route directly into urinary bladder
 
 TBD
 
+### Remdesivir VS
+
+TBD
+
 ### Respiratory Condition VS
 
 Scope/Purpose: Identifies patients with signs and symptoms of respiratory problems
@@ -112,52 +120,5 @@ Code System: LOINC
 
 Type: Extensional
 
-
-
-
-
-#### hold for later use
-
-| Name                                                             | Code System       | Type        | VSAC OID                 | # Values |
-| ---------------------------------------------------------------- | ----------------- | ----------- | ------------------------------ | -- |
-| Confirmed COVID19 Infection                               | ICD10CM, SNOMEDCT | Grouping    | [2.16.840.1.113762.1.4.1032.117](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.117/expansion/20200410) | 2  |
-| Confirmed COVID19 Infection ICD10CM                       | ICD10CM           | Extensional | [2.16.840.1.113762.1.4.1032.110](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.110/expansion/20200410) | 1  |
-| Confirmed COVID19 Infection ICD10CM Provisional           | ICD10CM           | Extensional | [2.16.840.1.113762.1.4.1032.105](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.105/expansion/20200410) | 0  |
-| Confirmed COVID19 Infection SNOMEDCT                      | SNOMEDCT          | Extensional | [2.16.840.1.113762.1.4.1032.114](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.114/expansion/20200410) | 1  |
-| Hydroxychloroquine                                        | RXNORM            | Extensional | [2.16.840.1.113762.1.4.1032.127](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.127/expansion/20200417) | 12 |
-
-| SARSCoV2 Exposure                                         | ICD10CM, SNOMEDCT | Grouping    | [2.16.840.1.113762.1.4.1032.120](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.120/expansion/20200410) | 2  |
-| SARSCoV2 Exposure ICD10CM                                 | ICD10CM           | Extensional | [2.16.840.1.113762.1.4.1032.118](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.118/expansion/20200410) | 1  |
-| SARSCoV2 Exposure SNOMEDCT                                | SNOMEDCT          | Extensional | [2.16.840.1.113762.1.4.1032.119](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.119/expansion/20200410) | 1  |
-| Suspected COVID19 Infection                               | ICD10CM, SNOMEDCT | Grouping    | [2.16.840.1.113762.1.4.1032.116](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.116/expansion/20200410) | 14 |
-| Suspected COVID19 Infection ICD10CM                       | ICD10CM           | Extensional | [2.16.840.1.113762.1.4.1032.106](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.106/expansion/20200410) | 13 |
-| Suspected COVID19 Infection SNOMEDCT                      | SNOMEDCT          | Extensional | [2.16.840.1.113762.1.4.1032.115](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.115/expansion/20200410) | 1  |
-
-Coming Soon:
-
-
-[TOP](#top)
-
-* [Confirmed COVID-19 Infection](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.117/expansion/20200410) (SNOMED CT, ICD-10-CM)
-* [SARS-CoV-2 Qualitative Laboratory Test](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.109/expansion/20200417v) (LOINC)
-* [SARS-related Qualitative Laboratory Test](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.113/expansion/20200410) (LOINC)
-
-
-Value sets used here:
-
-* [Confirmed COVID-19 Infection](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.117/expansion/Latest) (SNOMED CT, ICD-10-CM)
-* [SARS-CoV-2 Qualitative Laboratory Test](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.109/expansion/Latest) (LOINC)
-* [SARS-related Qualitative Laboratory Test](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.113/expansion/Latest) (LOINC)
-* Respiratory Condition (ICD-10-CM J00-J99)
-* [Hydroxychloroquine](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.1564.2220/expansion/Latest) (RxNorm)
-
-
-
-
-* [Confirmed COVID-19 Infection](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.117/expansion/20200410)  (SNOMED CT, ICD-10-CM)
-* [SARS-CoV-2 Qualitative Laboratory Test](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.109/expansion/20200417) (LOINC)
-* [SARS-related Qualitative Laboratory Test](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.113/expansion/20200410) (LOINC)
-* Respiratory Condition (ICD-10-CM J00-J99)
-* [Hydroxychloroquine](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.127/expansion/20200417) (RxNorm)
 
 [TOP](#top)

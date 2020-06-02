@@ -38,7 +38,7 @@ The timeline or flow of the study is depicted below. When possible, existing dat
 
 **For patients with new COVID-19 infection, how does the addition of hydroxychloroquine (HCQ) affect the outcomes (1) severe disease (indicated by mechanical ventilation) and (2) inpatient death?**
 
-### [Remdesivir](/docs/studies-remd/)
+### [Remdesivir](/docs/studies-rmd/)
 
 **For patients with new COVID-19 infection, how does the addition of redesivir (RDV) affect the outcomes (1) severe disease (indicated by mechanical ventilation) and (2) inpatient death?**
 
@@ -54,6 +54,6 @@ The timeline or flow of the study is depicted below. When possible, existing dat
 
 **For patients with new COVID-19 infection, how does treatment with convalescent serum (CS) affect the outcomes (1) severe disease (indicated by mechanical ventilation) and (2) inpatient death?**
 
-### [Re-infection](/docs/studies-rei/)
+### [Reinfection](/docs/studies-rei/)
 
 **For patients who have diagnosed as COVID-19 positive, how many patients have a positive test more than X days after the initial positive test?**

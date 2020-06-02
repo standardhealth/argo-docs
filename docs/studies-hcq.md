@@ -19,10 +19,6 @@ Hydroxychloroquine and a related drug, chloroquine, are currently under study as
 
 The study examines the effect of initiation of HCQ in hospitalized COVID-19 patients on disease severity. The study involves two study groups (those receiving or not receiving HCQ), as depicted below:
 
-**Study Period**: January 1, 2020 - Present
-
-**Index date**: [COVID-19 Positive Date](/docs/cohorts#covid-19-positive-date)
-
 ![Hydroxycholoroquine cohort pathways](hydroxy_cohorts.png)
 
 Four outcomes are considered:
@@ -42,6 +38,10 @@ As a side note, [Siddiqi and Mehra](https://www.ncbi.nlm.nih.gov/pmc/articles/PM
 [TOP](#top)
 
 ### Study Populations
+
+**Study Period**: January 1, 2020 - Present
+
+**Index date**: [COVID-19 Positive Date](/docs/cohorts#covid-19-positive-date)
 
 * **Entry Cohort**:
   * Age at [COVID-19 Positive Date](/docs/cohorts#covid-19-positive-date) ≥ 18 years AND

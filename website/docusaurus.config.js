@@ -58,8 +58,24 @@ module.exports = {
               to: 'docs/studies-hcq/',
             },
             {
+              label: 'Remdesivir',
+              to: 'docs/studies-rmd/',
+            },
+            {
+              label: 'Famotidine',
+              to: 'docs/studies-fmt/',
+            },
+            {
+              label: 'Intravesical BCG',
+              to: 'docs/studies-bcg/',
+            },
+            {
               label: 'Convalescent Serum',
               to: 'docs/studies-cs/',
+            },
+            {
+              label: 'Reinfection',
+              to: 'docs/studies-rei/',
             },
           ],
         },

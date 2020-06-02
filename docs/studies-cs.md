@@ -17,9 +17,6 @@ Convalescent Serum (CS) is currently under study as possible treatments for COVI
 
 ### Study Design
 
-**Study Period**: April 1, 2020 - Present
-**Index date: [COVID-19-positive-date](/docs/cohorts#covid-19-positive-date)**
-
 The study examines the effect of CS treatment in hospitalized COVID-19 patients on disease severity. The study involves two study groups (those receiving or not receiving CS), as depicted below:
 
 ![Convalescent Serum cohort pathways](cs_cohorts.png)
@@ -40,6 +37,10 @@ The protocol only considers laboratory-confirmed cases. It specifically focuses 
 
 ### Study Populations
 
+**Study Period**: April 1, 2020 - Present
+
+**Index date: [COVID-19-positive-date](/docs/cohorts#covid-19-positive-date)**
+
 * **Entry Cohort**:
   * Age at [COVID-19-positive-date](/docs/cohorts#covid-19-positive-date) ≥ 18 years AND
   * [COVID-19-positive-date](/docs/cohorts#covid-19-positive-date) after Jan 1, 2020 AND
@@ -57,14 +58,5 @@ The protocol only considers laboratory-confirmed cases. It specifically focuses 
 * **COVID-19 Inpatient Death**:
   * [Inpatient Death](/docs/cohorts#inpatient-death) during [COVID-19 Related Hospitalization](/docs/cohorts#covid-19-related-hospitalization)
 
-
-### Notes:
-[2] Study includes confirmed cases only<br/>
-[3] A clinical diagnosis can be any diagnosis associated with an encounter, such as chief complaint, admitting diagnosis, working diagnosis, final diagnosis, or discharge diagnosis. It can also be a problem list entry.<br/>
-[4] There may be local value sets/groupers for laboratory tests to detect SARS-CoV-2. Only PCR and NAAT tests with qualitative results should be considered for this purpose. See [SARS-CoV-2 Qualitative Laboratory Test](/docs/vocabulary#sars-cov-2-qualitative-labortory-test) and [SARS-related Qualitative Laboratory Test](/docs/vocabulary#sars-related-qualitative-laboratory-test) for details on inclusions and exclusions.<br/>
-[5] The relevant date for laboratory test is the specimen collection data, not when results are reported. Laboratory order date can be used when specimen collection date is not available.<br/>
-[6] This definition includes patients diagnosed with COVID-19 during a hospital visit even if the reason for hospitalization is not COVID-related; e.g., patients with undetected COVID-19 admitted for other reasons, and nosocomial COVID-19 infections ​<br/>
-[7] Serves a confirmation that hospital admission is related to COVID-19 infection (as opposed to broken arm, etc.)<br/>
-[8] ICU flowsheet data may not be accessible to all data partners
 
 [TOP](#top)
