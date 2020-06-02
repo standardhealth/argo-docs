@@ -59,7 +59,7 @@ module.exports = {
             },
             {
               label: 'Convalescent Serum',
-              to: 'docs/studies-conv/',
+              to: 'docs/studies-cs/',
             },
           ],
         },
