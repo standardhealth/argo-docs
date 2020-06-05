@@ -92,9 +92,9 @@ Use of hydroxychloroquine prior to hospital admission related to COVID-19:
 
 ### Respiratory Condition
 
-Patient exhibiting signs and symptoms of respiratory distress:
+Patient exhibiting signs and symptoms of respiratory distress (could be noted in admitting diagnosis code or encounter chief complaint):
 
-* Condition code, encounter admitting diagnosis code, or encounter chief complaint code in [Respiratory Condition VS](/docs/vocabulary#respiratory-condition-vs) value set.
+* Condition code in [Respiratory Condition VS](/docs/vocabulary#respiratory-condition-vs) value set.
 
 
 [TOP](#top)
