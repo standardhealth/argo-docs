@@ -23,7 +23,6 @@ Exclusions: None
 | 90586 | Bacillus Calmette-Guerin vaccine (BCG) for bladder cancer, live, for intravesical use​​ | HCPCS​ | 2019AB | Active
 | ​19 | Bacillus Calmette-Guerin vaccine | CVX | ​ | Active
 
-
 ### Confirmed COVID-19 Infection VS
 
 Location: VSAC
@@ -40,7 +39,13 @@ TBD
 
 ### Hydroxychloroquine VS
 
-TBD
+Location: VSAC
+
+OID: [2.16.840.1.113762.1.4.1032.127](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.127/expansion/20200417)
+
+Code Systems: RxNORM
+
+Type: Extensional
 
 ### Intravesical Administration of BCG Procedure VS
 
