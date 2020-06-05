@@ -21,17 +21,12 @@ The study examines the effect of CS treatment in hospitalized COVID-19 patients 
 
 ![Convalescent Serum cohort pathways](cs_cohorts.png)
 
-Four outcomes are considered:
+Two outcomes are considered:
 
-1. Discharge without invasive mechanical ventilation (IMV) during stay
-2. Discharge after IMV during stay
-3. Inpatient death without IMV during stay
-4. Inpatient death following IMV during stay
+1. Invasive mechanical ventilation (yes/no)
+2. Inpatient death (yes/no)
 
-The study uses mechanical ventilation as a proxy for severe but non-fatal disease. The outcome is retrospective over the entire patient visit and capture the worst severity of illness during the visit. For example:
-
-* Patient is put on a ventilator (category 2) and then succumbs to the disease (category 4); the outcome is category 4 (death).
-* Patient is temporarily put on a ventilator (category 2), then taken off the ventilator (category 1) and discharged; the outcome category 2.
+The study uses mechanical ventilation as a proxy for severe but non-fatal disease. The outcome is retrospective over the entire patient visit.
 
 The protocol only considers laboratory-confirmed cases. It specifically focuses on severe or life-threatening COVID-19 or judged by a healthcare provider to be at high risk of progression to severe or life-threatening disease.
 

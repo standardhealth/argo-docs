@@ -70,15 +70,6 @@ Exclusions: Procedures specific to BCG (covered by [Intravesical Administration 
 | ​44194005 | Urinary bladder instillation of anticarcinogenic agent (procedure)​ | SNOMED CT | 202003​ | Active
 | ​712753009 | Administration of chemotherapeutic agent into bladder via intravesical route (procedure) | SNOMED CT | 202003​ | Active
 
-### Intravesical Route VS
-
-Scope/Purpose: Represent the administration route directly into urinary bladder
-
-| Code | Description | Code System | Version | Status |
-|-----|------|------|------|-----|
-| ​372471009 | Intravesical route (qualifier)​ | SNOMED CT | 202003​ | Active
-| 261102005 | Intravesical approach (qualifer) | SNOMED CT | 202003​ | Active
-
 ### Invasive Mechanical Ventilation VS
 
 TBD

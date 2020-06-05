@@ -43,7 +43,6 @@ An inpatient visit associated with COVID-19:
 Administration of BCG vaccine into intravesical space:
 
 * Medication administration code in [BCG Vaccine Products for Intravesical Use VS](/docs/vocabulary#bcg-vaccine-products-for-intravesical-use-vs) AND
-* Medication administration route in [Intravesical Route VS](/docs/vocabulary#intravesical-route-vs)
 
 OR
 
