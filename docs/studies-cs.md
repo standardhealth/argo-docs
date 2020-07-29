@@ -1,0 +1,57 @@
+---
+id: studies-cs
+title: CONVALESCENT SERUM (CS) STUDY
+hide_title: true
+hide_table_of_contents: true
+---
+
+##### Top
+
+<h1>Convalescent <span>Serum</span></h1>
+
+**RESEARCH QUESTION: For patients with new COVID-19 infection, how does the addition of convalescent serum (CS) affect the outcomes (1) severe disease (indicated by mechanical ventilation) and (2) inpatient death?**
+
+### Background
+
+Convalescent Serum (CS) is currently under study as possible treatments for COVID-19. Before randomized clinical trials read out, a retrospective observational study can provide insight into the efficacy of this treatment.
+
+### Study Design
+
+The study examines the effect of CS treatment in hospitalized COVID-19 patients on disease severity. The study involves two study groups (those receiving or not receiving CS), as depicted below:
+
+![Convalescent Serum cohort pathways](cs_cohorts.png)
+
+Two outcomes are considered:
+
+1. Invasive mechanical ventilation (yes/no)
+2. Inpatient death (yes/no)
+
+The study uses mechanical ventilation as a proxy for severe but non-fatal disease. The outcome is retrospective over the entire patient visit.
+
+The protocol only considers laboratory-confirmed cases. It specifically focuses on severe or life-threatening COVID-19 or judged by a healthcare provider to be at high risk of progression to severe or life-threatening disease.
+
+### Study Populations
+
+**Study Period**: April 1, 2020 - Present
+
+**Index date: [COVID-19-positive-date](/docs/cohorts#covid-19-positive-date)**
+
+* **Entry Cohort**:
+  * Age at [COVID-19-positive-date](/docs/cohorts#covid-19-positive-date) ≥ 18 years AND
+  * [COVID-19-positive-date](/docs/cohorts#covid-19-positive-date) after Jan 1, 2020 AND
+  * [COVID-19-related hospitalization](/docs/cohorts#covid-19-related-hospitalization)
+* **Target Cohort**:
+  * Entry Cohort AND [Inpatient CS Use](/docs/cohorts#inpatient-cs-use)
+* **Control Cohort**:
+  * Entry Cohort AND NOT [Inpatient CS use](/docs/cohorts#inpatient-cs-use)
+
+### Outcomes
+
+* **Invasive Mechanical Ventilation (IMV)**:
+  * [Invasive Mechanical Ventilation](/docs/cohorts#invasive-mechanical-ventilation) during [COVID-19 Related Hospitalization](/docs/cohorts#covid-19-related-hospitalization)
+
+* **COVID-19 Inpatient Death**:
+  * [Inpatient Death](/docs/cohorts#inpatient-death) during [COVID-19 Related Hospitalization](/docs/cohorts#covid-19-related-hospitalization)
+
+
+[TOP](#top)

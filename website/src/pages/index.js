@@ -116,20 +116,7 @@ function Index() {
           </div>
 
           <div className={styles.row}>
-          <ContentBlock
-              title="Data Dictionary"
-              color="#005B94"
-              icon="img/icons/home/data-dictionary.svg"
-            >
-              <span className={styles.contentDescription}>
-                The dictionary describes the guidelines that data submitters should follow when exporting clinical data files from their electronic health record (EHR) systems. Mapping to standard research models such as OHDSI CDM, I2B2, and exchange standards such as FHIR.
-              </span>
-              <a className={styles.contentAction} href="dictionary/">
-                Data Dictionary
-                <img src="img/icons/chevron-right.svg" height={8} width={8} />
-              </a>
-            </ContentBlock>
-            <ContentBlock 
+          <ContentBlock 
               title="COVID-19 Vocabulary"
               color="#005B94"
               icon="img/icons/home/faq.svg"
@@ -141,7 +128,20 @@ function Index() {
                 Vocabulary
                 <img src="img/icons/chevron-right.svg" height={8} width={8} />
               </a>
-            </ContentBlock>
+          </ContentBlock>
+          <ContentBlock
+              title="Data Dictionary"
+              color="#005B94"
+              icon="img/icons/home/data-dictionary.svg"
+            >
+              <span className={styles.contentDescription}>
+                The dictionary describes the guidelines that data submitters should follow when exporting clinical data files from their electronic health record (EHR) systems. Includes mapping to standard models such as OHDSI CDM, I2B2, and FHIR.
+              </span>
+              <a className={styles.contentAction} href="dictionary/">
+                Data Dictionary
+                <img src="img/icons/chevron-right.svg" height={8} width={8} />
+              </a>
+          </ContentBlock>
           </div> 
         </div>
       </div>
