@@ -95,7 +95,7 @@ You can run the doc site locally to see edits to the documents in real time. To 
 $ npm i
 ```
 
-2. Run the dev server:
+2. From the /website directory, run the dev server:
 
 ```sh
 # Start the site
@@ -125,4 +125,3 @@ Mark Kramer bought the mcovid.org domain around 4/7/2020 through GoDaddy. The do
 4. Commit the new files to `markkramerus.github.io` repository master branch (or do a pull request)
 
 5. Github pages does the rest; new pages should be viewable in less than a minute
-

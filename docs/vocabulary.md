@@ -37,6 +37,10 @@ Type: Grouping
 
 TBD
 
+### Famotidine VS
+
+TBD
+
 ### Hydroxychloroquine VS
 
 Location: VSAC
@@ -78,6 +82,10 @@ Exclusions: Procedures specific to BCG (covered by [Intravesical Administration 
 ### Invasive Mechanical Ventilation VS
 
 TBD
+
+### PCR SARSCoV-2 Qualitative Test
+
+The set of LOINC codes appearing on https://loinc.org/sars-coronavirus-2/ under category #1 (SARS-CoV-2 nucleic acids (RNA)), with type "qualitative" and method "Nucleic acid amplification with non-probe-based detection, such as melt curve analysis" or method "Nucleic acid amplification with probe-based detection"
 
 ### Remdesivir VS
 
